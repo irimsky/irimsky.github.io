@@ -2,16 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>www.irimsky.top/lib/canvas-nest/README.html</loc>
+    <loc>www.irimsky.top/2019/06/15/%E9%9A%8F%E4%BE%BF%E5%86%99%E5%86%99/</loc>
     
-    <lastmod>2019-06-14T16:14:52.447Z</lastmod>
+    <lastmod>2019-06-15T12:23:30.248Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>www.irimsky.top/album/index.html</loc>
+    
+    <lastmod>2019-06-15T12:14:33.545Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>www.irimsky.top/categories/index.html</loc>
+    
+    <lastmod>2019-06-15T11:58:34.013Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>www.irimsky.top/tags/index.html</loc>
+    
+    <lastmod>2019-06-15T11:58:20.333Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>www.irimsky.top/about/index.html</loc>
+    
+    <lastmod>2019-06-15T11:37:29.377Z</lastmod>
     
   </url>
   
   <url>
     <loc>www.irimsky.top/2019/06/14/hello-world/</loc>
     
-    <lastmod>2019-06-14T05:26:58.678Z</lastmod>
+    <lastmod>2019-06-15T09:18:04.238Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>www.irimsky.top/lib/canvas-nest/README.html</loc>
+    
+    <lastmod>2019-06-14T16:14:52.447Z</lastmod>
     
   </url>
   
