@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[纪念搜索]]></title>
-    <url>%2F2019%2F07%2F03%2F%E7%BA%AA%E5%BF%B5%E6%90%9C%E7%B4%A2%2F</url>
-    <content type="text"></content>
+    <title><![CDATA[Python学习笔记(一)]]></title>
+    <url>%2F2019%2F07%2F10%2FPython%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%B8%80%2F</url>
+    <content type="text"><![CDATA[第1章 变量和简单数据类型 变量的使用和命名 12message = "Hello World"print(message) 运行结果： Hello World 变量命名规则： 变量名只能包含字母、数字、下划线 变量名可以字母或者下划线打头，但不能以数字打头 不能将Python关键字当做变量名 字符串字符串 就是一新系列字符。在Python中，用引号括起来的都是字符串。其中引号可以是单引号，也可是双引号，这使得你能够在字符串中包含引号和撇号。例如: 1234"This's a string"'This is also a string''I told you, "Python is the best in the world!" '"It's beautiful." 使用方法修改字符串的大小写123456name = "ada lovelace"print(name.title())name = "ADa"print(name.title())print(name.upper())print(name.lower()) 输出结果： Ada LovelaceAdaADAada 方法 是Python可对数据进行的操作。 方法title()以首字母大写的方式显示每个单词。 方法upper()以大写显示所有字母字符 方法lower()以小写显示所有字符字母 合并（拼接）字符串12345first_name = "ada"second_name = "lovelace"full_name = first_name + " " + second_nameprint(full_name)print(full_name*3) 输出结果： ada lovelaceada lovelaceada lovelaceada lovelace Python用 加号 (+)和乘号 (*) 来合并字符串。这种合并方法称为 拼接 。e.g:123#接上代码message = "Hello, " + full_name.title() + "!"print(message) 输出结果： Hello, Ada Lovelace! 删除空白12345s = " python "print(s.lstrip())print(s.rstrip())print(s.strip())print(s) 输出结果： python· （·代表空格）·pythonpython·python· 空白 泛指任何非打印字符，包括空格、制表符和换行符。 方法strip()删除字符串首尾空格。 方法lstrip()删除字符串首空格。 方法rstrip()删除字符串尾空格。 可以发现，在使用过这些方法后，原字符串并没有发生相应的变化数字整数Python使用两个乘号表示乘法运算1234&gt;&gt;&gt; 3 ** 29&gt;&gt;&gt; 3 ** 327 浮点数函数str()在字符串中需要用到数字变量的值时12345678age = 25print("Happy " + age + "th Birthday") #这种写法是错误的------------------------------------------------------------返回错误报告：Traceback (most recent call last): File "D:/Pytest/1.py", line 2, in &lt;module&gt; print("Happy " + age + "th Birthday") TypeError: can only concatenate str (not "int") to str 之所以会出现这样的错误，是因为类型不匹配Python无法将 int 和 str 类型的变量拼接在一起 为此可以调用str()函数，将非字符串变量表示为字符串12age = 25print("Happy " + str(age) + "th Brithday") 输出结果为： Happy 25th Birthday]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>Python</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[随便写写]]></title>
     <url>%2F2019%2F06%2F15%2F%E9%9A%8F%E4%BE%BF%E5%86%99%E5%86%99%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[主要特性1234567891011121314#include&lt;stdio.h&gt;int main()&#123; int i; int j; int i; int j; &#123; int l; &#125; &#123; int k; &#125;&#125; 使用 Ctrl+Alt+Del 重启电脑 Editor.md好用 f'(x_0)=\lim_{\Delta x\to 0} \frac{f(x_0+\Delta x) - f(x_0)}{\Delta x}]]></content>
       <categories>
         <category>杂感</category>
       </categories>
