@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="第二章 列表简介 2.1 列表 列表 由一系列元素按特定顺序排列组成。 在Python中，用方括号（ [ ] ）来表示列表，并用逗号分隔其中的元素。12fruits = [&apos;apple&apos;, &apos;banana&apos;, &apos;orange&apos;]print(fruits) 如果将列表打印出来，Python将打印列表的内部表示，包括方括号。输出结果：  [‘apple’, ‘banana’, ‘orange’]  2">
+<meta name="description" content="第二章 列表简介">
 <meta name="keywords" content="笔记,Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python学记笔记(二)">
 <meta property="og:url" content="/2019/07/11/Python学记笔记-二/index.html">
 <meta property="og:site_name" content="Irimsky">
-<meta property="og:description" content="第二章 列表简介 2.1 列表 列表 由一系列元素按特定顺序排列组成。 在Python中，用方括号（ [ ] ）来表示列表，并用逗号分隔其中的元素。12fruits = [&apos;apple&apos;, &apos;banana&apos;, &apos;orange&apos;]print(fruits) 如果将列表打印出来，Python将打印列表的内部表示，包括方括号。输出结果：  [‘apple’, ‘banana’, ‘orange’]  2">
+<meta property="og:description" content="第二章 列表简介">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-11T07:46:59.481Z">
+<meta property="og:updated_time" content="2019-07-11T12:00:02.148Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python学记笔记(二)">
-<meta name="twitter:description" content="第二章 列表简介 2.1 列表 列表 由一系列元素按特定顺序排列组成。 在Python中，用方括号（ [ ] ）来表示列表，并用逗号分隔其中的元素。12fruits = [&apos;apple&apos;, &apos;banana&apos;, &apos;orange&apos;]print(fruits) 如果将列表打印出来，Python将打印列表的内部表示，包括方括号。输出结果：  [‘apple’, ‘banana’, ‘orange’]  2">
+<meta name="twitter:description" content="第二章 列表简介">
 
 
 
@@ -386,7 +386,8 @@
       
 
       
-        <h1 id="第二章-列表简介"><a href="#第二章-列表简介" class="headerlink" title="第二章 列表简介"></a>第二章 列表简介</h1><p><br><br></p>
+        <h1 id="第二章-列表简介"><a href="#第二章-列表简介" class="headerlink" title="第二章 列表简介"></a>第二章 列表简介</h1><a id="more"></a>
+<p><br><br></p>
 <h2 id="2-1-列表"><a href="#2-1-列表" class="headerlink" title="2.1 列表"></a>2.1 列表</h2><hr>
 <p><font face="楷体" size="3"><u>列表</u> </font>由一系列元素按特定顺序排列组成。</p>
 <p>在Python中，用方括号（ [ ] ）来表示列表，并用逗号分隔其中的元素。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fruits = [<span class="string">'apple'</span>, <span class="string">'banana'</span>, <span class="string">'orange'</span>]</span><br><span class="line">print(fruits)</span><br></pre></td></tr></table></figure></p>
@@ -401,45 +402,37 @@
 </blockquote>
 <ul>
 <li>可以发现列表的索引与数组一样都是从0开始的。</li>
-<li>但Python还提供了一种特殊语法，索引-1返回倒数第一个元素。<u>所以一个长度为a的列表索引取值范围为：[ -a, a-1]  </u><br><br> <br><h2 id="2-2-修改、添加和删除元素"><a href="#2-2-修改、添加和删除元素" class="headerlink" title="2.2 修改、添加和删除元素"></a>2.2 修改、添加和删除元素</h2></li>
+<li>但Python还提供了一种特殊语法，索引-1返回倒数第一个元素。<u>所以一个长度为a的列表索引取值范围为：[ -a, a-1]  </u><br><br> <br></li>
 </ul>
-<hr>
+<h2 id="2-2-修改、添加和删除元素"><a href="#2-2-修改、添加和删除元素" class="headerlink" title="2.2 修改、添加和删除元素"></a>2.2 修改、添加和删除元素</h2><hr>
 <h3 id="2-1-1-修改"><a href="#2-1-1-修改" class="headerlink" title="2.1.1 修改"></a>2.1.1 修改</h3><p>可直接用赋值的方法修改列表的元素<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fruits = [<span class="string">'apple'</span>, <span class="string">'banana'</span>, <span class="string">'orange'</span>]</span><br><span class="line">fruits[<span class="number">1</span>] = <span class="string">"peach"</span></span><br><span class="line">print(fruits[<span class="number">1</span>])</span><br></pre></td></tr></table></figure></p>
 <h3 id="2-2-2-添加"><a href="#2-2-2-添加" class="headerlink" title="2.2.2 添加"></a>2.2.2 添加</h3><h4 id="1-在列表末尾添加元素"><a href="#1-在列表末尾添加元素" class="headerlink" title="1.在列表末尾添加元素"></a>1.在列表末尾添加元素</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fruits = [<span class="string">'apple'</span>, <span class="string">'banana'</span>, <span class="string">'orange'</span>]</span><br><span class="line">fruits.append(<span class="string">'peach'</span>)</span><br><span class="line">print(fruits)</span><br></pre></td></tr></table></figure>
 <p>输出结果为：</p>
 <blockquote>
 <p>[‘apple’, ‘banana’, ‘orange’, ‘peach’]</p>
 </blockquote>
-<ul>
-<li>方法<code>append()</code>会将参数的元素添加到列表末尾，而不影响其他元素</li>
-</ul>
-<h4 id="2-在列表中插入元素"><a href="#2-在列表中插入元素" class="headerlink" title="2.在列表中插入元素"></a>2.在列表中插入元素</h4><p>使用<code>insert()</code>可在列表中的任何位置插入新的元素。<u>为此需要指定新元素和索引的值。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fruits = [<span class="string">'apple'</span>, <span class="string">'banana'</span>, <span class="string">'orange'</span>]</span><br><span class="line">fruits.insert(<span class="number">2</span>,<span class="string">'peach'</span>)</span><br><span class="line">print(fruits)</span><br></pre></td></tr></table></figure></u></p>
+<p>方法<code>append()</code>会将参数的元素添加到列表末尾，而不影响其他元素</p>
+<h4 id="2-在列表中插入元素"><a href="#2-在列表中插入元素" class="headerlink" title="2.在列表中插入元素"></a>2.在列表中插入元素</h4><p>使用<code>insert()</code>可在列表中的任何位置插入新的元素。<b>为此需要指定新元素和索引的值。</b><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fruits = [<span class="string">'apple'</span>, <span class="string">'banana'</span>, <span class="string">'orange'</span>]</span><br><span class="line">fruits.insert(<span class="number">2</span>,<span class="string">'peach'</span>)</span><br><span class="line">print(fruits)</span><br></pre></td></tr></table></figure></p>
 <ul>
 <li>在此示例中，insert(2, ‘peach’) 将新元素: ‘peach’（第二个参数）插入到原列表的第2个位置（第一个参数）；同时，从原来第2个位置往后的所有元素后移一位。</li>
 </ul>
-<h3 id="2-2-3-删除"><a href="#2-2-3-删除" class="headerlink" title="2.2.3 删除"></a>2.2.3 删除</h3><h4 id="1-使用del语句删除元素"><a href="#1-使用del语句删除元素" class="headerlink" title="1. 使用del语句删除元素"></a>1. 使用del语句删除元素</h4><p>如果<u>已知所需删除的元素的位置</u>，可以使用<code>del语句</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fruits = [<span class="string">'apple'</span>, <span class="string">'banana'</span>, <span class="string">'orange'</span>]</span><br><span class="line"><span class="keyword">del</span> fruits[<span class="number">0</span>]</span><br><span class="line">print(fruits)</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-2-3-删除"><a href="#2-2-3-删除" class="headerlink" title="2.2.3 删除"></a>2.2.3 删除</h3><h4 id="1-使用del语句删除元素"><a href="#1-使用del语句删除元素" class="headerlink" title="1.使用del语句删除元素"></a>1.使用del语句删除元素</h4><p>如果<u>已知所需删除的元素的位置</u>，可以使用<code>del语句</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fruits = [<span class="string">'apple'</span>, <span class="string">'banana'</span>, <span class="string">'orange'</span>]</span><br><span class="line"><span class="keyword">del</span> fruits[<span class="number">0</span>]</span><br><span class="line">print(fruits)</span><br></pre></td></tr></table></figure></p>
 <p>输出结果为：</p>
 <blockquote>
 <p>[‘banana’, ‘orange’]</p>
 </blockquote>
 <h4 id="2-使用方法pop-删除元素"><a href="#2-使用方法pop-删除元素" class="headerlink" title="2.使用方法pop()删除元素"></a>2.使用方法pop()删除元素</h4><p>有时候需要<u>将元素从列表中删除，并接着使用它的值。</u></p>
-<ul>
-<li>方法<code>pop()</code>可删除列表末尾的元素，并返回其值（类比弹出栈的栈顶元素）<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fruits = [<span class="string">'apple'</span>, <span class="string">'banana'</span>, <span class="string">'orange'</span>]</span><br><span class="line">print(fruits)</span><br><span class="line"></span><br><span class="line">popped_fruit = fruits.pop()</span><br><span class="line">print(popped_fruit)</span><br><span class="line">print(fruits)</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
+<p>① 方法<code>pop()</code>可删除列表末尾的元素，并返回其值（类比弹出栈的栈顶元素）<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fruits = [<span class="string">'apple'</span>, <span class="string">'banana'</span>, <span class="string">'orange'</span>]</span><br><span class="line">print(fruits)</span><br><span class="line"></span><br><span class="line">popped_fruit = fruits.pop()</span><br><span class="line">print(popped_fruit)</span><br><span class="line">print(fruits)</span><br></pre></td></tr></table></figure></p>
 <p>输出结果为：</p>
 <blockquote>
 <p>[‘apple’, ‘banana’, ‘orange’]<br>orange<br>[‘apple’, ‘banana’]</p>
 </blockquote>
-<ul>
-<li>pop()可以在括号中加入参数，表示要删除的元素的索引<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fruits = [<span class="string">'apple'</span>, <span class="string">'banana'</span>, <span class="string">'orange'</span>]</span><br><span class="line"></span><br><span class="line">popped_fruit = fruits.pop(<span class="number">2</span>)</span><br><span class="line">print(popped_fruit)</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
+<p>② pop()可以在括号中加入参数，表示要删除的元素的索引<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fruits = [<span class="string">'apple'</span>, <span class="string">'banana'</span>, <span class="string">'orange'</span>]</span><br><span class="line"></span><br><span class="line">popped_fruit = fruits.pop(<span class="number">2</span>)</span><br><span class="line">print(popped_fruit)</span><br></pre></td></tr></table></figure></p>
 <p>输出结果为：</p>
 <blockquote>
 <p>orange</p>
 </blockquote>
-<h4 id="3-根据值使用remove方法删除元素"><a href="#3-根据值使用remove方法删除元素" class="headerlink" title="3.根据值使用remove方法删除元素"></a>3.根据值使用remove方法删除元素</h4><p>有时候，我们不知道所需删除的元素的具体位置，只知道删除的元素的值，可以使用方法<code>remove()</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fruits = [<span class="string">'apple'</span>, <span class="string">'banana'</span>, <span class="string">'orange'</span>, <span class="string">'apple'</span>]</span><br><span class="line">print(fruits)</span><br><span class="line">fruits.remove(<span class="string">'apple'</span>)</span><br><span class="line">print(fruits)</span><br></pre></td></tr></table></figure></p>
+<h4 id="3-根据值使用remove方法删除元素"><a href="#3-根据值使用remove方法删除元素" class="headerlink" title="3.根据值使用remove方法删除元素"></a>3.根据值使用remove方法删除元素</h4><p>有时候，我们<u>不知道所需删除的元素的具体位置，只知道需要删除的元素的值</u>，可以使用方法<code>remove()</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fruits = [<span class="string">'apple'</span>, <span class="string">'banana'</span>, <span class="string">'orange'</span>, <span class="string">'apple'</span>]</span><br><span class="line">print(fruits)</span><br><span class="line">fruits.remove(<span class="string">'apple'</span>)</span><br><span class="line">print(fruits)</span><br></pre></td></tr></table></figure></p>
 <p>输出结果为：</p>
 <blockquote>
 <p>[‘apple’, ‘banana’, ‘orange’, ‘apple’]<br>[‘banana’, ‘orange’, ‘apple’]</p>
@@ -467,7 +460,7 @@
 <p>Here is the sorted list:<br>[‘apple’, ‘banana’, ‘orange’]</p>
 <p>Here is the original list again:<br>[‘banana’, ‘orange’, ‘apple’]</p>
 </blockquote>
-<p>可见使用sorted后，列表元素的顺序并没有发生改变，sorted函数返回的是<u>排序过的新列表</u></p>
+<p>可见使用sorted后，列表元素的顺序并没有发生改变，sorted函数返回的是<b>排序过的新列表</b></p>
 <ul>
 <li>同样，可以向sorted()函数传递参数<code>reverse = True</code> 使其反向排序</li>
 </ul>
@@ -476,7 +469,7 @@
 <blockquote>
 <p>[‘apple’, ‘orange’, ‘banana’]</p>
 </blockquote>
-<p>可见方法reverse()永久性地改变了列表元素的排列顺序，<u>翻转了原来的列表元素顺序</u></p>
+<p>可见方法reverse()永久性地改变了列表元素的排列顺序，<b>翻转了原来的列表元素顺序</b></p>
 <h3 id="2-3-4-确定列表的长度"><a href="#2-3-4-确定列表的长度" class="headerlink" title="2.3.4 确定列表的长度"></a>2.3.4 确定列表的长度</h3><p>使用函数<code>len()</code>可以快速得到列表的长度。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fruits = [<span class="string">'banana'</span>, <span class="string">'orange'</span>, <span class="string">'apple'</span>]</span><br><span class="line">print(len(fruits))</span><br></pre></td></tr></table></figure></p>
 <p>输出结果为:</p>
 <blockquote>
@@ -694,7 +687,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第二章-列表简介"><span class="nav-text">第二章 列表简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-列表"><span class="nav-text">2.1 列表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-1-访问列表元素"><span class="nav-text">2.1.1 访问列表元素</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-修改、添加和删除元素"><span class="nav-text">2.2 修改、添加和删除元素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-1-修改"><span class="nav-text">2.1.1 修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-2-添加"><span class="nav-text">2.2.2 添加</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-在列表末尾添加元素"><span class="nav-text">1.在列表末尾添加元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-在列表中插入元素"><span class="nav-text">2.在列表中插入元素</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-3-删除"><span class="nav-text">2.2.3 删除</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-使用del语句删除元素"><span class="nav-text">1. 使用del语句删除元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-使用方法pop-删除元素"><span class="nav-text">2.使用方法pop()删除元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-根据值使用remove方法删除元素"><span class="nav-text">3.根据值使用remove方法删除元素</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-组织列表"><span class="nav-text">2.3 组织列表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-1-使用方法sort-对列表永久性排序"><span class="nav-text">2.3.1 使用方法sort()对列表永久性排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-2-使用函数sorted-对列表暂时性排序"><span class="nav-text">2.3.2 使用函数sorted()对列表暂时性排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-3-倒着打印列表"><span class="nav-text">2.3.3 倒着打印列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-4-确定列表的长度"><span class="nav-text">2.3.4 确定列表的长度</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第二章-列表简介"><span class="nav-text">第二章 列表简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-列表"><span class="nav-text">2.1 列表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-1-访问列表元素"><span class="nav-text">2.1.1 访问列表元素</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-修改、添加和删除元素"><span class="nav-text">2.2 修改、添加和删除元素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-1-修改"><span class="nav-text">2.1.1 修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-2-添加"><span class="nav-text">2.2.2 添加</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-在列表末尾添加元素"><span class="nav-text">1.在列表末尾添加元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-在列表中插入元素"><span class="nav-text">2.在列表中插入元素</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-3-删除"><span class="nav-text">2.2.3 删除</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-使用del语句删除元素"><span class="nav-text">1.使用del语句删除元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-使用方法pop-删除元素"><span class="nav-text">2.使用方法pop()删除元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-根据值使用remove方法删除元素"><span class="nav-text">3.根据值使用remove方法删除元素</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-组织列表"><span class="nav-text">2.3 组织列表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-1-使用方法sort-对列表永久性排序"><span class="nav-text">2.3.1 使用方法sort()对列表永久性排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-2-使用函数sorted-对列表暂时性排序"><span class="nav-text">2.3.2 使用函数sorted()对列表暂时性排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-3-倒着打印列表"><span class="nav-text">2.3.3 倒着打印列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-4-确定列表的长度"><span class="nav-text">2.3.4 确定列表的长度</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
