@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Irimsky">
 <meta property="og:description" content="第三章 操作列表">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-12T06:50:11.631Z">
+<meta property="og:updated_time" content="2019-07-12T07:33:43.208Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python学习笔记(三)">
 <meta name="twitter:description" content="第三章 操作列表">
@@ -478,7 +478,7 @@
 <p>[‘apple’, ‘banana’, ‘orange’, ‘peach’]</p>
 </blockquote>
 <p>可以发现，在将my_fruits赋值给your_fruit后，在my列表后添加了新元素，your列表后也同样出现了这个新元素.<br>说明，被赋值的新列表和原列表用的同一个列表，新列表 是跟着 原列表 一起改变的<b>（类似于C++里的引用）</b></p>
-<p>比较正确规范的做法是<b><u>将切片复制给新列表</u></b>&lt;/u&gt;,这样是将新的副本复制给新列表</p>
+<p><font size="5"><b>*</b></font> 比较正确规范的做法是<b><u>将切片复制给新列表</u></b>&lt;/u&gt;,这样是将新的副本复制给新列表</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">my_fruits = [<span class="string">'apple'</span>, <span class="string">'banana'</span>, <span class="string">'orange'</span>]</span><br><span class="line">your_fruits = my_fruits[:]</span><br><span class="line">my_fruits.append(<span class="string">'peach'</span>)</span><br><span class="line">print(your_fruits)</span><br></pre></td></tr></table></figure>
 <p>输出结果为：</p>
 <blockquote>
@@ -530,8 +530,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/11/Python学记笔记-二/" rel="next" title="Python学记笔记(二)">
-                <i class="fa fa-chevron-left"></i> Python学记笔记(二)
+              <a href="/2019/07/11/Python学习笔记-二/" rel="next" title="Python学习笔记(二)">
+                <i class="fa fa-chevron-left"></i> Python学习笔记(二)
               </a>
             
           </div>
