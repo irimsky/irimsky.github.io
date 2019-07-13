@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="第三章 操作列表">
+<meta name="description" content="第六章 输入与while循环">
 <meta name="keywords" content="笔记,Python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python学习笔记(三)">
-<meta property="og:url" content="/2019/07/12/Python学习笔记-三/index.html">
+<meta property="og:title" content="Python学习笔记(六)">
+<meta property="og:url" content="/2019/07/13/Python学习笔记-六/index.html">
 <meta property="og:site_name" content="Irimsky">
-<meta property="og:description" content="第三章 操作列表">
+<meta property="og:description" content="第六章 输入与while循环">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-12T07:33:43.208Z">
+<meta property="og:updated_time" content="2019-07-13T11:51:53.999Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python学习笔记(三)">
-<meta name="twitter:description" content="第三章 操作列表">
+<meta name="twitter:title" content="Python学习笔记(六)">
+<meta name="twitter:description" content="第六章 输入与while循环">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="/2019/07/12/Python学习笔记-三/">
+  <link rel="canonical" href="/2019/07/13/Python学习笔记-六/">
 
 
 
 
 
-  <title>Python学习笔记(三) | Irimsky</title>
+  <title>Python学习笔记(六) | Irimsky</title>
   
 
 
@@ -276,7 +276,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="/2019/07/12/Python学习笔记-三/">
+    <link itemprop="mainEntityOfPage" href="/2019/07/13/Python学习笔记-六/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Irimsky">
@@ -293,7 +293,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Python学习笔记(三)</h1>
+          <h1 class="post-title" itemprop="name headline">Python学习笔记(六)</h1>
         
 
         <div class="post-meta">
@@ -305,8 +305,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-12T14:24:40+08:00">
-                2019-07-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-13T19:51:29+08:00">
+                2019-07-13
               </time>
             
 
@@ -346,8 +346,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/07/12/Python学习笔记-三/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/07/12/Python学习笔记-三/" itemprop="commentCount"></span>
+                <a href="/2019/07/13/Python学习笔记-六/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/07/13/Python学习笔记-六/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -355,7 +355,7 @@
 
           
           
-             <span id="/2019/07/12/Python学习笔记-三/" class="leancloud_visitors" data-flag-title="Python学习笔记(三)">
+             <span id="/2019/07/13/Python学习笔记-六/" class="leancloud_visitors" data-flag-title="Python学习笔记(六)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -386,119 +386,47 @@
       
 
       
-        <h1 id="第三章-操作列表"><a href="#第三章-操作列表" class="headerlink" title="第三章 操作列表"></a>第三章 操作列表</h1><a id="more"></a>
+        <h1 id="第六章-输入与while循环"><a href="#第六章-输入与while循环" class="headerlink" title="第六章 输入与while循环"></a>第六章 输入与while循环</h1><a id="more"></a>
 <p><br><br></p>
-<h2 id="3-1-遍历整个列表"><a href="#3-1-遍历整个列表" class="headerlink" title="3.1 遍历整个列表"></a>3.1 遍历整个列表</h2><hr>
-<p>我们可以用for循环遍历整个列表：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fruits = [<span class="string">'apple'</span>, <span class="string">'banana'</span>, <span class="string">'orange'</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> fruits:</span><br><span class="line">   print(i)</span><br></pre></td></tr></table></figure></p>
-<p>输出结果：</p>
+<h2 id="6-1-函数input-的工作原理"><a href="#6-1-函数input-的工作原理" class="headerlink" title="6.1 函数input()的工作原理"></a>6.1 函数input()的工作原理</h2><hr>
+<p>函数<code>input()</code>让程序暂停运行，等待用户输入一些文本。获取用户输入后，Python将其存储在一个变量中。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">name = <span class="string">''</span></span><br><span class="line">name = input(<span class="string">"who are you?"</span>)</span><br><span class="line">print(<span class="string">"Hello, "</span> + name + <span class="string">"!"</span>)</span><br></pre></td></tr></table></figure></p>
 <blockquote>
-<p>apple<br>banana<br>orange</p>
+<p>who are you?<br>输入：tim<br>输出：<br>Hello, tim!</p>
 </blockquote>
-<ul>
-<li><b>不要忘了<font size="5"><u>冒号</u></font></b></li>
-</ul>
-<h3 id="3-1-1-深入研究循环"><a href="#3-1-1-深入研究循环" class="headerlink" title="3.1.1 深入研究循环"></a>3.1.1 深入研究循环</h3><p> ① 在上述循环中，程序先读到这一行代码<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> fruits:</span><br></pre></td></tr></table></figure></p>
-<p>这让Python从列表中获取第一个元素’apple’ ，<b>将其赋值给 i </b><br><br><br></p>
-<p>② 接着程序执行循环体中的语句：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(i)</span><br></pre></td></tr></table></figure></p>
-<p>由此将i的值（即’apple’）打印出来<br><br><br>③ 程序总共重复上述步骤三次，结束循环<br><br><br></p>
-<ul>
-<li>需要注意的是，循环过程中，是<u>将列表的元素赋值给循环标记</u>（i）的</li>
-</ul>
-<p>如下代码可以体现这一点：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fruits = [<span class="string">'apple'</span>, <span class="string">'banana'</span>, <span class="string">'orange'</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> fruits:</span><br><span class="line">    i = i.title()</span><br><span class="line">    print(i)</span><br><span class="line">print(fruits)</span><br></pre></td></tr></table></figure></p>
-<p>输出结果为：</p>
+<p>函数input()接受一个参数：即要向用户展示的<font face="楷体">提示或说明</font>。<br>程序等待用户输入，在用户按回车键后继续运行。</p>
+<h3 id="6-1-1-用int-获取数值输入"><a href="#6-1-1-用int-获取数值输入" class="headerlink" title="6.1.1 用int()获取数值输入"></a>6.1.1 用int()获取数值输入</h3><p>使用函数input()时，Python会将用户输入解读为字符串。<br>可以使用<code>int()</code>函数，让Python将参数汇总的的字符串转化为数值。（与str()对应）<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">age = <span class="string">''</span></span><br><span class="line">age = input(<span class="string">"How old are you?\n"</span>)</span><br><span class="line">age = int(age)</span><br><span class="line"><span class="keyword">if</span> age &gt;= <span class="number">18</span>:</span><br><span class="line">    print(<span class="string">"You are an adult."</span>)</span><br></pre></td></tr></table></figure></p>
 <blockquote>
-<p>Apple<br>Banana<br>Orange<br>[‘apple’, ‘banana’, ‘orange’]</p>
-</blockquote>
-<p><b>原列表中的元素并没有因i的改变而发生变化</b></p>
-<h3 id="3-1-2-在循环中执行更多操作"><a href="#3-1-2-在循环中执行更多操作" class="headerlink" title="3.1.2 在循环中执行更多操作"></a>3.1.2 在循环中执行更多操作</h3><p>在一次迭代中可以执行无数句语句，只需将它们按相同格式缩进即可：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fruits = [<span class="string">'apple'</span>, <span class="string">'banana'</span>, <span class="string">'orange'</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> fruits:</span><br><span class="line">    print(i)</span><br><span class="line">    print(<span class="string">"I love "</span> + i.title())</span><br><span class="line">print(<span class="string">"I love them all!"</span>)</span><br></pre></td></tr></table></figure></p>
-<p>输出结果：</p>
-<blockquote>
-<p>apple<br>I love Apple<br>banana<br>I love Banana<br>orange<br>I love Orange<br>I love them all!</p>
+<p>输入：19<br>输出：You are an adult.</p>
 </blockquote>
 <p><br><br></p>
-<h2 id="3-2-创建数值列表"><a href="#3-2-创建数值列表" class="headerlink" title="3.2 创建数值列表"></a>3.2 创建数值列表</h2><hr>
-<h3 id="3-2-1-使用函数range"><a href="#3-2-1-使用函数range" class="headerlink" title="3.2.1 使用函数range()"></a>3.2.1 使用函数range()</h3><p><code>range()</code> 函数可以生产一系列连续的数字<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">11</span>, <span class="number">2</span>):</span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure></p>
-<p>输出结果：</p>
+<h2 id="6-2-while循环"><a href="#6-2-while循环" class="headerlink" title="6.2 while循环"></a>6.2 while循环</h2><hr>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">num = <span class="number">1</span></span><br><span class="line"><span class="keyword">while</span> num &lt;= <span class="number">5</span>:</span><br><span class="line">   print(num)</span><br><span class="line">   num += <span class="number">1</span></span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>2<br>3</p>
+<p>1<br>2<br>3<br>4<br>5</p>
 </blockquote>
-<ul>
-<li>range(a, b)生成的区间为 <u> a ~ (b-1) </u></li>
-<li><b>range()生成的不是列表</b></li>
-</ul>
-<p>range()函数还可以<b>指定步长</b>：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">11</span>, <span class="number">2</span>):</span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure></p>
-<p>输出结果：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">s = input(<span class="string">"i am a repeater\n"</span>)</span><br><span class="line"><span class="keyword">while</span> s != <span class="string">'quit'</span></span><br><span class="line">    print(s)</span><br><span class="line">    s = input()</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>1<br>3<br>5<br>7<br>9</p>
+<p>复读机，直到用户输入quit停止</p>
 </blockquote>
-<h3 id="3-2-2-使用list-和range-函数创建数值列表"><a href="#3-2-2-使用list-和range-函数创建数值列表" class="headerlink" title="3.2.2 使用list()和range()函数创建数值列表"></a>3.2.2 使用list()和range()函数创建数值列表</h3><p>可以使用函数<code>list()</code>将range()转化成数字列表：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(list(range(<span class="number">1</span>, <span class="number">4</span>)))</span><br></pre></td></tr></table></figure></p>
-<p>输出结果：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">flag = <span class="literal">True</span></span><br><span class="line">count = <span class="number">5</span></span><br><span class="line"><span class="keyword">while</span> flag:</span><br><span class="line">    print(count)</span><br><span class="line">    count -= <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> count &lt; <span class="number">0</span>:</span><br><span class="line">        flag = <span class="literal">False</span></span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>[1, 2, 3]</p>
+<p>5<br>4<br>3<br>2<br>1<br>0</p>
 </blockquote>
-<h3 id="3-2-3-max-，min-，sum-函数"><a href="#3-2-3-max-，min-，sum-函数" class="headerlink" title="3.2.3 max()，min()，sum()函数"></a>3.2.3 max()，min()，sum()函数</h3><p>将数字列表名称作为函数<code>max()</code>的参数，返回列表中的最大值<br>同理<code>min()</code>返回最小值，<code>sum()</code>返回列表所有元素的和</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nums = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">10</span>]</span><br><span class="line">print(max(nums))</span><br><span class="line">print(min(nums))</span><br><span class="line">print(sum(nums))</span><br></pre></td></tr></table></figure>
-<p>输出结果：</p>
+<h3 id="6-2-1-在循环中使用break和continue"><a href="#6-2-1-在循环中使用break和continue" class="headerlink" title="6.2.1 在循环中使用break和continue"></a>6.2.1 在循环中使用break和continue</h3> <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    s = input()</span><br><span class="line">    <span class="keyword">if</span> s == <span class="string">'quit'</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    print(<span class="string">"You just inputed "</span> + s)</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>10<br>1<br>16</p>
+<p>复读机，直到输入quit</p>
 </blockquote>
-<h3 id="3-2-4-列表解析"><a href="#3-2-4-列表解析" class="headerlink" title="3.2.4 列表解析*"></a>3.2.4 列表解析<font size="6">*</font></h3><p>用前面介绍的方式形成一个平方列表：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">11</span>)</span><br><span class="line">   squares.append(i**<span class="number">2</span>)</span><br><span class="line">print(squares)</span><br></pre></td></tr></table></figure></p>
-<p>输出结果为：</p>
+<p>continue不多赘述，与C语言作用相同<br><br><br></p>
+<h2 id="6-3-用while循环来处理列表和字典"><a href="#6-3-用while循环来处理列表和字典" class="headerlink" title="6.3 用while循环来处理列表和字典"></a>6.3 用while循环来处理列表和字典</h2><hr>
+<h3 id="6-3-1-在列表之间移动元素"><a href="#6-3-1-在列表之间移动元素" class="headerlink" title="6.3.1 在列表之间移动元素"></a>6.3.1 在列表之间移动元素</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">target = [<span class="string">'apple'</span>, <span class="string">'bannana'</span>, <span class="string">'peach'</span>]</span><br><span class="line">shopping_car = []</span><br><span class="line"><span class="keyword">while</span> target:</span><br><span class="line">    cur = target.pop()</span><br><span class="line">    print(<span class="string">"Buy "</span> + cur)</span><br><span class="line">    shopping_car.append(cur)</span><br><span class="line">print(<span class="string">"You have bought these:"</span>)</span><br><span class="line">print(shopping_car)</span><br><span class="line">print(<span class="string">"These not bought:"</span>)</span><br><span class="line">print(target)</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]</p>
+<p>Buy peach<br>Buy bannana<br>Buy apple<br>You have bought these:<br>[‘peach’, ‘bannana’, ‘apple’]<br>These not bought:<br>[]</p>
 </blockquote>
-<p>使用列表解析，可以一行之内完成上述代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">squares = [i ** <span class="number">2</span> <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">11</span>)]</span><br><span class="line">print(squares)</span><br></pre></td></tr></table></figure></p>
-<p>输出结果同上<br><br><br></p>
-<ol>
-<li>使用这种语法, 首先指定一个描述性的列表名，如square；</li>
-<li>然后指定一个左方括号，并定义一个表达式。在这里表达式为 i ** 2</li>
-<li>接着编写一个for循环，给表达式提供值（此处没有冒号），并加上右方括号</li>
-</ol>
-<p><br><br></p>
-<h2 id="3-3-使用列表的一部分：切片"><a href="#3-3-使用列表的一部分：切片" class="headerlink" title="3.3 使用列表的一部分：切片"></a>3.3 使用列表的一部分：切片</h2><hr>
-<p>要创建切片，可指定要使用的<u>第一个元素和最后一个元素的索引</u>，<b>和range一样，最后一个元素不取</b></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fruits = [<span class="string">'apple'</span>, <span class="string">'banana'</span>, <span class="string">'orange'</span>]</span><br><span class="line">print(fruits[<span class="number">0</span>:<span class="number">2</span>])</span><br></pre></td></tr></table></figure>
-<p>输出结果为：</p>
+<h3 id="6-3-2-删除所有列表中的特定值"><a href="#6-3-2-删除所有列表中的特定值" class="headerlink" title="6.3.2 删除所有列表中的特定值"></a>6.3.2 删除所有列表中的特定值</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fruits = [<span class="string">'apple'</span>, <span class="string">'orange'</span>, <span class="string">'peach'</span>, <span class="string">'apple'</span>, <span class="string">'apple'</span>]</span><br><span class="line"><span class="keyword">while</span> <span class="string">'apple'</span> <span class="keyword">in</span> fruits:</span><br><span class="line">    fruits.remove(<span class="string">'apple'</span>)</span><br><span class="line">print(fruits)</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>[‘apple’, ‘banana’]</p>
+<p>[‘orange’, ‘peach’]</p>
 </blockquote>
-<ul>
-<li>如果没有指定起始索引，如 fruit[:2]，则默认从列表开头开始</li>
-<li>同理如果没有指定结束为止，如 fruit[2:]，则默认到列表尾结束</li>
-<li>fruit[-2:] 表示从倒数第二个到最后一个的切片</li>
-</ul>
-<p><br><br></p>
-<h2 id="3-4-复制列表"><a href="#3-4-复制列表" class="headerlink" title="3.4 复制列表"></a>3.4 复制列表</h2><hr>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">my_fruits = [<span class="string">'apple'</span>, <span class="string">'banana'</span>, <span class="string">'orange'</span>]</span><br><span class="line">your_fruits = my_fruits  <span class="comment">#尽量不要这么复制</span></span><br><span class="line">print(your_fruits)</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>[‘apple’, ‘banana’, ‘orange’]</p>
-</blockquote>
-<p>可直接将列表名赋值给新列表，以达到复制的效果。<font size="5"><b> <u>但尽量不要这么做！</u></b></font><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">my_fruits = [<span class="string">'apple'</span>, <span class="string">'banana'</span>, <span class="string">'orange'</span>]</span><br><span class="line">your_fruits = my_fruits</span><br><span class="line">my_fruits.append(<span class="string">'peach'</span>)</span><br><span class="line">print(your_fruits)</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>[‘apple’, ‘banana’, ‘orange’, ‘peach’]</p>
-</blockquote>
-<p>可以发现，在将my_fruits赋值给your_fruit后，在my列表后添加了新元素，your列表后也同样出现了这个新元素.<br>说明，被赋值的新列表和原列表用的同一个列表，新列表 是跟着 原列表 一起改变的<b>（类似于C++里的引用）</b></p>
-<p><font size="5"><b>*</b></font> 比较正确规范的做法是<b><u>将切片复制给新列表</u></b>&lt;/u&gt;,这样是将新的副本复制给新列表</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">my_fruits = [<span class="string">'apple'</span>, <span class="string">'banana'</span>, <span class="string">'orange'</span>]</span><br><span class="line">your_fruits = my_fruits[:]</span><br><span class="line">my_fruits.append(<span class="string">'peach'</span>)</span><br><span class="line">print(your_fruits)</span><br></pre></td></tr></table></figure>
-<p>输出结果为：</p>
-<blockquote>
-<p>[‘apple’, ‘banana’, ‘orange’]</p>
-</blockquote>
-<p>新列表并没有发生改变</p>
-<h2 id="3-5-元组"><a href="#3-5-元组" class="headerlink" title="3.5 元组"></a>3.5 元组</h2><hr>
-<p>列表是可以修改的。然而有时候需要创建一系列不可修改的元素，<font face="楷体" size="3"><u>元组</u> </font>可以满足这种需求。</p>
-<h3 id="3-5-1-定义元组"><a href="#3-5-1-定义元组" class="headerlink" title="3.5.1 定义元组"></a>3.5.1 定义元组</h3><p>元组使用<b>圆括号</b>来标识，同样可以用索引来访问其值。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dim = (<span class="number">200</span>, <span class="number">50</span>)</span><br><span class="line">print(dim[<span class="number">0</span>])</span><br><span class="line">print(dim[<span class="number">1</span>])</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>200<br>50</p>
-</blockquote>
-<h3 id="3-5-2-遍历元组"><a href="#3-5-2-遍历元组" class="headerlink" title="3.5.2 遍历元组"></a>3.5.2 遍历元组</h3><p>和遍历链表一样，不多赘述</p>
-<h3 id="3-5-3-修改元组变量"><a href="#3-5-3-修改元组变量" class="headerlink" title="3.5.3 修改元组变量"></a>3.5.3 修改元组变量</h3><p>虽然不能修改元组的元素，但可以给<u>存储元组的变量</u>(比如此处的dim)赋值。因此，需要通过<strong>重新定义</strong>的方法修改元组：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dim = (<span class="number">200</span>, <span class="number">50</span>)</span><br><span class="line">print(dim)</span><br><span class="line">dim = (<span class="number">2</span>,<span class="number">5</span>)</span><br><span class="line">print(dim)</span><br></pre></td></tr></table></figure></p>
-<p>输出结果为：</p>
-<blockquote>
-<p>(200, 50)<br>(2, 5)</p>
-</blockquote>
-<p><strong>给元组变量赋值的操作是合法的</strong></p>
-
+<h3 id="6-3-3-利用输入填充字典"><a href="#6-3-3-利用输入填充字典" class="headerlink" title="6.3.3 利用输入填充字典"></a>6.3.3 利用输入填充字典</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cilent = &#123;&#125;</span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    name = input(<span class="string">"Please input your name:"</span>)</span><br><span class="line">    nick_name = input(<span class="string">"Please input your nickname:"</span>)</span><br><span class="line">    cilent[nick_name] = name</span><br><span class="line">    re = input(<span class="string">"Would you like to continue? (yes/no)"</span>)</span><br><span class="line">    <span class="keyword">if</span> re == <span class="string">'no'</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">print(cilent)</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -530,8 +458,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/11/Python学习笔记-二/" rel="next" title="Python学习笔记(二)">
-                <i class="fa fa-chevron-left"></i> Python学习笔记(二)
+              <a href="/2019/07/13/Python学习笔记-五/" rel="next" title="Python学习笔记(五)">
+                <i class="fa fa-chevron-left"></i> Python学习笔记(五)
               </a>
             
           </div>
@@ -539,10 +467,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/12/Python学习笔记-四/" rel="prev" title="Python学习笔记(四)">
-                Python学习笔记(四) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -714,7 +638,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第三章-操作列表"><span class="nav-text">第三章 操作列表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-遍历整个列表"><span class="nav-text">3.1 遍历整个列表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-1-深入研究循环"><span class="nav-text">3.1.1 深入研究循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-2-在循环中执行更多操作"><span class="nav-text">3.1.2 在循环中执行更多操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-创建数值列表"><span class="nav-text">3.2 创建数值列表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-1-使用函数range"><span class="nav-text">3.2.1 使用函数range()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-2-使用list-和range-函数创建数值列表"><span class="nav-text">3.2.2 使用list()和range()函数创建数值列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-3-max-，min-，sum-函数"><span class="nav-text">3.2.3 max()，min()，sum()函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-4-列表解析"><span class="nav-text">3.2.4 列表解析*</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-使用列表的一部分：切片"><span class="nav-text">3.3 使用列表的一部分：切片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-复制列表"><span class="nav-text">3.4 复制列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-5-元组"><span class="nav-text">3.5 元组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-1-定义元组"><span class="nav-text">3.5.1 定义元组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-2-遍历元组"><span class="nav-text">3.5.2 遍历元组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-3-修改元组变量"><span class="nav-text">3.5.3 修改元组变量</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第六章-输入与while循环"><span class="nav-text">第六章 输入与while循环</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#6-1-函数input-的工作原理"><span class="nav-text">6.1 函数input()的工作原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-1-用int-获取数值输入"><span class="nav-text">6.1.1 用int()获取数值输入</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-2-while循环"><span class="nav-text">6.2 while循环</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-1-在循环中使用break和continue"><span class="nav-text">6.2.1 在循环中使用break和continue</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-3-用while循环来处理列表和字典"><span class="nav-text">6.3 用while循环来处理列表和字典</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-3-1-在列表之间移动元素"><span class="nav-text">6.3.1 在列表之间移动元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-3-2-删除所有列表中的特定值"><span class="nav-text">6.3.2 删除所有列表中的特定值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-3-3-利用输入填充字典"><span class="nav-text">6.3.3 利用输入填充字典</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
