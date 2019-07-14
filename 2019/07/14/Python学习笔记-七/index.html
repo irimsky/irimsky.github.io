@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/bitbug_favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/bitbug_favicon_sm2.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="笔记,Python,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Irimsky" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="第七章 函数">
+<meta name="keywords" content="笔记,Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python学习笔记(七)">
+<meta property="og:url" content="/2019/07/14/Python学习笔记-七/index.html">
+<meta property="og:site_name" content="Irimsky">
+<meta property="og:description" content="第七章 函数">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-07-14T08:50:50.243Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python学习笔记(七)">
+<meta name="twitter:description" content="第七章 函数">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: 'JFKFN3AELO',
+      apiKey: 'd794fa2ce1dc75927609ab2e6cc9fce0',
+      indexName: 'irimsky',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="/2019/07/14/Python学习笔记-七/">
+
+
+
+
+
+  <title>Python学习笔记(七) | Irimsky</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Irimsky</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">爱我所爱</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-总览">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-list"></i> <br>
+            
+            总览
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="/2019/07/14/Python学习笔记-七/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Irimsky">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/j.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Irimsky">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Python学习笔记(七)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-14T16:44:33+08:00">
+                2019-07-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/07/14/Python学习笔记-七/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/07/14/Python学习笔记-七/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/07/14/Python学习笔记-七/" class="leancloud_visitors" data-flag-title="Python学习笔记(七)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="第七章-函数"><a href="#第七章-函数" class="headerlink" title="第七章 函数"></a>第七章 函数</h1> <a id="more"></a>
+<p> <br><br></p>
+<h2 id="7-1-定义函数"><a href="#7-1-定义函数" class="headerlink" title="7.1 定义函数"></a>7.1 定义函数</h2><hr>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">greeting</span><span class="params">(username)</span>:</span></span><br><span class="line">    print(<span class="string">"Hello, "</span> + username + <span class="string">"!"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">greeting(<span class="string">'Tom'</span>) <span class="comment"># 调用函数</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>输出：Hello, Tom!</p>
+</blockquote>
+<p><br><br></p>
+<h2 id="7-2-传递实参"><a href="#7-2-传递实参" class="headerlink" title="7.2  传递实参"></a>7.2  传递实参</h2><hr>
+<p>向函数传递实参的方式很多，可使用<font face="楷体"> 位置实参</font> ，这要求实参的顺序和形参的顺序相同；也可以使用<font face="楷体"> 关键字实参</font> ，其中每个参数都由变量名和值组成；还可以使用列表和字典。</p>
+<h3 id="7-2-1-位置实参"><a href="#7-2-1-位置实参" class="headerlink" title="7.2.1 位置实参"></a>7.2.1 位置实参</h3><p>你调用函数时，Python必须将函数调用的每个实参都关联到函数定义中的一个形参。为此，最简单的关联方式是基于实参的顺序。这种方式被称为 <font face="楷体"> <u>位置实参 </u></font></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">best_book</span><span class="params">(book_name, book_type)</span>:</span></span><br><span class="line">    print(<span class="string">"The best book is "</span> + book_name)</span><br><span class="line">    print(<span class="string">"It's a "</span> + book_type)</span><br><span class="line"></span><br><span class="line">best_book(<span class="string">"Lucy"</span>, <span class="string">"scientific"</span>)</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<blockquote>
+<p>The best book is Lucy<br>It’s a scientific</p>
+</blockquote>
+<p>调用方式与C大体相同，不多赘述。</p>
+<h3 id="7-2-2-关键字实参"><a href="#7-2-2-关键字实参" class="headerlink" title="7.2.2 关键字实参"></a>7.2.2 关键字实参</h3><p> <font face="楷体"> <u>关键字实参 </u></font> 是传递给函数的 <b>名称-值对</b>。你直接在实参总将名称和值关联起来，因此向函数传递参数时不会混淆顺序。关键字实参让你无需考虑函数调用中的实参顺序，还清除指出各个值的用途。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">best_book</span><span class="params">(book_name, book_type)</span>:</span></span><br><span class="line">    print(<span class="string">"The best book is "</span> + book_name)</span><br><span class="line">    print(<span class="string">"It's a "</span> + book_type)</span><br><span class="line"></span><br><span class="line">best_book(book_type = <span class="string">"scientific"</span>, book_name = <span class="string">'Lucy'</span>)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>输出同上</p>
+</blockquote>
+<h3 id="7-2-3-默认值"><a href="#7-2-3-默认值" class="headerlink" title="7.2.3 默认值"></a>7.2.3 默认值</h3><p>编写函数时，可以给每个形参指定默认值。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">best_book</span><span class="params">(book_name, book_type=<span class="string">'scientific'</span>)</span>:</span></span><br><span class="line">    print(<span class="string">"The best book is "</span> + book_name)</span><br><span class="line">    print(<span class="string">"It's a "</span> + book_type)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">best_book(book_name=<span class="string">'Lucy'</span>)</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">best_book</span><span class="params">(book_name, book_type=<span class="string">'scientific'</span>)</span>:</span></span><br><span class="line">    print(<span class="string">"The best book is "</span> + book_name)</span><br><span class="line">    print(<span class="string">"It's a "</span> + book_type)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">best_book(<span class="string">'Lucy'</span>)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>输出皆为同上</p>
+</blockquote>
+<ul>
+<li>有默认值的形参必须放在无默认值的形参后面（与C++相同）</li>
+</ul>
+<p><br><br></p>
+<h2 id="7-3-返回值"><a href="#7-3-返回值" class="headerlink" title="7.3 返回值"></a>7.3 返回值</h2><hr>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">name</span><span class="params">(first_name, last_name)</span>:</span></span><br><span class="line">    full_name = first_name + <span class="string">" "</span> + last_name</span><br><span class="line">    <span class="keyword">return</span> full_name.title()</span><br><span class="line"></span><br><span class="line">me = name(<span class="string">'Eion'</span>, <span class="string">'Lee'</span>)</span><br><span class="line">print(me)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Eion Lee</p>
+</blockquote>
+<h3 id="7-3-1-让实参变成可选的"><a href="#7-3-1-让实参变成可选的" class="headerlink" title="7.3.1 让实参变成可选的"></a>7.3.1 让实参变成可选的</h3><p>就上面的例子来说，考虑到有的人有中间名，有的人没有<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">name</span><span class="params">(first_name, last_name, middle_name = <span class="string">''</span>)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> middle_name:</span><br><span class="line">        full_name = first_name + <span class="string">" "</span> + middle_name + <span class="string">" "</span> + last_name</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        full_name = first_name + <span class="string">" "</span> + last_name</span><br><span class="line">    <span class="keyword">return</span> full_name.title()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">me = name(<span class="string">'Eion'</span>, <span class="string">'Lee'</span>)</span><br><span class="line">you = name(<span class="string">'TZ'</span>, <span class="string">'BEX'</span>, <span class="string">'F'</span>)</span><br><span class="line">print(me)</span><br><span class="line">print(you)</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>Eion Lee<br>Tz F Bex</p>
+</blockquote>
+<h3 id="7-3-2-返回字典"><a href="#7-3-2-返回字典" class="headerlink" title="7.3.2 返回字典"></a>7.3.2 返回字典</h3><p>返回值可以是复杂的变量，比如字典和列表。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">person</span><span class="params">(fn, ln, gd)</span>:</span></span><br><span class="line">    p = &#123;</span><br><span class="line">        <span class="string">'first_name'</span>: fn,</span><br><span class="line">        <span class="string">'last_name'</span>: ln,</span><br><span class="line">        <span class="string">'gender'</span>: gd</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> p</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">T1 = person(<span class="string">'Eion'</span>, <span class="string">'Lee'</span>, <span class="string">'male'</span>)</span><br><span class="line">print(T1)</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>{‘first_name’: ‘Eion’, ‘last_name’: ‘Lee’, ‘gender’: ‘male’}</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">person</span><span class="params">(f, s, t)</span>:</span></span><br><span class="line">    p = [f, s, t]</span><br><span class="line">    <span class="keyword">return</span> p</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">T1 = person(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">print(T1)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>[1, 2, 3]</p>
+</blockquote>
+<p><br><br></p>
+<h2 id="7-4-传递列表"><a href="#7-4-传递列表" class="headerlink" title="7.4 传递列表"></a>7.4 传递列表</h2><hr>
+<p>将列表传递给函数非常有用。函数可以直接访问列表的内容，并对其进行修改。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">greeting</span><span class="params">(names)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> name <span class="keyword">in</span> names:</span><br><span class="line">        print(<span class="string">"Hello, "</span> + name + <span class="string">"!"</span>)</span><br><span class="line"></span><br><span class="line">guests = [<span class="string">'Tom'</span>,<span class="string">'Alice'</span>,<span class="string">'Bob'</span>]</span><br><span class="line">greeting(guests)</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>Hello, Tom!<br>Hello, Alice!<br>Hello, Bob!</p>
+</blockquote>
+<h3 id="7-4-1-用函数修改列表"><a href="#7-4-1-用函数修改列表" class="headerlink" title="7.4.1 用函数修改列表"></a>7.4.1 用函数修改列表</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_list</span><span class="params">(required)</span>:</span></span><br><span class="line">    finished = []</span><br><span class="line">    <span class="keyword">while</span> required:</span><br><span class="line">       cur = required.pop()</span><br><span class="line">       print(cur + <span class="string">" finished"</span>)</span><br><span class="line">       finished.append(cur)</span><br><span class="line">    <span class="keyword">return</span> finished</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">re = [<span class="string">'Tom'</span>, <span class="string">'Alice'</span>, <span class="string">'Bob'</span>]</span><br><span class="line">fi = print_list(re)</span><br><span class="line">print(<span class="string">"\nUninished:"</span>)</span><br><span class="line">print(re)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Bob finished<br>Alice finished<br>Tom finished<br><br><br>Uninished:<br>[]</p>
+</blockquote>
+<h3 id="7-4-2-禁止函数修改列表"><a href="#7-4-2-禁止函数修改列表" class="headerlink" title="7.4.2 禁止函数修改列表"></a>7.4.2 禁止函数修改列表</h3><p>有时不需要函数修改列表。比如打印完后，还想查阅原来需要打印的名单，则不能让函数修改这份名单。<br>为解决这个问题，可以向函数<b>传递列表的副本</b>，而不是原列表<br>传递列表的副本可以这样做：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print_list(re[:])</span><br></pre></td></tr></table></figure></p>
+<p>即： <u>将列表的<b>完整切片</b>传递给函数。</u><font size="5">★ </font></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_list</span><span class="params">(required)</span>:</span></span><br><span class="line">    finished = []</span><br><span class="line">    <span class="keyword">while</span> required:</span><br><span class="line">       cur = required.pop()</span><br><span class="line">       print(cur + <span class="string">" finished"</span>)</span><br><span class="line">       finished.append(cur)</span><br><span class="line">    <span class="keyword">return</span> finished</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">re = [<span class="string">'Tom'</span>, <span class="string">'Alice'</span>, <span class="string">'Bob'</span>]</span><br><span class="line">fi = print_list(re[:])</span><br><span class="line">print(<span class="string">"\nRequired:"</span>)</span><br><span class="line">print(re)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Bob finished<br>Alice finished<br>Tom finished<br><br><br>Required:<br>[‘Tom’, ‘Alice’, ‘Bob’]</p>
+</blockquote>
+<p><br><br></p>
+<h2 id="7-5-传递任意数量的参数"><a href="#7-5-传递任意数量的参数" class="headerlink" title="7.5 传递任意数量的参数"></a>7.5 传递任意数量的参数</h2><hr>
+<p>有时候，预先不知道要传递多少个实参。但Python允许函数从调用语句中收集任意数量的实参。<br><br><br>例如，要计算若干个正数的和。下面的函数只有一个形参*nums,不管调用语句提供多少实参，这个形参都会把它们收入到一个<b>元组</b>中。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">summ</span><span class="params">(*nums)</span>:</span></span><br><span class="line">    sum = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> nums:</span><br><span class="line">        sum += i</span><br><span class="line">    <span class="keyword">return</span> sum</span><br><span class="line"></span><br><span class="line">s = summ(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>)</span><br><span class="line">print(s)</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>28</p>
+</blockquote>
+<p>形参名*nums中的星号让Python创建一个名为nums的<b>空元组</b>，并将所有收到的参数都封装进去。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">summ</span><span class="params">(*nums)</span>:</span></span><br><span class="line">    sum = <span class="number">0</span></span><br><span class="line">    print(nums)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> nums:</span><br><span class="line">        sum += i</span><br><span class="line">    <span class="keyword">return</span> sum</span><br><span class="line"></span><br><span class="line">s = summ(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>)</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>(1, 2, 3, 4, 5, 6, 7)</p>
+</blockquote>
+<h3 id="7-5-1-结合使用位置参数和任意数量实参"><a href="#7-5-1-结合使用位置参数和任意数量实参" class="headerlink" title="7.5.1 结合使用位置参数和任意数量实参"></a>7.5.1 结合使用位置参数和任意数量实参</h3><p>如果要让函数接受不同类型的实参，<u>必须在函数定义中将接纳任意数量的实参的形参放在最后。</u></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">pizza</span><span class="params">(size, *ingds)</span>:</span></span><br><span class="line">    print(<span class="string">"Size: "</span> + str(size))</span><br><span class="line">    <span class="keyword">for</span> ingd <span class="keyword">in</span> ingds:</span><br><span class="line">        print(<span class="string">" - "</span> + ingd)</span><br><span class="line"></span><br><span class="line">pizza(<span class="number">12</span>, <span class="string">'pepper'</span>, <span class="string">'tomato'</span>)</span><br><span class="line">pizza(<span class="number">14</span>, <span class="string">'potato'</span>)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Size: 12<br>- pepper<br>- tomato<br>Size: 14<br>- potato</p>
+</blockquote>
+<h3 id="7-5-2-使用任意数量的关键字实参"><a href="#7-5-2-使用任意数量的关键字实参" class="headerlink" title="7.5.2 使用任意数量的关键字实参"></a>7.5.2 使用任意数量的关键字实参</h3><p>有时候，需要接受任意数量的实参，但预先不知道传递给函数的是什么样的信息。在这种情况下，可将函数编写成能够接受任意数量的键-值对。<br>比如要生成一份简历，但不知道会加入多少信息。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">profile</span><span class="params">(name, gender, **info)</span>:</span></span><br><span class="line">    p = &#123;<span class="string">'name'</span>: name, <span class="string">'gender'</span>: gender&#125;</span><br><span class="line">    <span class="keyword">for</span> key, value <span class="keyword">in</span> info.items():</span><br><span class="line">        p[key] = value</span><br><span class="line">    <span class="keyword">return</span> p</span><br><span class="line"></span><br><span class="line">me = profile(<span class="string">'Eion'</span>, <span class="string">'male'</span>, age=<span class="string">'18'</span>, job=<span class="string">'stu'</span>)</span><br><span class="line">print(me)</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>{‘name’: ‘Eion’, ‘gender’: ‘male’, ‘age’: ‘18’, ‘job’: ‘stu’}</p>
+</blockquote>
+<p>形参名**info中的两个星号让Python创建一个名为info的<b>空字典</b>，并将所有收到的键值对都封装进去。<br><br><br></p>
+<h2 id="7-6-将函数存储在模块中"><a href="#7-6-将函数存储在模块中" class="headerlink" title="7.6 将函数存储在模块中"></a>7.6 将函数存储在模块中</h2><p>函数的有点之一是，使用它们可以将代码块与主程序分离。通过给函数指定描述性名称，可让主程序容易理解的多。你还可以更进一步，将函数存储在被称为<font face="楷体">模块</font>的独立文件中，在将模块<font face="楷体">导入</font>到主程序。<br><code>import</code>语句允许当前运行的程序文件中使用模块的代码。</p>
+<h3 id="7-6-1-导入整个模块"><a href="#7-6-1-导入整个模块" class="headerlink" title="7.6.1 导入整个模块"></a>7.6.1 导入整个模块</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># func.py</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">profile</span><span class="params">(name, gender, **info)</span>:</span></span><br><span class="line">    p = &#123;<span class="string">'name'</span>: name, <span class="string">'gender'</span>: gender&#125;</span><br><span class="line">    <span class="keyword">for</span> key, value <span class="keyword">in</span> info.items():</span><br><span class="line">        p[key] = value</span><br><span class="line">    <span class="keyword">return</span> p</span><br><span class="line">-------------------------------------------------------------</span><br><span class="line"><span class="comment"># main.py</span></span><br><span class="line"><span class="keyword">import</span> func</span><br><span class="line"></span><br><span class="line">me = func.profile(<span class="string">'Eion'</span>, <span class="string">'male'</span>, age=<span class="string">'18'</span>, job=<span class="string">'stu'</span>)</span><br><span class="line">print(me)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>{‘name’: ‘Eion’, ‘gender’: ‘male’, ‘age’: ‘18’, ‘job’: ‘stu’}</p>
+</blockquote>
+<h3 id="7-6-2-导入特定的函数"><a href="#7-6-2-导入特定的函数" class="headerlink" title="7.6.2 导入特定的函数"></a>7.6.2 导入特定的函数</h3><p>还可以导入模块中的特定函数，语法如下：<br><code>from 模块名 import  函数1, 函数2, ....</code><br>通过逗号分隔多个函数</p>
+<ul>
+<li>若用这种语法，则调用函数时<u>不需要用句点指定模块名。</u></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># func.py</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">profile</span><span class="params">(name, gender, **info)</span>:</span></span><br><span class="line">    p = &#123;<span class="string">'name'</span>: name, <span class="string">'gender'</span>: gender&#125;</span><br><span class="line">    <span class="keyword">for</span> key, value <span class="keyword">in</span> info.items():</span><br><span class="line">        p[key] = value</span><br><span class="line">    <span class="keyword">return</span> p</span><br><span class="line">-------------------------------------------------------------</span><br><span class="line"><span class="comment"># main.py</span></span><br><span class="line"><span class="keyword">from</span> func <span class="keyword">import</span> profile</span><br><span class="line"></span><br><span class="line">me = profile(<span class="string">'Eion'</span>, <span class="string">'male'</span>, age=<span class="string">'18'</span>, job=<span class="string">'stu'</span>)</span><br><span class="line">print(me)</span><br></pre></td></tr></table></figure>
+<h3 id="7-6-3-使用as给函数-模块指定别名"><a href="#7-6-3-使用as给函数-模块指定别名" class="headerlink" title="7.6.3 使用as给函数/模块指定别名"></a>7.6.3 使用as给函数/模块指定别名</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> func <span class="keyword">import</span> profile <span class="keyword">as</span> pf</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> func <span class="keyword">as</span> fc</span><br></pre></td></tr></table></figure>
+<h3 id="7-6-4-导入模块中的所有函数"><a href="#7-6-4-导入模块中的所有函数" class="headerlink" title="7.6.4 导入模块中的所有函数"></a>7.6.4 导入模块中的所有函数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> func <span class="keyword">import</span> *</span><br></pre></td></tr></table></figure>
+<p>该语句中的星号让Python将模块func中的所有函数复制到这个程序文件中。</p>
+<ul>
+<li>由于是导入函数，所以所有函数都不需要加句点调用。</li>
+<li>但最好不要采用这种方法：如果遇到不同模块中有着相同名称的函数，则会出错。</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/笔记/" rel="tag"># 笔记</a>
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/13/Python学习笔记-六/" rel="next" title="Python学习笔记(六)">
+                <i class="fa fa-chevron-left"></i> Python学习笔记(六)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/j.jpg" alt="Irimsky">
+            
+              <p class="site-author-name" itemprop="name">Irimsky</p>
+              <p class="site-description motion-element" itemprop="description">Stay hungry. Stay foolish.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:913031255@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=913031255&website=www.oicqzone.com" target="_blank" title="QQ">
+                      
+                        <i class="fa fa-fw fa-qq"></i>QQ</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://steamcommunity.com/profiles/76561198096472635/" target="_blank" title="Steam">
+                      
+                        <i class="fa fa-fw fa-steam"></i>Steam</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://s2.ax1x.com/2019/07/10/Zg0acQ.png" target="_blank" title="Wechat">
+                      
+                        <i class="fa fa-fw fa-weixin"></i>Wechat</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第七章-函数"><span class="nav-text">第七章 函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#7-1-定义函数"><span class="nav-text">7.1 定义函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-2-传递实参"><span class="nav-text">7.2  传递实参</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-1-位置实参"><span class="nav-text">7.2.1 位置实参</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-2-关键字实参"><span class="nav-text">7.2.2 关键字实参</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-3-默认值"><span class="nav-text">7.2.3 默认值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-3-返回值"><span class="nav-text">7.3 返回值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-1-让实参变成可选的"><span class="nav-text">7.3.1 让实参变成可选的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-2-返回字典"><span class="nav-text">7.3.2 返回字典</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-4-传递列表"><span class="nav-text">7.4 传递列表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-4-1-用函数修改列表"><span class="nav-text">7.4.1 用函数修改列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-4-2-禁止函数修改列表"><span class="nav-text">7.4.2 禁止函数修改列表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-5-传递任意数量的参数"><span class="nav-text">7.5 传递任意数量的参数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-5-1-结合使用位置参数和任意数量实参"><span class="nav-text">7.5.1 结合使用位置参数和任意数量实参</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-5-2-使用任意数量的关键字实参"><span class="nav-text">7.5.2 使用任意数量的关键字实参</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-6-将函数存储在模块中"><span class="nav-text">7.6 将函数存储在模块中</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-6-1-导入整个模块"><span class="nav-text">7.6.1 导入整个模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-6-2-导入特定的函数"><span class="nav-text">7.6.2 导入特定的函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-6-3-使用as给函数-模块指定别名"><span class="nav-text">7.6.3 使用as给函数/模块指定别名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-6-4-导入模块中的所有函数"><span class="nav-text">7.6.4 导入模块中的所有函数</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-eercast"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Irimsky</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="true"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unjkp.com/valine/dist/Valine.min.js"></script>
+  <script src="/js/src/Valine.min.js"></script>
+
+  
+  
+  <script src="/js/src/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: false,
+        appId: 'qdBhaxYGDv9tgYgY6RD4CwWK-gzGzoHsz',
+        appKey: 'wmEoQT38qhEH88DHMMPiFNEJ',
+        placeholder: '说点什么吧',
+        avatar:'hide',
+        guest_info:['nick'] ,
+        pageSize:'10' || 10,
+    });
+  
+    var infoEle = document.querySelector('#comments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0){
+      infoEle.childNodes.forEach(function(item) {
+        item.parentNode.removeChild(item);
+      });
+    }
+  </script>
+
+
+  
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("qdBhaxYGDv9tgYgY6RD4CwWK-gzGzoHsz", "wmEoQT38qhEH88DHMMPiFNEJ");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+  
+<script type="text/javascript" color="0,0,255" opacity="0.7" zindex="-2" count="90" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+<script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/src/custom.js"></script>
+ <!-- 代码块复制功能 -->
+  <script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+  <script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+</body>
+</html>
