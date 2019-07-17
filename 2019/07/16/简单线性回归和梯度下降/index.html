@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="笔记,Python,">
+  <meta name="keywords" content="笔记,机器学习,MATLAB,线性回归,">
 
 
 
@@ -81,18 +81,23 @@
 
 
 
-<meta name="description" content="第五章 字典">
-<meta name="keywords" content="笔记,Python">
+<meta name="description" content="一元线性回归 回归（Regression）一词简单来说，指的是：我们根据之前的数据预测出一个准确的输出值 线性回归（Liner Regression）：寻找一条直线，最大程度地拟合样本特征和样本输出标记之间的关系。样本特征只有一个，就被称为简单线性回归。">
+<meta name="keywords" content="笔记,机器学习,MATLAB,线性回归">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python学习笔记(五)">
-<meta property="og:url" content="/2019/07/13/Python学习笔记-五/index.html">
+<meta property="og:title" content="简单线性回归和梯度下降">
+<meta property="og:url" content="/2019/07/16/简单线性回归和梯度下降/index.html">
 <meta property="og:site_name" content="Irimsky">
-<meta property="og:description" content="第五章 字典">
+<meta property="og:description" content="一元线性回归 回归（Regression）一词简单来说，指的是：我们根据之前的数据预测出一个准确的输出值 线性回归（Liner Regression）：寻找一条直线，最大程度地拟合样本特征和样本输出标记之间的关系。样本特征只有一个，就被称为简单线性回归。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-13T09:02:11.634Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/07/16/ZbHb1e.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/07/16/ZbHfmR.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2019/07/16/ZbH4Tx.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/07/16/ZbHh01.png">
+<meta property="og:updated_time" content="2019-07-16T14:17:44.585Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python学习笔记(五)">
-<meta name="twitter:description" content="第五章 字典">
+<meta name="twitter:title" content="简单线性回归和梯度下降">
+<meta name="twitter:description" content="一元线性回归 回归（Regression）一词简单来说，指的是：我们根据之前的数据预测出一个准确的输出值 线性回归（Liner Regression）：寻找一条直线，最大程度地拟合样本特征和样本输出标记之间的关系。样本特征只有一个，就被称为简单线性回归。">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/07/16/ZbHb1e.png">
 
 
 
@@ -122,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="/2019/07/13/Python学习笔记-五/">
+  <link rel="canonical" href="/2019/07/16/简单线性回归和梯度下降/">
 
 
 
 
 
-  <title>Python学习笔记(五) | Irimsky</title>
+  <title>简单线性回归和梯度下降 | Irimsky</title>
   
 
 
@@ -276,7 +281,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="/2019/07/13/Python学习笔记-五/">
+    <link itemprop="mainEntityOfPage" href="/2019/07/16/简单线性回归和梯度下降/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Irimsky">
@@ -293,7 +298,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Python学习笔记(五)</h1>
+          <h1 class="post-title" itemprop="name headline">简单线性回归和梯度下降</h1>
         
 
         <div class="post-meta">
@@ -305,8 +310,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-13T16:58:20+08:00">
-                2019-07-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-16T22:04:08+08:00">
+                2019-07-16
               </time>
             
 
@@ -328,8 +333,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/python/" itemprop="url" rel="index">
-                    <span itemprop="name">python</span>
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
                   </a>
                 </span>
 
@@ -346,8 +351,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/07/13/Python学习笔记-五/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/07/13/Python学习笔记-五/" itemprop="commentCount"></span>
+                <a href="/2019/07/16/简单线性回归和梯度下降/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/07/16/简单线性回归和梯度下降/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -355,7 +360,7 @@
 
           
           
-             <span id="/2019/07/13/Python学习笔记-五/" class="leancloud_visitors" data-flag-title="Python学习笔记(五)">
+             <span id="/2019/07/16/简单线性回归和梯度下降/" class="leancloud_visitors" data-flag-title="简单线性回归和梯度下降">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -386,62 +391,47 @@
       
 
       
-        <h1 id="第五章-字典"><a href="#第五章-字典" class="headerlink" title="第五章 字典"></a>第五章 字典</h1><a id="more"></a>
-<p><br><br></p>
-<h2 id="5-1-使用字典"><a href="#5-1-使用字典" class="headerlink" title="5.1 使用字典"></a>5.1 使用字典</h2><hr>
-<p>在Python中，<font face="楷体">字典</font> 是一系列 <font face="楷体">键-值对</font> 。每个键都与一个值相关，可以用键值访问与之关联的值。<br>用放在<u>花括号</u>{ }中的一系列键-值对表示字典。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Tom = &#123;</span><br><span class="line">    <span class="string">'gender'</span>:<span class="string">'male'</span>,</span><br><span class="line">    <span class="string">'age'</span> : <span class="number">15</span>,</span><br><span class="line">    <span class="string">'home'</span>:<span class="string">'New York'</span></span><br><span class="line">&#125;</span><br><span class="line">print(Tom[<span class="string">'gender'</span>])</span><br></pre></td></tr></table></figure></p>
-<p>输出：</p>
-<blockquote>
-<p>male</p>
-</blockquote>
-<h3 id="5-1-1-添加键值对"><a href="#5-1-1-添加键值对" class="headerlink" title="5.1.1 添加键值对"></a>5.1.1 添加键值对</h3><p>字典是一种<b>动态结构</b>，可随时在其中添加键值对。要添加键值对，可依次指明字典名、用方括号括其键、将值赋值给它。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Tom = &#123;</span><br><span class="line">    <span class="string">'gender'</span>:<span class="string">'male'</span>,</span><br><span class="line">    <span class="string">'age'</span> : <span class="number">15</span>,</span><br><span class="line">    <span class="string">'home'</span>:<span class="string">'New York'</span></span><br><span class="line">&#125;</span><br><span class="line">Tom[<span class="string">'hobby'</span>] = <span class="string">'football'</span></span><br><span class="line">print(Tom)</span><br></pre></td></tr></table></figure></p>
-<p>输出：</p>
-<blockquote>
-<p>{‘gender’: ‘male’, ‘age’: 15, ‘home’: ‘New York’, ‘hobby’: ‘football’}</p>
-</blockquote>
-<h3 id="5-1-2-修改字典中的值"><a href="#5-1-2-修改字典中的值" class="headerlink" title="5.1.2 修改字典中的值"></a>5.1.2 修改字典中的值</h3><p>直接赋值，不多赘述</p>
-<h3 id="5-1-3-删除键值对"><a href="#5-1-3-删除键值对" class="headerlink" title="5.1.3 删除键值对"></a>5.1.3 删除键值对</h3><p>对于字典中不需要的信息，可以用<code>del</code>语句直接彻底删除<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Tom = &#123;</span><br><span class="line">    <span class="string">'gender'</span>:<span class="string">'male'</span>,</span><br><span class="line">    <span class="string">'age'</span> : <span class="number">15</span>,</span><br><span class="line">    <span class="string">'home'</span>:<span class="string">'New York'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">del</span> Tom[age]</span><br><span class="line">print(Tom)</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>{‘gender’: ‘male’, ‘home’: ‘New York’}</p>
-</blockquote>
-<p><br><br></p>
-<h2 id="5-2-遍历字典"><a href="#5-2-遍历字典" class="headerlink" title="5.2 遍历字典"></a>5.2 遍历字典</h2><hr>
-<h3 id="5-2-1-遍历字典所有信息"><a href="#5-2-1-遍历字典所有信息" class="headerlink" title="5.2.1 遍历字典所有信息"></a>5.2.1 遍历字典所有信息</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Tom = &#123;</span><br><span class="line">    <span class="string">'gender'</span>:<span class="string">'male'</span>,</span><br><span class="line">    <span class="string">'home'</span>:<span class="string">'New York'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> key, value <span class="keyword">in</span> Tom.items():</span><br><span class="line">   print(<span class="string">"\nKey: "</span> + key)</span><br><span class="line">   print(<span class="string">"Value: "</span> + value)</span><br></pre></td></tr></table></figure>
+        <h1 id="一元线性回归"><a href="#一元线性回归" class="headerlink" title="一元线性回归"></a>一元线性回归</h1><hr>
+<p><b>回归（Regression）</b>一词简单来说，指的是：我们根据之前的数据预测出一个准确的输出值</p>
+<p><b>线性回归（Liner Regression）</b>：寻找一条直线，最大程度地<b>拟合</b>样本特征和样本输出标记之间的关系。样本特征只有一个，就被称为<b>简单线性回归</b>。<br> <a id="more"></a></p>
+<p><img src="https://s2.ax1x.com/2019/07/16/ZbHb1e.png" alt="蓝点为数据，红线为拟合线"></p>
+<p>假设预测的线性函数的表达式为：<script type="math/tex">h_\theta(x) = \theta_0 + \theta_1x</script><br>其中$\theta_0 ，\theta_1$为此模型的<b>参数（parameter）</b>,分别对应于<u>截距</u>和<u>斜率</u>。我们所要做的是选择合适的参数使其最大程度地拟合我们的数据。<br><br></p>
 <ul>
-<li>要编写遍历字典的for循环，需要声明两个变量，用于存储键和值。</li>
-<li>方法<code>items()</code>返回一个<b>键值对列表</b>。</li>
+<li>之后要用到的标记如下：<br>$m$ 代表训练集中实例的数量<br>$x$ 代表特征/输入变量<br>$y$ 代表目标变量/输出变量<br>$(x, y)$ 代表训练集中的实例<br>$(x^{(i)},y^{(i)})$ 代表第$i$ 个观察实例 </li>
 </ul>
-<h3 id="5-2-2-遍历字典中所有的键"><a href="#5-2-2-遍历字典中所有的键" class="headerlink" title="5.2.2 遍历字典中所有的键"></a>5.2.2 遍历字典中所有的键</h3><p>在不需要使用字典中的值时，方法<code>keys()</code>很有用。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Tom = &#123;</span><br><span class="line">    <span class="string">'gender'</span>:<span class="string">'male'</span>,</span><br><span class="line">    <span class="string">'home'</span>:<span class="string">'New York'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> key <span class="keyword">in</span> Tom.keys():</span><br><span class="line">   print(<span class="string">"Key: "</span> + key)</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>Key: gender<br>Key: home</p>
-</blockquote>
+<p><br><br>为了评估模型的准确程度，使这个值不受个别极端数据影响而产生巨大波动，我们选取 <b> 方差的二分之一</b> 作为评判误差程度的标准，即：</p>
+<script type="math/tex; mode=display">J(\theta_0,\theta_1) = \frac {1}{2m}\sum_{i=1}^{m}\ (h_\theta(x^{(i)})  - y^{(i)})^2</script><p>$J(\theta_0,\theta_1)$ 即为该模型的<b>代价函数（Cost Function）</b>，有时称为 损失函数（Loss Funtion）</p>
+<p>于是乎我们的目标就变成了：</p>
+<script type="math/tex; mode=display">minimize\ \ J(\theta_0,\theta_1)</script><p><br><br></p>
 <ul>
-<li>keys()返回一个<b>键列表</b></li>
+<li>与代价函数相对的一个概念为<b>效用函数 （Utility Function）</b></li>
+<li>通过分析问题，确定问题的代价函数或者效用函数，通过最优化获得机器学习的模型，是一类机器学习算法的基本思路，也是参数学习方法的基础。<br><br><br><h1 id="最小二乘法"><a href="#最小二乘法" class="headerlink" title="最小二乘法"></a>最小二乘法</h1></li>
 </ul>
-<h3 id="5-2-3-遍历字典中所有的值"><a href="#5-2-3-遍历字典中所有的值" class="headerlink" title="5.2.3 遍历字典中所有的值"></a>5.2.3 遍历字典中所有的值</h3><p>同理，用方法<code>values()</code> 可以得到一个<b>值列表<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Tom = &#123;</span><br><span class="line">    <span class="string">'gender'</span>:<span class="string">'male'</span>,</span><br><span class="line">    <span class="string">'home'</span>:<span class="string">'New York'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> val <span class="keyword">in</span> Tom.values():</span><br><span class="line">   print(<span class="string">"Values: "</span> + val)</span><br></pre></td></tr></table></figure></b></p>
-<blockquote>
-<p>Values: male<br>Values: New York</p>
-</blockquote>
-<p><br><br></p>
-<h2 id="5-3-嵌套"><a href="#5-3-嵌套" class="headerlink" title="5.3 嵌套*"></a>5.3 嵌套*</h2><hr>
-<p>字典、元组、列表之间可以相互嵌套<br>比如：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line">b = [<span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line">c = &#123;</span><br><span class="line">    <span class="number">1</span>: a,</span><br><span class="line">    <span class="number">2</span>: b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = &#123;<span class="number">1</span>: <span class="number">10</span>, <span class="number">2</span>: <span class="number">20</span>&#125;</span><br><span class="line">b = &#123;<span class="number">3</span>: <span class="number">30</span>&#125;</span><br><span class="line">c = [a, b]</span><br></pre></td></tr></table></figure>
-<p>但需要注意：</p>
+<hr>
+<p><b>最小二乘法</b>是一种对该问题的最优化方法。</p>
+<p><br><br><br>$J(\theta_0,\theta_1)$是一个多元函数。使其对各元的偏导数等于0，则可得该函数的极值。<br>即：</p>
+<script type="math/tex; mode=display">\frac{\partial J} {\partial \theta_0}  = 0,\ \frac{\partial J} {\partial \theta_1}  = 0</script><p>接下来为求解过程：</p>
+<script type="math/tex; mode=display">\frac{\partial J} {\partial \theta_0}  = \frac {1}{2m} \sum ^{m}_{i=1}2(y^{(i)} - \theta_1x^{(i)} - \theta_0)(-1) = 0</script><script type="math/tex; mode=display">=> \sum ^{m}_{i=1}(y^{(i)} - \theta_1x^{(i)} - \theta_0) =0</script><script type="math/tex; mode=display">=>\sum ^{m}_{i=1} y^{(i)} - \theta_1 \sum ^{m}_{i=1}x^{(i)} - \sum ^{m}_{i=1}\theta_0 = 0 \ => \ \sum ^{m}_{i=1} y^{(i)} - \theta_1 \sum ^{m}_{i=1}x^{(i)} - m\theta_0 = 0</script><script type="math/tex; mode=display">=>（两边同时除以m）  \ \theta_0 = \overline {y} \ - \ \theta_1 \overline{x} \ \ \ \ ①</script><p><br><br></p>
+<script type="math/tex; mode=display">\frac{\partial J} {\partial \theta_1}  =  \frac {1}{2m}\sum ^{m}_{i=1}2(y^{(i)} - \theta_1x^{(i)} - \theta_0)(-x^{(i)}) = 0</script><script type="math/tex; mode=display">=> \sum ^{m}_{i=1}(y^{(i)} - \theta_1x^{(i)} - \theta_0)x^{(i)} =0</script><script type="math/tex; mode=display">（将①式代入其中）=>  \sum ^{m}_{i=1}(y^{(i)} - \theta_1x^{(i)} -\overline {y} \ + \ \theta_1 \overline{x} )x^{(i)} =0</script><script type="math/tex; mode=display">=>  \sum ^{m}_{i=1}y^{(i)} x^{(i)} - \theta_1(x^{(i)})^2 -\overline {y} x^{(i)} \ + \ \theta_1 \overline{x} x^{(i)} =0</script><script type="math/tex; mode=display">=>  \sum ^{m}_{i=1}(y^{(i)} x^{(i)} -\overline {y} x^{(i)}) -\ \theta_1\sum ^{m}_{i=1}((x^{(i)})^2 -  \ \overline{x} x^{(i)}) =0</script><script type="math/tex; mode=display">\theta_1 = \frac{\sum ^{m}_{i=1}(y^{(i)} x^{(i)} -\overline {y} x^{(i)})}{\sum ^{m}_{i=1}((x^{(i)})^2 -  \ \overline{x} x^{(i)})}</script><p>此式还可继续化简<br>对于项$\sum ^{m}_{i=1}\overline{y} x^{(i)}$:</p>
+<script type="math/tex; mode=display">= m\overline{y}\ \overline{x} = \overline{x}\sum ^{m}_{i=1}y^{(i)} = \sum ^{m}_{i=1}\overline{y}\ \overline{x}</script><p>故这几项都可以互相转化，则有：</p>
+<script type="math/tex; mode=display">原式 = \frac{\sum ^{m}_{i=1}(y^{(i)} x^{(i)} -\overline {y} x^{(i)}-\overline{x}y^{(i)} + \overline{x}·\overline{y})}{\sum ^{m}_{i=1}((x^{(i)})^2 -  \ \overline{x} x^{(i)})-\overline{x}x^{(i)}+\overline{x}^2)}</script><script type="math/tex; mode=display">=\frac{\sum ^{m}_{i=1}(x^{(i)}-\overline{x})(y^{(i)}-\overline{y})}{\sum ^{m}_{i=1}(x^{(i)} -  \ \overline{x})^2}</script><p><br><br><br></p>
+<p><strong>综上，可得结论：</strong></p>
+<script type="math/tex; mode=display">\theta_1 = \frac{\sum ^{m}_{i=1}(x^{(i)}-\overline{x})(y^{(i)}-\overline{y})}{\sum ^{m}_{i=1}(x^{(i)} -  \ \overline{x})^2}</script><script type="math/tex; mode=display">\theta_0 = \overline {y} \ - \ \theta_1 \overline{x}</script><p><br><br><br>MATLAB实现：<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = polyfit(x, y, <span class="number">1</span>);</span><br><span class="line">h = polyval(a,x,<span class="number">1</span>);</span><br><span class="line"><span class="built_in">plot</span>(x,y,<span class="string">'*'</span>,x,h,<span class="string">'-'</span>);</span><br></pre></td></tr></table></figure></p>
+<p>polyfit(x, y, n)是matlab中用于曲线拟合的函数，其原理就是最小二乘法。第三个参数代表拟合的阶数。<br>函数返回的是一个行矩阵:$[ \theta_n, \theta_{n-1}, \theta_{n-2},.. . ,\theta_0]$<br><br><br></p>
+<h1 id="梯度下降"><a href="#梯度下降" class="headerlink" title="梯度下降"></a>梯度下降</h1><hr>
+<p>梯度下降是一个用来求函数最小值的算法，我们可以使用梯度下降算法来求出代价函数$J(\theta_0,\theta_1)$的最小值。 </p>
+<p>梯度下降的思想是：<br>开始时我们随机选择一个参数的组合(𝜃0,𝜃1,……,𝜃𝑛)，计算代价函数，然后我们寻找下一个能让代价函数值下降最多的参数组合（即<b>梯度</b>）。我们持续这么做直到到到一个<strong>局部最小值（local minimum）</strong>。<u>因为我们并没有尝试完所有的参数组合，所以不能确定我们得到的局部最小值是否便是<strong>全局最小值（global minimum）</strong>.</u>选择不同的初始参数组合，可能会找到不同的局部最小值。 </p>
+<p><img src="https://s2.ax1x.com/2019/07/16/ZbHfmR.jpg" alt="梯度下降示意图"></p>
+<p><b>批量梯度下降（Batch gradient descent）</b>的算法如下：</p>
+<script type="math/tex; mode=display">repeat\ until\ convergence\ \{ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \</script><script type="math/tex; mode=display">\theta_j := \theta_j - \alpha \frac{\partial}{\partial \theta_j}J(\theta_0, \theta_1)  \ \ \ for  \  j = 0\ and \ 1</script><script type="math/tex; mode=display">\}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \</script><p>其中<b>α</b>是<b>学习率（learning rate）</b>，又可以说是<b>步长</b>，决定了我们沿着能让代价函数下降程度最大的方向迈出的步子有多大。</p>
 <ul>
-<li>被嵌套的字典、列表、元组<u>并不是复制一套新副本进去</u>，而是将其<b>“引用”</b>被包含进去。即改变被包含的元素，原列表/元组/字典同样会改变。</li>
-<li>被包含的简单变量不会变化</li>
+<li>α的值<b>不能取得太大</b>，否则有很大可能“错过极小值”，无法收敛，甚至发散。但也<b>不能太小</b>，否则迭代次数会很大，影响效率<img src="https://s2.ax1x.com/2019/07/16/ZbH4Tx.png" alt="在这里插入图片描述"></li>
+<li>实际上，在梯度下降法中，当接近局部最低点时，梯度下降法会自动采取更小的<br>幅度。这是因为当我们接近局部最低点时，很显然在局部最低时导数等于零，所以当我们接<br>近局部最低时，<b>导数值会自动变得越来越小</b>，所以梯度下降将自动采取较小的幅度，所以我们没有必要在过程中另外再减少α的值<img src="https://s2.ax1x.com/2019/07/16/ZbHh01.png" alt></li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#字典包含列表</span></span><br><span class="line">a = [<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line">b = [<span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line">c = &#123;</span><br><span class="line">    <span class="number">1</span>: a,</span><br><span class="line">    <span class="number">2</span>: b</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">c[<span class="number">1</span>][<span class="number">0</span>] = <span class="number">3</span></span><br><span class="line">print(c[<span class="number">1</span>])</span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>c[1] : [3, 2]<br>a : [3, 2]</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#列表包含字典</span></span><br><span class="line">a = &#123;<span class="number">1</span>: <span class="number">10</span>, <span class="number">2</span>: <span class="number">20</span>&#125;</span><br><span class="line">b = &#123;<span class="number">3</span>: <span class="number">30</span>&#125;</span><br><span class="line">c = [a, b]</span><br><span class="line"></span><br><span class="line">c[<span class="number">0</span>][<span class="number">1</span>] = <span class="number">100</span></span><br><span class="line">print(c[<span class="number">0</span>])</span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>c[0] : {1: 100, 2: 20}<br>a : {1: 100, 2: 20}</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#列表包含简单变量</span></span><br><span class="line">i = <span class="number">1</span></span><br><span class="line">a = [i, <span class="number">2</span>]</span><br><span class="line">a[<span class="number">0</span>] = <span class="number">2</span></span><br><span class="line">print(a[<span class="number">0</span>])</span><br><span class="line">print(i)</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>a[0] : 2<br>i : 1</p>
+<h1 id="梯度下降的线性回归"><a href="#梯度下降的线性回归" class="headerlink" title="梯度下降的线性回归"></a>梯度下降的线性回归</h1><p>将梯度下降应用到刚刚的代价函数上，求其最小值。<br><br></p>
+<script type="math/tex; mode=display">\frac{\partial J} {\partial \theta_0}  = \frac {1}{2m} \sum ^{m}_{i=1}2(y^{(i)} - \theta_1x^{(i)} - \theta_0)(-1)\ \</script><script type="math/tex; mode=display">\frac{\partial J} {\partial \theta_1}  =  \frac {1}{2m}\sum ^{m}_{i=1}2(y^{(i)} - \theta_1x^{(i)} - \theta_0)(-x^{(i)})</script><p>故梯度下降算法可写成：</p>
+<script type="math/tex; mode=display">Repeat\{ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \</script><script type="math/tex; mode=display">\theta_0 := \theta_0 - \alpha \frac {1}{m} \sum ^{m}_{i=1}(h_\theta(x^{(i)})-y^{(i)})</script><script type="math/tex; mode=display">\theta_1 := \theta_1 - \alpha \frac {1}{m} \sum ^{m}_{i=1}(h_\theta(x^{(i)})-y^{(i)})·x^{(i)}</script><script type="math/tex; mode=display">\}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \</script><blockquote>
+<p>这个名字”批量梯度下降”，指的是在梯度下降的每一步中，我们都<b>用到了所有的训练样本</b>。在梯度下降中，在计算微分求导项时，我们需要进行求和运算，所以，在每一个单独的梯度下降中，我们最终都要对所有𝑚个训练样本求和。因此，批量梯度下降法这个名字说明了我们需要考虑所有这一”批”训练样本。而事实上，有时也有其他类型的梯度下降法，不是这种”批量”型的，不考虑整个的训练集，而是每次只关注训练集中的一些小的子集。</p>
 </blockquote>
 
       
@@ -462,7 +452,11 @@
           
             <a href="/tags/笔记/" rel="tag"># 笔记</a>
           
-            <a href="/tags/Python/" rel="tag"># Python</a>
+            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
+          
+            <a href="/tags/MATLAB/" rel="tag"># MATLAB</a>
+          
+            <a href="/tags/线性回归/" rel="tag"># 线性回归</a>
           
         </div>
       
@@ -475,8 +469,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/12/Python学习笔记-四/" rel="next" title="Python学习笔记(四)">
-                <i class="fa fa-chevron-left"></i> Python学习笔记(四)
+              <a href="/2019/07/15/Python学习笔记-八/" rel="next" title="Python学习笔记(八)">
+                <i class="fa fa-chevron-left"></i> Python学习笔记(八)
               </a>
             
           </div>
@@ -484,10 +478,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/13/Python学习笔记-六/" rel="prev" title="Python学习笔记(六)">
-                Python学习笔记(六) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -659,7 +649,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第五章-字典"><span class="nav-text">第五章 字典</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-使用字典"><span class="nav-text">5.1 使用字典</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-1-添加键值对"><span class="nav-text">5.1.1 添加键值对</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-2-修改字典中的值"><span class="nav-text">5.1.2 修改字典中的值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-3-删除键值对"><span class="nav-text">5.1.3 删除键值对</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-遍历字典"><span class="nav-text">5.2 遍历字典</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-1-遍历字典所有信息"><span class="nav-text">5.2.1 遍历字典所有信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-2-遍历字典中所有的键"><span class="nav-text">5.2.2 遍历字典中所有的键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-3-遍历字典中所有的值"><span class="nav-text">5.2.3 遍历字典中所有的值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-3-嵌套"><span class="nav-text">5.3 嵌套*</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一元线性回归"><span class="nav-text">一元线性回归</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#最小二乘法"><span class="nav-text">最小二乘法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#梯度下降"><span class="nav-text">梯度下降</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#梯度下降的线性回归"><span class="nav-text">梯度下降的线性回归</span></a></li></ol></div>
             
 
           </div>
