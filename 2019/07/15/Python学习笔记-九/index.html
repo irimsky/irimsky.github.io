@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="第三章 操作列表">
+<meta name="description" content="第九章 文件">
 <meta name="keywords" content="笔记,Python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python学习笔记(三)">
-<meta property="og:url" content="/2019/07/12/Python学习笔记-三/index.html">
+<meta property="og:title" content="Python学习笔记(九)：文件">
+<meta property="og:url" content="/2019/07/15/Python学习笔记-九/index.html">
 <meta property="og:site_name" content="Irimsky">
-<meta property="og:description" content="第三章 操作列表">
+<meta property="og:description" content="第九章 文件">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-12T07:33:43.208Z">
+<meta property="og:updated_time" content="2019-07-21T13:21:24.318Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python学习笔记(三)">
-<meta name="twitter:description" content="第三章 操作列表">
+<meta name="twitter:title" content="Python学习笔记(九)：文件">
+<meta name="twitter:description" content="第九章 文件">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="/2019/07/12/Python学习笔记-三/">
+  <link rel="canonical" href="/2019/07/15/Python学习笔记-九/">
 
 
 
 
 
-  <title>Python学习笔记(三) | Irimsky</title>
+  <title>Python学习笔记(九)：文件 | Irimsky</title>
   
 
 
@@ -276,7 +276,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="/2019/07/12/Python学习笔记-三/">
+    <link itemprop="mainEntityOfPage" href="/2019/07/15/Python学习笔记-九/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Irimsky">
@@ -293,7 +293,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Python学习笔记(三)</h1>
+          <h1 class="post-title" itemprop="name headline">Python学习笔记(九)：文件</h1>
         
 
         <div class="post-meta">
@@ -305,8 +305,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-12T14:24:40+08:00">
-                2019-07-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-15T21:06:39+08:00">
+                2019-07-15
               </time>
             
 
@@ -346,8 +346,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/07/12/Python学习笔记-三/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/07/12/Python学习笔记-三/" itemprop="commentCount"></span>
+                <a href="/2019/07/15/Python学习笔记-九/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/07/15/Python学习笔记-九/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -355,7 +355,7 @@
 
           
           
-             <span id="/2019/07/12/Python学习笔记-三/" class="leancloud_visitors" data-flag-title="Python学习笔记(三)">
+             <span id="/2019/07/15/Python学习笔记-九/" class="leancloud_visitors" data-flag-title="Python学习笔记(九)：文件">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -386,118 +386,62 @@
       
 
       
-        <h1 id="第三章-操作列表"><a href="#第三章-操作列表" class="headerlink" title="第三章 操作列表"></a>第三章 操作列表</h1><a id="more"></a>
+        <h1 id="第九章-文件"><a href="#第九章-文件" class="headerlink" title="第九章 文件"></a>第九章 文件</h1> <a id="more"></a>
 <p><br><br></p>
-<h2 id="3-1-遍历整个列表"><a href="#3-1-遍历整个列表" class="headerlink" title="3.1 遍历整个列表"></a>3.1 遍历整个列表</h2><hr>
-<p>我们可以用for循环遍历整个列表：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fruits = [<span class="string">'apple'</span>, <span class="string">'banana'</span>, <span class="string">'orange'</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> fruits:</span><br><span class="line">   print(i)</span><br></pre></td></tr></table></figure></p>
-<p>输出结果：</p>
-<blockquote>
-<p>apple<br>banana<br>orange</p>
-</blockquote>
+<h2 id="9-1-从文件中读取数据"><a href="#9-1-从文件中读取数据" class="headerlink" title="9.1 从文件中读取数据"></a>9.1 从文件中读取数据</h2><hr>
+<h3 id="9-1-1-读取整个文件"><a href="#9-1-1-读取整个文件" class="headerlink" title="9.1.1 读取整个文件"></a>9.1.1 读取整个文件</h3><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pi.txt</span><br><span class="line"></span><br><span class="line"><span class="number">3.14159</span></span><br><span class="line">  <span class="number">26535</span></span><br><span class="line">  <span class="number">89793</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">'pi.txt'</span>,<span class="string">'r'</span>) <span class="keyword">as</span> file_object:</span><br><span class="line">    contents = file_object.read()</span><br><span class="line">    print(contents)</span><br></pre></td></tr></table></figure>
+<p>输出：<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3.14159</span></span><br><span class="line">  <span class="number">26535</span></span><br><span class="line">  <span class="number">89793</span></span><br></pre></td></tr></table></figure></p>
 <ul>
-<li><b>不要忘了<font size="5"><u>冒号</u></font></b></li>
+<li><code>with open()</code>可以不需要在访问文件后关闭，随着with的结束，文件会自动关闭</li>
+<li><code>open()</code>将目标文件打开，当做一个对象。</li>
+<li><code>read()</code>将文件中所有内容读取为一个长长的字符串</li>
+<li><p>输出的文本最后有空行是因为read()达到文件尾时会返回一个空字符串。消除空行可用rstrip()</p>
+<h3 id="9-1-2-逐行读取"><a href="#9-1-2-逐行读取" class="headerlink" title="9.1.2 逐行读取"></a>9.1.2 逐行读取</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">'pi.txt'</span>,<span class="string">'r'</span>) <span class="keyword">as</span> file_object:</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> file_object:</span><br><span class="line">        print(line)</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<h3 id="3-1-1-深入研究循环"><a href="#3-1-1-深入研究循环" class="headerlink" title="3.1.1 深入研究循环"></a>3.1.1 深入研究循环</h3><p> ① 在上述循环中，程序先读到这一行代码<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> fruits:</span><br></pre></td></tr></table></figure></p>
-<p>这让Python从列表中获取第一个元素’apple’ ，<b>将其赋值给 i </b><br><br><br></p>
-<p>② 接着程序执行循环体中的语句：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(i)</span><br></pre></td></tr></table></figure></p>
-<p>由此将i的值（即’apple’）打印出来<br><br><br>③ 程序总共重复上述步骤三次，结束循环<br><br><br></p>
-<ul>
-<li>需要注意的是，循环过程中，是<u>将列表的元素赋值给循环标记</u>（i）的</li>
-</ul>
-<p>如下代码可以体现这一点：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fruits = [<span class="string">'apple'</span>, <span class="string">'banana'</span>, <span class="string">'orange'</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> fruits:</span><br><span class="line">    i = i.title()</span><br><span class="line">    print(i)</span><br><span class="line">print(fruits)</span><br></pre></td></tr></table></figure></p>
-<p>输出结果为：</p>
+<p>输出：<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3.14159</span></span><br><span class="line"></span><br><span class="line">  <span class="number">26535</span></span><br><span class="line">  </span><br><span class="line">  <span class="number">89793</span></span><br></pre></td></tr></table></figure></p>
+<p>  每行之间都有一个空行，是因为文本文件每行结尾都有一个<b>换行符</b>,而print()每次都会自动换行，所以多了一个换行。<br>  将<code>print(line)</code>改为<code>print(line.rstrip())</code>即可解决</p>
+<h3 id="9-1-3-创建一个包含文件各行内容的列表"><a href="#9-1-3-创建一个包含文件各行内容的列表" class="headerlink" title="9.1.3 创建一个包含文件各行内容的列表"></a>9.1.3 创建一个包含文件各行内容的列表</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">'pi.txt'</span>,<span class="string">'r'</span>) <span class="keyword">as</span> file_object:</span><br><span class="line">    lines = file_object.readlines()</span><br><span class="line">    </span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> lines:</span><br><span class="line">    print(line.strip())</span><br></pre></td></tr></table></figure>
+<p><code>readlines()</code>读取文本中的每一行，并存储在一个列表里。<br>调用len()可以获知文件内容的行数。<br><b>这样可以让在with open结束后依然可以使用文本内容。</b></p>
+<h3 id="9-1-4-replace-替换字符串的内容"><a href="#9-1-4-replace-替换字符串的内容" class="headerlink" title="9.1.4 replace()替换字符串的内容"></a>9.1.4 replace()替换字符串的内容</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">'I Love C++'</span></span><br><span class="line">s.replace(<span class="string">'C++'</span>,<span class="string">'Python'</span>)</span><br><span class="line">print(s)</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>Apple<br>Banana<br>Orange<br>[‘apple’, ‘banana’, ‘orange’]</p>
-</blockquote>
-<p><b>原列表中的元素并没有因i的改变而发生变化</b></p>
-<h3 id="3-1-2-在循环中执行更多操作"><a href="#3-1-2-在循环中执行更多操作" class="headerlink" title="3.1.2 在循环中执行更多操作"></a>3.1.2 在循环中执行更多操作</h3><p>在一次迭代中可以执行无数句语句，只需将它们按相同格式缩进即可：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fruits = [<span class="string">'apple'</span>, <span class="string">'banana'</span>, <span class="string">'orange'</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> fruits:</span><br><span class="line">    print(i)</span><br><span class="line">    print(<span class="string">"I love "</span> + i.title())</span><br><span class="line">print(<span class="string">"I love them all!"</span>)</span><br></pre></td></tr></table></figure></p>
-<p>输出结果：</p>
-<blockquote>
-<p>apple<br>I love Apple<br>banana<br>I love Banana<br>orange<br>I love Orange<br>I love them all!</p>
+<p>I Love Python</p>
 </blockquote>
 <p><br><br></p>
-<h2 id="3-2-创建数值列表"><a href="#3-2-创建数值列表" class="headerlink" title="3.2 创建数值列表"></a>3.2 创建数值列表</h2><hr>
-<h3 id="3-2-1-使用函数range"><a href="#3-2-1-使用函数range" class="headerlink" title="3.2.1 使用函数range()"></a>3.2.1 使用函数range()</h3><p><code>range()</code> 函数可以生产一系列连续的数字<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">11</span>, <span class="number">2</span>):</span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure></p>
-<p>输出结果：</p>
+<h2 id="9-2-写入文件"><a href="#9-2-写入文件" class="headerlink" title="9.2 写入文件"></a>9.2 写入文件</h2><hr>
+<h3 id="9-2-1-写入空文件"><a href="#9-2-1-写入空文件" class="headerlink" title="9.2.1 写入空文件"></a>9.2.1 写入空文件</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">'filename'</span>, <span class="string">'w'</span>) <span class="keyword">as</span> fo:</span><br><span class="line">    fo.write(<span class="string">'I love you'</span>)</span><br></pre></td></tr></table></figure>
+<p>打开文件，会发现文件内容为：</p>
 <blockquote>
-<p>2<br>3</p>
+<p>I love you</p>
 </blockquote>
+<h3 id="9-2-2-写入多行"><a href="#9-2-2-写入多行" class="headerlink" title="9.2.2 写入多行"></a>9.2.2 写入多行</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">'filename'</span>, <span class="string">'w'</span>) <span class="keyword">as</span> fo:</span><br><span class="line">    fo.write(<span class="string">'I love you'</span>)</span><br><span class="line">    fo.write(<span class="string">'I love you too'</span>)</span><br></pre></td></tr></table></figure>
+<p>打开文件，会发现文件内容为：</p>
+<blockquote>
+<p>I love youI love you too</p>
+</blockquote>
+<p>write()不会像print()一样自动换行，所以要<b>自己添加换行符</b>。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">'filename'</span>, <span class="string">'w'</span>) <span class="keyword">as</span> fo:</span><br><span class="line">    fo.write(<span class="string">'I love you\n'</span>)</span><br><span class="line">    fo.write(<span class="string">'I love you too'</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="9-2-3-在文件后附加内容"><a href="#9-2-3-在文件后附加内容" class="headerlink" title="9.2.3 在文件后附加内容"></a>9.2.3 在文件后附加内容</h3><p>就是打开模式改为’a’</p>
+<p><br> <br></p>
+<h2 id="9-3-异常"><a href="#9-3-异常" class="headerlink" title="9.3 异常"></a>9.3 异常</h2><hr>
+<h3 id="9-3-1-ZeroDivisionError异常"><a href="#9-3-1-ZeroDivisionError异常" class="headerlink" title="9.3.1 ZeroDivisionError异常"></a>9.3.1 ZeroDivisionError异常</h3><p>如果程序中出现除以0的情况，程序将会反馈Traceback错误信息：ZeroDivisionError</p>
+<h3 id="9-3-2-try-except-代码块"><a href="#9-3-2-try-except-代码块" class="headerlink" title="9.3.2 try-except 代码块"></a>9.3.2 try-except 代码块</h3><p>当你认为可能发生错误时，可编写一个<code>try-except</code>代码块来处理可能引发的异常。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    print(<span class="number">5</span>/<span class="number">0</span>)</span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">    print(<span class="string">"You can't divide by zero"</span>)</span><br></pre></td></tr></table></figure>
 <ul>
-<li>range(a, b)生成的区间为 <u> a ~ (b-1) </u></li>
-<li><b>range()生成的不是列表</b></li>
+<li>当<code>try</code>代码块出现异常时，Python将跳过<code>try</code>代码块而去执行<code>except</code>代码块。</li>
 </ul>
-<p>range()函数还可以<b>指定步长</b>：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">11</span>, <span class="number">2</span>):</span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure></p>
-<p>输出结果：</p>
+<h3 id="9-3-3-else-代码块"><a href="#9-3-3-else-代码块" class="headerlink" title="9.3.3 else 代码块"></a>9.3.3 else 代码块</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">num1 = <span class="number">5</span></span><br><span class="line">num2 = int(input())</span><br><span class="line">answer = num1/num2</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    print(<span class="number">5</span>/<span class="number">0</span>)</span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">    print(<span class="string">"You can't divide by zero"</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(answer)</span><br></pre></td></tr></table></figure>
+<p>-当<code>try</code>代码块执行成功时，将会接着执行<code>else</code>代码块</p>
+<h3 id="9-3-4-FileNotFoundError异常"><a href="#9-3-4-FileNotFoundError异常" class="headerlink" title="9.3.4 FileNotFoundError异常"></a>9.3.4 FileNotFoundError异常</h3><p>文件打开失败时会返回改错误</p>
+<h3 id="9-3-5-split-处理字符串"><a href="#9-3-5-split-处理字符串" class="headerlink" title="9.3.5 split()处理字符串"></a>9.3.5 split()处理字符串</h3><p><code>split()</code>函数将字符串根据空格分隔，并创建一个 <b>单词列表</b><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">'I love you'</span></span><br><span class="line">words = s.split()</span><br><span class="line">print(words)</span><br></pre></td></tr></table></figure></p>
 <blockquote>
-<p>1<br>3<br>5<br>7<br>9</p>
+<p>[‘I’, ‘love’, ‘you’]</p>
 </blockquote>
-<h3 id="3-2-2-使用list-和range-函数创建数值列表"><a href="#3-2-2-使用list-和range-函数创建数值列表" class="headerlink" title="3.2.2 使用list()和range()函数创建数值列表"></a>3.2.2 使用list()和range()函数创建数值列表</h3><p>可以使用函数<code>list()</code>将range()转化成数字列表：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(list(range(<span class="number">1</span>, <span class="number">4</span>)))</span><br></pre></td></tr></table></figure></p>
-<p>输出结果：</p>
-<blockquote>
-<p>[1, 2, 3]</p>
-</blockquote>
-<h3 id="3-2-3-max-，min-，sum-函数"><a href="#3-2-3-max-，min-，sum-函数" class="headerlink" title="3.2.3 max()，min()，sum()函数"></a>3.2.3 max()，min()，sum()函数</h3><p>将数字列表名称作为函数<code>max()</code>的参数，返回列表中的最大值<br>同理<code>min()</code>返回最小值，<code>sum()</code>返回列表所有元素的和</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nums = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">10</span>]</span><br><span class="line">print(max(nums))</span><br><span class="line">print(min(nums))</span><br><span class="line">print(sum(nums))</span><br></pre></td></tr></table></figure>
-<p>输出结果：</p>
-<blockquote>
-<p>10<br>1<br>16</p>
-</blockquote>
-<h3 id="3-2-4-列表解析"><a href="#3-2-4-列表解析" class="headerlink" title="3.2.4 列表解析*"></a>3.2.4 列表解析<font size="6">*</font></h3><p>用前面介绍的方式形成一个平方列表：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">11</span>)</span><br><span class="line">   squares.append(i**<span class="number">2</span>)</span><br><span class="line">print(squares)</span><br></pre></td></tr></table></figure></p>
-<p>输出结果为：</p>
-<blockquote>
-<p>[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]</p>
-</blockquote>
-<p>使用列表解析，可以一行之内完成上述代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">squares = [i ** <span class="number">2</span> <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">11</span>)]</span><br><span class="line">print(squares)</span><br></pre></td></tr></table></figure></p>
-<p>输出结果同上<br><br><br></p>
-<ol>
-<li>使用这种语法, 首先指定一个描述性的列表名，如square；</li>
-<li>然后指定一个左方括号，并定义一个表达式。在这里表达式为 i ** 2</li>
-<li>接着编写一个for循环，给表达式提供值（此处没有冒号），并加上右方括号</li>
-</ol>
-<p><br><br></p>
-<h2 id="3-3-使用列表的一部分：切片"><a href="#3-3-使用列表的一部分：切片" class="headerlink" title="3.3 使用列表的一部分：切片"></a>3.3 使用列表的一部分：切片</h2><hr>
-<p>要创建切片，可指定要使用的<u>第一个元素和最后一个元素的索引</u>，<b>和range一样，最后一个元素不取</b></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fruits = [<span class="string">'apple'</span>, <span class="string">'banana'</span>, <span class="string">'orange'</span>]</span><br><span class="line">print(fruits[<span class="number">0</span>:<span class="number">2</span>])</span><br></pre></td></tr></table></figure>
-<p>输出结果为：</p>
-<blockquote>
-<p>[‘apple’, ‘banana’]</p>
-</blockquote>
-<ul>
-<li>如果没有指定起始索引，如 fruit[:2]，则默认从列表开头开始</li>
-<li>同理如果没有指定结束为止，如 fruit[2:]，则默认到列表尾结束</li>
-<li>fruit[-2:] 表示从倒数第二个到最后一个的切片</li>
-</ul>
-<p><br><br></p>
-<h2 id="3-4-复制列表"><a href="#3-4-复制列表" class="headerlink" title="3.4 复制列表"></a>3.4 复制列表</h2><hr>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">my_fruits = [<span class="string">'apple'</span>, <span class="string">'banana'</span>, <span class="string">'orange'</span>]</span><br><span class="line">your_fruits = my_fruits  <span class="comment">#尽量不要这么复制</span></span><br><span class="line">print(your_fruits)</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>[‘apple’, ‘banana’, ‘orange’]</p>
-</blockquote>
-<p>可直接将列表名赋值给新列表，以达到复制的效果。<font size="5"><b> <u>但尽量不要这么做！</u></b></font><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">my_fruits = [<span class="string">'apple'</span>, <span class="string">'banana'</span>, <span class="string">'orange'</span>]</span><br><span class="line">your_fruits = my_fruits</span><br><span class="line">my_fruits.append(<span class="string">'peach'</span>)</span><br><span class="line">print(your_fruits)</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>[‘apple’, ‘banana’, ‘orange’, ‘peach’]</p>
-</blockquote>
-<p>可以发现，在将my_fruits赋值给your_fruit后，在my列表后添加了新元素，your列表后也同样出现了这个新元素.<br>说明，被赋值的新列表和原列表用的同一个列表，新列表 是跟着 原列表 一起改变的<b>（类似于C++里的引用）</b></p>
-<p><font size="5"><b>*</b></font> 比较正确规范的做法是<b><u>将切片复制给新列表</u></b>&lt;/u&gt;,这样是将新的副本复制给新列表</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">my_fruits = [<span class="string">'apple'</span>, <span class="string">'banana'</span>, <span class="string">'orange'</span>]</span><br><span class="line">your_fruits = my_fruits[:]</span><br><span class="line">my_fruits.append(<span class="string">'peach'</span>)</span><br><span class="line">print(your_fruits)</span><br></pre></td></tr></table></figure>
-<p>输出结果为：</p>
-<blockquote>
-<p>[‘apple’, ‘banana’, ‘orange’]</p>
-</blockquote>
-<p>新列表并没有发生改变</p>
-<h2 id="3-5-元组"><a href="#3-5-元组" class="headerlink" title="3.5 元组"></a>3.5 元组</h2><hr>
-<p>列表是可以修改的。然而有时候需要创建一系列不可修改的元素，<font face="楷体" size="3"><u>元组</u> </font>可以满足这种需求。</p>
-<h3 id="3-5-1-定义元组"><a href="#3-5-1-定义元组" class="headerlink" title="3.5.1 定义元组"></a>3.5.1 定义元组</h3><p>元组使用<b>圆括号</b>来标识，同样可以用索引来访问其值。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dim = (<span class="number">200</span>, <span class="number">50</span>)</span><br><span class="line">print(dim[<span class="number">0</span>])</span><br><span class="line">print(dim[<span class="number">1</span>])</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>200<br>50</p>
-</blockquote>
-<h3 id="3-5-2-遍历元组"><a href="#3-5-2-遍历元组" class="headerlink" title="3.5.2 遍历元组"></a>3.5.2 遍历元组</h3><p>和遍历链表一样，不多赘述</p>
-<h3 id="3-5-3-修改元组变量"><a href="#3-5-3-修改元组变量" class="headerlink" title="3.5.3 修改元组变量"></a>3.5.3 修改元组变量</h3><p>虽然不能修改元组的元素，但可以给<u>存储元组的变量</u>(比如此处的dim)赋值。因此，需要通过<strong>重新定义</strong>的方法修改元组：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dim = (<span class="number">200</span>, <span class="number">50</span>)</span><br><span class="line">print(dim)</span><br><span class="line">dim = (<span class="number">2</span>,<span class="number">5</span>)</span><br><span class="line">print(dim)</span><br></pre></td></tr></table></figure></p>
-<p>输出结果为：</p>
-<blockquote>
-<p>(200, 50)<br>(2, 5)</p>
-</blockquote>
-<p><strong>给元组变量赋值的操作是合法的</strong></p>
+<p>调用len()函数即可以获知字符串单词个数。</p>
+<h3 id="9-3-6-处理多个文件"><a href="#9-3-6-处理多个文件" class="headerlink" title="9.3.6 处理多个文件"></a>9.3.6 处理多个文件</h3><p>有一种方法是将一系列文件名存在列表里：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">files = [<span class="string">'f1.txt'</span>, <span class="string">'f2.txt'</span>, <span class="string">'f3.txt'</span>]</span><br><span class="line"><span class="keyword">for</span> filename <span class="keyword">in</span> files:</span><br><span class="line">    <span class="keyword">with</span> open(filename):</span><br><span class="line">        ...</span><br></pre></td></tr></table></figure></p>
+<h3 id="9-3-7-使用pass语句跳过异常语句"><a href="#9-3-7-使用pass语句跳过异常语句" class="headerlink" title="9.3.7 使用pass语句跳过异常语句"></a>9.3.7 使用pass语句跳过异常语句</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    print(<span class="number">5</span>/<span class="number">0</span>)</span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+<p><code>pass</code>语句会让Python什么都不做，“一声不吭”。</p>
 
       
     </div>
@@ -530,8 +474,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/11/Python学习笔记-二/" rel="next" title="Python学习笔记(二)">
-                <i class="fa fa-chevron-left"></i> Python学习笔记(二)
+              <a href="/2019/07/15/Python学习笔记-八/" rel="next" title="Python学习笔记(八)：类">
+                <i class="fa fa-chevron-left"></i> Python学习笔记(八)：类
               </a>
             
           </div>
@@ -540,8 +484,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/07/12/Python学习笔记-四/" rel="prev" title="Python学习笔记(四)">
-                Python学习笔记(四) <i class="fa fa-chevron-right"></i>
+              <a href="/2019/07/16/简单线性回归和梯度下降/" rel="prev" title="简单线性回归和梯度下降">
+                简单线性回归和梯度下降 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -714,7 +658,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第三章-操作列表"><span class="nav-text">第三章 操作列表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-遍历整个列表"><span class="nav-text">3.1 遍历整个列表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-1-深入研究循环"><span class="nav-text">3.1.1 深入研究循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-2-在循环中执行更多操作"><span class="nav-text">3.1.2 在循环中执行更多操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-创建数值列表"><span class="nav-text">3.2 创建数值列表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-1-使用函数range"><span class="nav-text">3.2.1 使用函数range()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-2-使用list-和range-函数创建数值列表"><span class="nav-text">3.2.2 使用list()和range()函数创建数值列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-3-max-，min-，sum-函数"><span class="nav-text">3.2.3 max()，min()，sum()函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-4-列表解析"><span class="nav-text">3.2.4 列表解析*</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-使用列表的一部分：切片"><span class="nav-text">3.3 使用列表的一部分：切片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-复制列表"><span class="nav-text">3.4 复制列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-5-元组"><span class="nav-text">3.5 元组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-1-定义元组"><span class="nav-text">3.5.1 定义元组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-2-遍历元组"><span class="nav-text">3.5.2 遍历元组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-3-修改元组变量"><span class="nav-text">3.5.3 修改元组变量</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第九章-文件"><span class="nav-text">第九章 文件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#9-1-从文件中读取数据"><span class="nav-text">9.1 从文件中读取数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#9-1-1-读取整个文件"><span class="nav-text">9.1.1 读取整个文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-1-2-逐行读取"><span class="nav-text">9.1.2 逐行读取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-1-3-创建一个包含文件各行内容的列表"><span class="nav-text">9.1.3 创建一个包含文件各行内容的列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-1-4-replace-替换字符串的内容"><span class="nav-text">9.1.4 replace()替换字符串的内容</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-2-写入文件"><span class="nav-text">9.2 写入文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#9-2-1-写入空文件"><span class="nav-text">9.2.1 写入空文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-2-2-写入多行"><span class="nav-text">9.2.2 写入多行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-2-3-在文件后附加内容"><span class="nav-text">9.2.3 在文件后附加内容</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-3-异常"><span class="nav-text">9.3 异常</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#9-3-1-ZeroDivisionError异常"><span class="nav-text">9.3.1 ZeroDivisionError异常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-3-2-try-except-代码块"><span class="nav-text">9.3.2 try-except 代码块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-3-3-else-代码块"><span class="nav-text">9.3.3 else 代码块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-3-4-FileNotFoundError异常"><span class="nav-text">9.3.4 FileNotFoundError异常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-3-5-split-处理字符串"><span class="nav-text">9.3.5 split()处理字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-3-6-处理多个文件"><span class="nav-text">9.3.6 处理多个文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-3-7-使用pass语句跳过异常语句"><span class="nav-text">9.3.7 使用pass语句跳过异常语句</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

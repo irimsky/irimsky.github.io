@@ -93,7 +93,7 @@
 <meta property="og:image" content="https://s2.ax1x.com/2019/07/16/ZbHfmR.jpg">
 <meta property="og:image" content="https://s2.ax1x.com/2019/07/16/ZbH4Tx.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/07/16/ZbHh01.png">
-<meta property="og:updated_time" content="2019-07-16T14:17:44.585Z">
+<meta property="og:updated_time" content="2019-07-17T02:02:57.484Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="简单线性回归和梯度下降">
 <meta name="twitter:description" content="一元线性回归 回归（Regression）一词简单来说，指的是：我们根据之前的数据预测出一个准确的输出值 线性回归（Liner Regression）：寻找一条直线，最大程度地拟合样本特征和样本输出标记之间的关系。样本特征只有一个，就被称为简单线性回归。">
@@ -411,7 +411,7 @@
 <p><b>最小二乘法</b>是一种对该问题的最优化方法。</p>
 <p><br><br><br>$J(\theta_0,\theta_1)$是一个多元函数。使其对各元的偏导数等于0，则可得该函数的极值。<br>即：</p>
 <script type="math/tex; mode=display">\frac{\partial J} {\partial \theta_0}  = 0,\ \frac{\partial J} {\partial \theta_1}  = 0</script><p>接下来为求解过程：</p>
-<script type="math/tex; mode=display">\frac{\partial J} {\partial \theta_0}  = \frac {1}{2m} \sum ^{m}_{i=1}2(y^{(i)} - \theta_1x^{(i)} - \theta_0)(-1) = 0</script><script type="math/tex; mode=display">=> \sum ^{m}_{i=1}(y^{(i)} - \theta_1x^{(i)} - \theta_0) =0</script><script type="math/tex; mode=display">=>\sum ^{m}_{i=1} y^{(i)} - \theta_1 \sum ^{m}_{i=1}x^{(i)} - \sum ^{m}_{i=1}\theta_0 = 0 \ => \ \sum ^{m}_{i=1} y^{(i)} - \theta_1 \sum ^{m}_{i=1}x^{(i)} - m\theta_0 = 0</script><script type="math/tex; mode=display">=>（两边同时除以m）  \ \theta_0 = \overline {y} \ - \ \theta_1 \overline{x} \ \ \ \ ①</script><p><br><br></p>
+<script type="math/tex; mode=display">\frac{\partial J} {\partial \theta_0}  = \frac {1}{2m} \sum ^{m}_{i=1}2(y^{(i)} - \theta_1x^{(i)} - \theta_0)(-1) = 0</script><script type="math/tex; mode=display">=> \sum ^{m}_{i=1}(y^{(i)} - \theta_1x^{(i)} - \theta_0) =0</script><script type="math/tex; mode=display">=>\sum ^{m}_{i=1} y^{(i)} - \theta_1 \sum ^{m}_{i=1}x^{(i)} - \sum ^{m}_{i=1}\theta_0 = 0 \</script><script type="math/tex; mode=display">=> \ \sum ^{m}_{i=1} y^{(i)} - \theta_1 \sum ^{m}_{i=1}x^{(i)} - m\theta_0 = 0</script><script type="math/tex; mode=display">=>（两边同时除以m）  \ \theta_0 = \overline {y} \ - \ \theta_1 \overline{x} \ \ \ \ ①</script><p><br><br></p>
 <script type="math/tex; mode=display">\frac{\partial J} {\partial \theta_1}  =  \frac {1}{2m}\sum ^{m}_{i=1}2(y^{(i)} - \theta_1x^{(i)} - \theta_0)(-x^{(i)}) = 0</script><script type="math/tex; mode=display">=> \sum ^{m}_{i=1}(y^{(i)} - \theta_1x^{(i)} - \theta_0)x^{(i)} =0</script><script type="math/tex; mode=display">（将①式代入其中）=>  \sum ^{m}_{i=1}(y^{(i)} - \theta_1x^{(i)} -\overline {y} \ + \ \theta_1 \overline{x} )x^{(i)} =0</script><script type="math/tex; mode=display">=>  \sum ^{m}_{i=1}y^{(i)} x^{(i)} - \theta_1(x^{(i)})^2 -\overline {y} x^{(i)} \ + \ \theta_1 \overline{x} x^{(i)} =0</script><script type="math/tex; mode=display">=>  \sum ^{m}_{i=1}(y^{(i)} x^{(i)} -\overline {y} x^{(i)}) -\ \theta_1\sum ^{m}_{i=1}((x^{(i)})^2 -  \ \overline{x} x^{(i)}) =0</script><script type="math/tex; mode=display">\theta_1 = \frac{\sum ^{m}_{i=1}(y^{(i)} x^{(i)} -\overline {y} x^{(i)})}{\sum ^{m}_{i=1}((x^{(i)})^2 -  \ \overline{x} x^{(i)})}</script><p>此式还可继续化简<br>对于项$\sum ^{m}_{i=1}\overline{y} x^{(i)}$:</p>
 <script type="math/tex; mode=display">= m\overline{y}\ \overline{x} = \overline{x}\sum ^{m}_{i=1}y^{(i)} = \sum ^{m}_{i=1}\overline{y}\ \overline{x}</script><p>故这几项都可以互相转化，则有：</p>
 <script type="math/tex; mode=display">原式 = \frac{\sum ^{m}_{i=1}(y^{(i)} x^{(i)} -\overline {y} x^{(i)}-\overline{x}y^{(i)} + \overline{x}·\overline{y})}{\sum ^{m}_{i=1}((x^{(i)})^2 -  \ \overline{x} x^{(i)})-\overline{x}x^{(i)}+\overline{x}^2)}</script><script type="math/tex; mode=display">=\frac{\sum ^{m}_{i=1}(x^{(i)}-\overline{x})(y^{(i)}-\overline{y})}{\sum ^{m}_{i=1}(x^{(i)} -  \ \overline{x})^2}</script><p><br><br><br></p>
@@ -469,8 +469,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/15/Python学习笔记-八/" rel="next" title="Python学习笔记(八)">
-                <i class="fa fa-chevron-left"></i> Python学习笔记(八)
+              <a href="/2019/07/15/Python学习笔记-九/" rel="next" title="Python学习笔记(九)：文件">
+                <i class="fa fa-chevron-left"></i> Python学习笔记(九)：文件
               </a>
             
           </div>
@@ -478,6 +478,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/17/Python练手项目（1）Pygame制作游戏/" rel="prev" title="Python练手项目（1）Pygame制作游戏">
+                Python练手项目（1）Pygame制作游戏 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -559,7 +563,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -581,7 +585,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
