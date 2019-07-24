@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="笔记,Python,">
+  <meta name="keywords" content="ACM,BFS,简单搜索,">
 
 
 
@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="第一章 变量和简单数据类型">
-<meta name="keywords" content="笔记,Python">
+<meta name="description" content="这题是今年4月我们校队选拔时的最后一题，当时用的是一样的方法怎么做却都是WA，最后也没做出来；时隔3个月再做一遍才AC，也算填上了一个坑。。。orz">
+<meta name="keywords" content="ACM,BFS,简单搜索">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python学习笔记(一)">
-<meta property="og:url" content="/2019/07/10/Python学习笔记-一/index.html">
+<meta property="og:title" content="POJ-2251 Dungeon Master （BFS+优先队列）">
+<meta property="og:url" content="/2019/07/22/POJ-2251-Dungeon-Master-（BFS-优先队列）/index.html">
 <meta property="og:site_name" content="Irimsky">
-<meta property="og:description" content="第一章 变量和简单数据类型">
+<meta property="og:description" content="这题是今年4月我们校队选拔时的最后一题，当时用的是一样的方法怎么做却都是WA，最后也没做出来；时隔3个月再做一遍才AC，也算填上了一个坑。。。orz">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-11T02:47:32.028Z">
+<meta property="og:updated_time" content="2019-07-22T02:13:47.144Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python学习笔记(一)">
-<meta name="twitter:description" content="第一章 变量和简单数据类型">
+<meta name="twitter:title" content="POJ-2251 Dungeon Master （BFS+优先队列）">
+<meta name="twitter:description" content="这题是今年4月我们校队选拔时的最后一题，当时用的是一样的方法怎么做却都是WA，最后也没做出来；时隔3个月再做一遍才AC，也算填上了一个坑。。。orz">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="/2019/07/10/Python学习笔记-一/">
+  <link rel="canonical" href="/2019/07/22/POJ-2251-Dungeon-Master-（BFS-优先队列）/">
 
 
 
 
 
-  <title>Python学习笔记(一) | Irimsky</title>
+  <title>POJ-2251 Dungeon Master （BFS+优先队列） | Irimsky</title>
   
 
 
@@ -276,7 +276,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="/2019/07/10/Python学习笔记-一/">
+    <link itemprop="mainEntityOfPage" href="/2019/07/22/POJ-2251-Dungeon-Master-（BFS-优先队列）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Irimsky">
@@ -293,7 +293,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Python学习笔记(一)</h1>
+          <h1 class="post-title" itemprop="name headline">POJ-2251 Dungeon Master （BFS+优先队列）</h1>
         
 
         <div class="post-meta">
@@ -305,8 +305,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-10T13:58:37+08:00">
-                2019-07-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-22T09:51:36+08:00">
+                2019-07-22
               </time>
             
 
@@ -328,8 +328,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/python/" itemprop="url" rel="index">
-                    <span itemprop="name">python</span>
+                  <a href="/categories/简单搜索/" itemprop="url" rel="index">
+                    <span itemprop="name">简单搜索</span>
                   </a>
                 </span>
 
@@ -346,8 +346,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/07/10/Python学习笔记-一/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/07/10/Python学习笔记-一/" itemprop="commentCount"></span>
+                <a href="/2019/07/22/POJ-2251-Dungeon-Master-（BFS-优先队列）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/07/22/POJ-2251-Dungeon-Master-（BFS-优先队列）/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -355,7 +355,7 @@
 
           
           
-             <span id="/2019/07/10/Python学习笔记-一/" class="leancloud_visitors" data-flag-title="Python学习笔记(一)">
+             <span id="/2019/07/22/POJ-2251-Dungeon-Master-（BFS-优先队列）/" class="leancloud_visitors" data-flag-title="POJ-2251 Dungeon Master （BFS+优先队列）">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -386,66 +386,14 @@
       
 
       
-        <h1 id="第一章-变量和简单数据类型"><a href="#第一章-变量和简单数据类型" class="headerlink" title="第一章 变量和简单数据类型"></a>第一章 变量和简单数据类型</h1><a id="more"></a>
-<p><br><br></p>
-<h2 id="1-1-变量的使用和命名"><a href="#1-1-变量的使用和命名" class="headerlink" title="1.1 变量的使用和命名"></a>1.1 变量的使用和命名</h2><hr>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">message = <span class="string">"Hello World"</span></span><br><span class="line">print(message)</span><br></pre></td></tr></table></figure>
-<p><b>运行结果：</b></p>
-<blockquote>
-<p>Hello World</p>
-</blockquote>
-<p><b>变量命名规则：</b></p>
-<ul>
-<li>变量名只能包含<b><u>字母、数字、下划线</u></b> </li>
-<li>变量名可以字母或者下划线打头，<u>但不能以数字打头</u></li>
-<li>不能将Python关键字当做变量名<br><br><br></li>
-</ul>
-<h2 id="1-2-字符串"><a href="#1-2-字符串" class="headerlink" title="1.2 字符串"></a>1.2 字符串</h2><hr>
-<p> <b>字符串</b> 就是一新系列字符。在Python中，用引号括起来的都是字符串。其中引号可以是<u>单引号</u>，也可是<u>双引号</u>，<strong><u>这使得你能够在字符串中包含引号和撇号</u></strong>。<br> 例如:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"This's a string"</span></span><br><span class="line"><span class="string">'This is also a string'</span></span><br><span class="line"><span class="string">'I told you, "Python is the best in the world!" '</span></span><br><span class="line"><span class="string">"It's beautiful."</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="1-2-1-使用方法修改字符串的大小写"><a href="#1-2-1-使用方法修改字符串的大小写" class="headerlink" title="1.2.1 使用方法修改字符串的大小写"></a>1.2.1 使用方法修改字符串的大小写</h3> <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">name = <span class="string">"ada lovelace"</span></span><br><span class="line">print(name.title())</span><br><span class="line">name = <span class="string">"ADa"</span></span><br><span class="line">print(name.title())</span><br><span class="line">print(name.upper())</span><br><span class="line">print(name.lower())</span><br></pre></td></tr></table></figure>
-<p> 输出结果：</p>
-<blockquote>
-<p>Ada Lovelace<br>Ada<br>ADA<br>ada</p>
-</blockquote>
-<p><font face="楷体" size="3"><u>方法</u> </font>是Python可对数据进行的操作。</p>
-<ul>
-<li>方法<code>title()</code>以首字母大写的方式显示每个单词。</li>
-<li>方法<code>upper()</code>以大写显示所有字母字符</li>
-<li>方法<code>lower()</code>以小写显示所有字符字母</li>
-</ul>
-<h3 id="1-2-2-合并（拼接）字符串"><a href="#1-2-2-合并（拼接）字符串" class="headerlink" title="1.2.2 合并（拼接）字符串"></a>1.2.2 合并（拼接）字符串</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">first_name = <span class="string">"ada"</span></span><br><span class="line">second_name = <span class="string">"lovelace"</span></span><br><span class="line">full_name = first_name + <span class="string">" "</span> + second_name</span><br><span class="line">print(full_name)</span><br><span class="line">print(full_name*<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
-<p>输出结果：</p>
-<blockquote>
-<p>ada lovelace<br>ada lovelaceada lovelaceada lovelace</p>
-</blockquote>
-<p>Python用 <strong>加号 (+)和乘号 (*)</strong> 来合并字符串。这种合并方法称为 <em>拼接</em> 。</p>
-<p><em>e.g:</em><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#接上代码</span></span><br><span class="line">message = <span class="string">"Hello, "</span> + full_name.title() + <span class="string">"!"</span></span><br><span class="line">print(message)</span><br></pre></td></tr></table></figure></p>
-<p>输出结果：</p>
-<blockquote>
-<p>Hello, Ada Lovelace!</p>
-</blockquote>
-<h3 id="1-2-3-删除空白"><a href="#1-2-3-删除空白" class="headerlink" title="1.2.3 删除空白"></a>1.2.3 删除空白</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">" python "</span></span><br><span class="line">print(s.lstrip())</span><br><span class="line">print(s.rstrip())</span><br><span class="line">print(s.strip())</span><br><span class="line">print(s)</span><br></pre></td></tr></table></figure>
-<p>输出结果：</p>
-<blockquote>
-<p>python·  （·代表空格）<br>·python<br>python<br>·python·</p>
-</blockquote>
-<p><em>空白</em> 泛指任何非打印字符，包括<u>空格、制表符和换行符</u>。<br><br></p>
-<ul>
-<li>方法<code>strip()</code>删除字符串首尾空格。</li>
-<li>方法<code>lstrip()</code>删除字符串首空格。</li>
-<li>方法<code>rstrip()</code>删除字符串尾空格。</li>
-<li>可以发现，在使用过这些方法后，原字符串并没有发生相应的变化<br><br><br></li>
-</ul>
-<h2 id="1-3-数字"><a href="#1-3-数字" class="headerlink" title="1.3 数字"></a>1.3 数字</h2><hr>
-<h3 id="1-3-1-整数"><a href="#1-3-1-整数" class="headerlink" title="1.3.1 整数"></a>1.3.1 整数</h3><p>Python使用两个乘号表示乘法运算<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">3</span> ** <span class="number">2</span></span><br><span class="line"><span class="number">9</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">3</span> ** <span class="number">3</span></span><br><span class="line"><span class="number">27</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="1-3-2-浮点数"><a href="#1-3-2-浮点数" class="headerlink" title="1.3.2 浮点数"></a>1.3.2 浮点数</h3><p>这个没什么好讲的</p>
-<h3 id="1-3-3-函数str"><a href="#1-3-3-函数str" class="headerlink" title="1.3.3 函数str()"></a>1.3.3 函数str()</h3><p>在字符串中需要用到数字变量的值时<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">age = <span class="number">25</span></span><br><span class="line">print(<span class="string">"Happy "</span> + age + <span class="string">"th Birthday"</span>)  <span class="comment">#这种写法是错误的</span></span><br><span class="line">------------------------------------------------------------</span><br><span class="line">返回错误报告：</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"D:/Pytest/1.py"</span>, line <span class="number">2</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    print(<span class="string">"Happy "</span> + age + <span class="string">"th Birthday"</span>)</span><br><span class="line">  TypeError: can only concatenate str (<span class="keyword">not</span> <span class="string">"int"</span>) to str</span><br></pre></td></tr></table></figure></p>
-<p>之所以会出现这样的错误，是因为<u>类型不匹配</u><br>Python无法将 int 和 str 类型的变量拼接在一起</p>
-<p>为此可以调用<code>str()</code>函数，将非字符串变量表示为字符串<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">age = <span class="number">25</span></span><br><span class="line">print(<span class="string">"Happy "</span> + str(age) + <span class="string">"th Brithday"</span>)</span><br></pre></td></tr></table></figure></p>
-<p>输出结果为：</p>
-<blockquote>
-<p>Happy 25th Birthday</p>
-</blockquote>
+        <p>这题是今年4月我们校队选拔时的最后一题，当时用的是一样的方法怎么做却都是WA，最后也没做出来；时隔3个月再做一遍才AC，也算填上了一个坑。。。orz<br> <a id="more"></a><br><br><br></p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a><font color="blue">Description</font></h2><p>你被困在一个三维的空间中,现在要寻找最短路径逃生！<br>空间由立方体单位构成<br>你每次向上下前后左右移动一个单位需要一分钟<br>你不能对角线移动并且四周封闭<br>是否存在逃出生天的可能性？如果存在，则需要多少时间？</p>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a><font color="blue">Input</font></h2><p>输入第一行是一个数表示空间的数量。<br>　　每个空间的描述的第一行为L，R和C（皆不超过30）。<br>　　L表示空间的高度。<br>　　R和C分别表示每层空间的行与列的大小。<br>　　随后L层地牢，每层R行，每行C个字符。<br>　　每个字符表示空间的一个单元。’#’表示不可通过单元，’.’表示空白单元。你的起始位置在’S’，出                   口为’E’。<br>　　每层空间后都有一个空行。L，R和C均为0时输入结束。</p>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a><font color="blue">Output</font></h2><p>每个迷宫对应一行输出。<br>如果可以逃生，则输出如下<br>Escaped in x minute(s).<br>x为最短脱离时间。<br>如果无法逃生，则输出如下<br>Trapped!</p>
+<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a><font color="blue">Sample Input</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">3 4 5</span><br><span class="line">S....</span><br><span class="line">.###.</span><br><span class="line">.##..</span><br><span class="line">###.#</span><br><span class="line"></span><br><span class="line">#####</span><br><span class="line">#####</span><br><span class="line">##.##</span><br><span class="line">##...</span><br><span class="line"></span><br><span class="line">#####</span><br><span class="line">#####</span><br><span class="line">#.###</span><br><span class="line">####E</span><br><span class="line"></span><br><span class="line">1 3 3</span><br><span class="line">S##</span><br><span class="line">#E#</span><br><span class="line">###</span><br><span class="line"></span><br><span class="line">0 0 0</span><br></pre></td></tr></table></figure>
+<h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a><font color="blue">Sample Output</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Escaped in 11 minute(s).</span><br><span class="line">Trapped!</span><br></pre></td></tr></table></figure>
+<p> <br><br><br>思路：BFS模板题，没什么好讲的<br><br><br></p>
+<p>AC代码：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> t[<span class="number">32</span>][<span class="number">32</span>][<span class="number">32</span>];</span><br><span class="line"><span class="keyword">int</span> vis[<span class="number">32</span>][<span class="number">32</span>][<span class="number">32</span>];</span><br><span class="line"><span class="keyword">int</span> dir[<span class="number">6</span>][<span class="number">3</span>] = &#123;&#123;<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>&#125;,&#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>&#125;,&#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>&#125;,&#123;<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>&#125;,&#123;<span class="number">0</span>,<span class="number">-1</span>,<span class="number">0</span>&#125;,&#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">-1</span>&#125;&#125;; <span class="comment">//移动的六个方向</span></span><br><span class="line"><span class="keyword">int</span> sl,sr,sc,er,ec,el;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">   <span class="keyword">int</span> l,r,c,cnt;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> l,r,c;</span><br><span class="line"></span><br><span class="line"><span class="comment">//检查是否越界或者撞到墙壁，如果没有则返回true</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">nex_lim</span><span class="params">(<span class="keyword">int</span> ll,<span class="keyword">int</span> rr,<span class="keyword">int</span> cc)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(ll&lt;<span class="number">0</span>||ll&gt;=l||rr&lt;<span class="number">0</span>||rr&gt;=r||cc&lt;<span class="number">0</span>||cc&gt;=c||t[ll][rr][cc] == <span class="string">'#'</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bfs</span><span class="params">(<span class="built_in">queue</span>&lt;node&gt; &amp;q)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">        node f = q.front();</span><br><span class="line">        <span class="keyword">int</span> fl = f.l, fr = f.r, fc = f.c, ft = f.cnt;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">6</span>;i++)</span><br><span class="line">            <span class="keyword">if</span>(nex_lim(fl+dir[i][<span class="number">0</span>],fr+dir[i][<span class="number">1</span>],fc+dir[i][<span class="number">2</span>]) &amp;&amp; !vis[fl+dir[i][<span class="number">0</span>]][fr+dir[i][<span class="number">1</span>]][fc+dir[i][<span class="number">2</span>]])</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(fl+dir[i][<span class="number">0</span>]==el &amp;&amp; fr+dir[i][<span class="number">1</span>]== er &amp;&amp; fc+dir[i][<span class="number">2</span>] == ec)</span><br><span class="line">                    <span class="keyword">return</span> ft+<span class="number">1</span>;</span><br><span class="line">                node temp = &#123;fl+dir[i][<span class="number">0</span>],fr+dir[i][<span class="number">1</span>],fc+dir[i][<span class="number">2</span>],ft+<span class="number">1</span>&#125;;</span><br><span class="line">                vis[fl+dir[i][<span class="number">0</span>]][fr+dir[i][<span class="number">1</span>]][fc+dir[i][<span class="number">2</span>]] = <span class="number">1</span>; <span class="comment">//访问过的点不要忘记标成vis1</span></span><br><span class="line">                q.push(temp);</span><br><span class="line">            &#125;</span><br><span class="line">        q.pop();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d %d %d"</span>,&amp;l,&amp;r,&amp;c); getchar();</span><br><span class="line">    <span class="keyword">while</span>(l)&#123;</span><br><span class="line">        <span class="built_in">memset</span>(vis,<span class="number">0</span>,<span class="keyword">sizeof</span> vis);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;l;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;r;j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">0</span>;k&lt;c;k++)</span><br><span class="line">                &#123;</span><br><span class="line"></span><br><span class="line">                    t[i][j][k] = getchar();</span><br><span class="line">                    <span class="keyword">if</span>(t[i][j][k]==<span class="string">'S'</span>)</span><br><span class="line">                    &#123;</span><br><span class="line">                        sl = i; sr = j; sc = k;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">else</span> <span class="keyword">if</span>(t[i][j][k]==<span class="string">'E'</span>)</span><br><span class="line">                    &#123;</span><br><span class="line">                        el = i; er = j; ec = k;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                getchar();</span><br><span class="line">            &#125;</span><br><span class="line">            getchar();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">queue</span>&lt;node&gt; q;</span><br><span class="line">        node temp = &#123;sl,sr,sc,<span class="number">0</span>&#125;;</span><br><span class="line">        q.push(temp); <span class="comment">//因为queue没有clear方法，所以声明为内部变量而不是全局变量</span></span><br><span class="line">        vis[sl][sr][sc] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> a = bfs(q);</span><br><span class="line">        <span class="keyword">if</span>(a!=<span class="number">-1</span>) <span class="built_in">cout</span> &lt;&lt; <span class="string">"Escaped in "</span> &lt;&lt;a &lt;&lt; <span class="string">" minute(s)."</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="built_in">puts</span>(<span class="string">"Trapped!"</span>);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d %d %d"</span>,&amp;l,&amp;r,&amp;c); getchar();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -463,9 +411,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/笔记/" rel="tag"># 笔记</a>
+            <a href="/tags/ACM/" rel="tag"># ACM</a>
           
-            <a href="/tags/Python/" rel="tag"># Python</a>
+            <a href="/tags/BFS/" rel="tag"># BFS</a>
+          
+            <a href="/tags/简单搜索/" rel="tag"># 简单搜索</a>
           
         </div>
       
@@ -478,8 +428,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/06/15/随便写写/" rel="next" title="随便写写">
-                <i class="fa fa-chevron-left"></i> 随便写写
+              <a href="/2019/07/17/Python练手项目（1）Pygame制作游戏/" rel="next" title="Python练手项目（1）Pygame制作游戏">
+                <i class="fa fa-chevron-left"></i> Python练手项目（1）Pygame制作游戏
               </a>
             
           </div>
@@ -488,8 +438,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/07/11/Python学习笔记-二/" rel="prev" title="Python学习笔记(二)">
-                Python学习笔记(二) <i class="fa fa-chevron-right"></i>
+              <a href="/2019/07/24/多元梯度下降/" rel="prev" title="多元梯度下降">
+                多元梯度下降 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -662,7 +612,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一章-变量和简单数据类型"><span class="nav-text">第一章 变量和简单数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-变量的使用和命名"><span class="nav-text">1.1 变量的使用和命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-字符串"><span class="nav-text">1.2 字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-1-使用方法修改字符串的大小写"><span class="nav-text">1.2.1 使用方法修改字符串的大小写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-2-合并（拼接）字符串"><span class="nav-text">1.2.2 合并（拼接）字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-3-删除空白"><span class="nav-text">1.2.3 删除空白</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-数字"><span class="nav-text">1.3 数字</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-1-整数"><span class="nav-text">1.3.1 整数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-2-浮点数"><span class="nav-text">1.3.2 浮点数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-3-函数str"><span class="nav-text">1.3.3 函数str()</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Input"><span class="nav-text">Input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Output"><span class="nav-text">Output</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample-Input"><span class="nav-text">Sample Input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample-Output"><span class="nav-text">Sample Output</span></a></li></ol></div>
             
 
           </div>
