@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="笔记,机器学习,线性回归,梯度下降,正规方程,">
 
 
 
@@ -81,16 +81,20 @@
 
 
 
-<meta name="description" content="Stay hungry. Stay foolish.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Irimsky">
-<meta property="og:url" content="/tags/Python/index.html">
+<meta name="description" content="正规方程 正规方程是通过求解下面的方程来找出使得代价函数最小的参数的： $\frac{\partial}{\partial \theta_j} J(\theta_i) = 0$ 假设我们的训练集特征矩阵为 $X$（包含了 𝑥0 = 1）并且我们的训练集结果为向量 $y$，则利用正规方程解出向量 \theta = (X^TX)^{-1}X^Ty">
+<meta name="keywords" content="笔记,机器学习,线性回归,梯度下降,正规方程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="线性回归的正规方程法">
+<meta property="og:url" content="/2019/07/28/线性回归的正规方程法/index.html">
 <meta property="og:site_name" content="Irimsky">
-<meta property="og:description" content="Stay hungry. Stay foolish.">
+<meta property="og:description" content="正规方程 正规方程是通过求解下面的方程来找出使得代价函数最小的参数的： $\frac{\partial}{\partial \theta_j} J(\theta_i) = 0$ 假设我们的训练集特征矩阵为 $X$（包含了 𝑥0 = 1）并且我们的训练集结果为向量 $y$，则利用正规方程解出向量 \theta = (X^TX)^{-1}X^Ty">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190728183729893.png">
+<meta property="og:updated_time" content="2019-07-28T12:42:30.381Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Irimsky">
-<meta name="twitter:description" content="Stay hungry. Stay foolish.">
+<meta name="twitter:title" content="线性回归的正规方程法">
+<meta name="twitter:description" content="正规方程 正规方程是通过求解下面的方程来找出使得代价函数最小的参数的： $\frac{\partial}{\partial \theta_j} J(\theta_i) = 0$ 假设我们的训练集特征矩阵为 $X$（包含了 𝑥0 = 1）并且我们的训练集结果为向量 $y$，则利用正规方程解出向量 \theta = (X^TX)^{-1}X^Ty">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190728183729893.png">
 
 
 
@@ -120,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="/tags/Python/">
+  <link rel="canonical" href="/2019/07/28/线性回归的正规方程法/">
 
 
 
 
 
-  <title>标签: Python | Irimsky</title>
+  <title>线性回归的正规方程法 | Irimsky</title>
   
 
 
@@ -145,7 +149,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -260,286 +264,252 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block tag">
-
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>Python<small>标签</small>
-        </h1>
-      </div>
-
-      
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="/2019/07/28/线性回归的正规方程法/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Irimsky">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/j.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Irimsky">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/07/17/Python练手项目（1）Pygame制作游戏/" itemprop="url">
-              
-                <span itemprop="name">Python练手项目（1）Pygame制作游戏</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">线性回归的正规方程法</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-17T22:05:29+08:00" content="2019-07-17">
-          07-17
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-28T18:07:53+08:00">
+                2019-07-28
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/07/28/线性回归的正规方程法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/07/28/线性回归的正规方程法/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/07/28/线性回归的正规方程法/" class="leancloud_visitors" data-flag-title="线性回归的正规方程法">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/07/15/Python学习笔记-九/" itemprop="url">
-              
-                <span itemprop="name">Python学习笔记(九)：文件</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-15T21:06:39+08:00" content="2019-07-15">
-          07-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/07/15/Python学习笔记-八/" itemprop="url">
-              
-                <span itemprop="name">Python学习笔记(八)：类</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-15T17:36:04+08:00" content="2019-07-15">
-          07-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/07/14/Python学习笔记-七/" itemprop="url">
-              
-                <span itemprop="name">Python学习笔记(七)：函数</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-14T16:44:33+08:00" content="2019-07-14">
-          07-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/07/13/Python学习笔记-六/" itemprop="url">
-              
-                <span itemprop="name">Python学习笔记(六)：输入与while循环</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-13T19:51:29+08:00" content="2019-07-13">
-          07-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/07/13/Python学习笔记-五/" itemprop="url">
-              
-                <span itemprop="name">Python学习笔记(五):字典</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-13T16:58:20+08:00" content="2019-07-13">
-          07-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/07/12/Python学习笔记-四/" itemprop="url">
-              
-                <span itemprop="name">Python学习笔记(四)：if语句</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-12T15:22:46+08:00" content="2019-07-12">
-          07-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/07/12/Python学习笔记-三/" itemprop="url">
-              
-                <span itemprop="name">Python学习笔记(三)：操作列表</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-12T14:24:40+08:00" content="2019-07-12">
-          07-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/07/11/Python学习笔记-二/" itemprop="url">
-              
-                <span itemprop="name">Python学习笔记(二)：列表</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-11T14:42:23+08:00" content="2019-07-11">
-          07-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/07/10/Python学习笔记-一/" itemprop="url">
-              
-                <span itemprop="name">Python学习笔记(一)：变量和简单数据类型</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-10T13:58:37+08:00" content="2019-07-10">
-          07-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+        <h1 id="正规方程"><a href="#正规方程" class="headerlink" title="正规方程"></a>正规方程</h1><hr>
+<p>正规方程是通过求解下面的方程来找出使得代价函数最小的参数的： $\frac{\partial}{\partial \theta_j} J(\theta_i) = 0$</p>
+<p>假设我们的训练集特征矩阵为 $X$（包含了 𝑥0 = 1）并且我们的训练集结果为向量 $y$，则利<br>用正规方程解出向量 <script type="math/tex">\theta = (X^TX)^{-1}X^Ty</script><br><a id="more"></a><br>比如如下的数据：<br><img src="https://img-blog.csdnimg.cn/20190728183729893.png" alt="在这里插入图片描述"></p>
+<script type="math/tex; mode=display">X =  \begin{bmatrix}
+  1 & 2104 & 5 & 1 & 45\\
+  1 & 1416 & 3 & 2 & 40\\
+  1 & 1534 & 3 & 2 & 30 \\
+  1 & 852 & 2 & 1 & 36 & \\
+  \end{bmatrix}</script><script type="math/tex; mode=display">y = \begin{bmatrix}
+  460\\
+  232\\
+  315\\
+  178\\
+  \end{bmatrix}</script><p><br><br><br><b>正规方程的Python实现：</b><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">normalEqn</span><span class="params">(X, y)</span>:</span>    </span><br><span class="line">	theta = np.linalg.inv(X.T@X)@X.T@y <span class="comment">#X.T@X等价于 X.T.dot(X) </span></span><br><span class="line">	<span class="keyword">return</span> theta</span><br></pre></td></tr></table></figure></p>
+<p><br><br></p>
+<h1 id="与梯度下降比较"><a href="#与梯度下降比较" class="headerlink" title="与梯度下降比较"></a>与梯度下降比较</h1><hr>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>梯度下降</th>
+<th>正规方程</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>需要选择学习率𝛼</td>
+<td>不需要</td>
+</tr>
+<tr>
+<td>需要多次迭代</td>
+<td>一次运算得出</td>
+</tr>
+<tr>
+<td>当特征数量𝑛大时也能较好适用</td>
+<td>需要计算$(X^TX)^-1$。如果特征数量𝑛较大则 运算代价大，<br>因为矩阵逆的计算时间复杂度 为𝑂(𝑛3) </td>
+</tr>
+<tr>
+<td>适用于各种类型的模型</td>
+<td>只适用于线性模型，不适合逻辑回归模型等其他模型 </td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 id="矩阵不可逆时的情况"><a href="#矩阵不可逆时的情况" class="headerlink" title="矩阵不可逆时的情况"></a>矩阵不可逆时的情况</h1><hr>
+<p>$(X^TX)$会出现不可逆的情况。<br>原因可能有：</p>
+<ol>
+<li><b>有多余的特征变量成了线性相关关系</b><br>比如一个特征是厘米单位的长度，而另一个特征是毫米单位的长度，两列数据在自乘之后成了100倍的线性关系。<br>这时就需要把多余的特征量删除。</li>
+<li><b>有太多的特征量（m &lt;&lt; n）</b> <em>有时还会导致‘过拟合(overfit)’的现象</em><br>比如m = 10, n = 100时的情况，则需要在10个训练样本中找出101个参数，这是一种比较复杂且容易出问题的任务。<br>解决方法有：<br>①删除一些特征量<br>②<font color="blue"><b>正则化</b></font><br><br></li>
+</ol>
+<h1 id="附：正则方程推导过程"><a href="#附：正则方程推导过程" class="headerlink" title="附：正则方程推导过程"></a>附：正则方程推导过程</h1><hr>
+<script type="math/tex; mode=display">J(\theta_0,\theta_1,\dots,\theta_n) = \frac {1}{2m}\sum_{i=1}^{m}\ (h_\theta(x^{(i)})  - y^{(i)})^2</script><p>转化为矩阵表示则有：</p>
+<script type="math/tex; mode=display">J(\theta) = \frac{1}{2} (X\theta-y)^T(X\theta-y)</script><script type="math/tex; mode=display">\ \ \ \ \ \ = \frac{1}{2} (\theta^TX^T-y^T)(X\theta-y)</script><script type="math/tex; mode=display">\ \ \ \ \ \ = \frac{1}{2} (\theta^TX^TX\theta-\theta^TX^Ty-y^TX\theta + y^Ty)</script><p><br><br><br>接下来对$\theta$求偏导。要用到几个矩阵求导法则：<br>$\frac{dAB}{dB} = A^T$、$\frac{dA^TXA}{dX}=2AX$</p>
+<p>所以有：</p>
+<script type="math/tex; mode=display">\frac{\partial}{\partial \theta} J(\theta) = \frac{1}{2}(2X^TX\theta - X^Ty -(y^TX)^T+0)</script><script type="math/tex; mode=display">= (X^TX\theta - X^Ty)</script><p>令其=0，可得：</p>
+<script type="math/tex; mode=display">\theta = (X^TX)^{-1}X^Ty</script>
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/笔记/" rel="tag"># 笔记</a>
+          
+            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
+          
+            <a href="/tags/线性回归/" rel="tag"># 线性回归</a>
+          
+            <a href="/tags/梯度下降/" rel="tag"># 梯度下降</a>
+          
+            <a href="/tags/正规方程/" rel="tag"># 正规方程</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/24/多元梯度下降/" rel="next" title="多元梯度下降">
+                <i class="fa fa-chevron-left"></i> 多元梯度下降
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -547,6 +517,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -567,8 +544,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -665,6 +651,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#正规方程"><span class="nav-text">正规方程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#与梯度下降比较"><span class="nav-text">与梯度下降比较</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#矩阵不可逆时的情况"><span class="nav-text">矩阵不可逆时的情况</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#附：正则方程推导过程"><span class="nav-text">附：正则方程推导过程</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -835,6 +837,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
