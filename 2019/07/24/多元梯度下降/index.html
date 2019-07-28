@@ -93,7 +93,7 @@
 <meta property="og:image" content="https://s2.ax1x.com/2019/07/24/eVg3zd.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/07/24/eVgJsI.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/07/24/eVg1RH.png">
-<meta property="og:updated_time" content="2019-07-28T12:40:57.522Z">
+<meta property="og:updated_time" content="2019-07-28T13:17:20.193Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="多元梯度下降">
 <meta name="twitter:description" content="多元线性回归 - 符号解释： $n$：特征的个数$x^{(i)}$：第i个训练样本$x^{(i)}_{j}$：第$i$个训练样本的第$j$个特征值">
@@ -408,7 +408,8 @@ x_n
 \vdots\\
 \theta_n
 \end{bmatrix}</script><p>则有<script type="math/tex">h_\theta(x) = \theta_0 x_0+\theta_1x_1 + \theta_2x_2 + ...+\theta_nx_n</script></p>
-<script type="math/tex; mode=display">= \theta^T·x\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \</script><h1 id="多元梯度下降"><a href="#多元梯度下降" class="headerlink" title="多元梯度下降"></a>多元梯度下降</h1><hr>
+<script type="math/tex; mode=display">= \theta^T·x\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \</script><p><br><br></p>
+<h1 id="多元梯度下降"><a href="#多元梯度下降" class="headerlink" title="多元梯度下降"></a>多元梯度下降</h1><hr>
 <p>预测函数：<script type="math/tex">h_\theta(x) = \theta^T·x =\theta_0 x_0+\theta_1x_1 + \theta_2x_2 + ...+\theta_nx_n</script><br>代价函数：<script type="math/tex">J(\theta_0,\theta_1,\dots,\theta_n) = \frac{1}{2m}\sum_{i=1}^{m}{(h_\theta(x^{(i)})-y^{(i)})^2}</script></p>
 <p>梯度下降算法：</p>
 <script type="math/tex; mode=display">Repeat\{ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \</script><script type="math/tex; mode=display">\theta_j := \theta_j - \alpha \frac{\partial}{\partial \theta_j}J(\theta_0, \theta_1,\dots,\theta_n)  \ \ \  for\ j = 0,1,\dots,n</script><script type="math/tex; mode=display">\}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \</script><p><br><br><br>求导得：</p>

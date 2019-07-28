@@ -90,7 +90,7 @@
 <meta property="og:description" content="正规方程 正规方程是通过求解下面的方程来找出使得代价函数最小的参数的： $\frac{\partial}{\partial \theta_j} J(\theta_i) = 0$ 假设我们的训练集特征矩阵为 $X$（包含了 𝑥0 = 1）并且我们的训练集结果为向量 $y$，则利用正规方程解出向量 \theta = (X^TX)^{-1}X^Ty">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190728183729893.png">
-<meta property="og:updated_time" content="2019-07-28T12:42:30.381Z">
+<meta property="og:updated_time" content="2019-07-28T13:18:45.709Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="线性回归的正规方程法">
 <meta name="twitter:description" content="正规方程 正规方程是通过求解下面的方程来找出使得代价函数最小的参数的： $\frac{\partial}{\partial \theta_j} J(\theta_i) = 0$ 假设我们的训练集特征矩阵为 $X$（包含了 𝑥0 = 1）并且我们的训练集结果为向量 $y$，则利用正规方程解出向量 \theta = (X^TX)^{-1}X^Ty">
@@ -432,6 +432,7 @@
 </tbody>
 </table>
 </div>
+<p><br></p>
 <h1 id="矩阵不可逆时的情况"><a href="#矩阵不可逆时的情况" class="headerlink" title="矩阵不可逆时的情况"></a>矩阵不可逆时的情况</h1><hr>
 <p>$(X^TX)$会出现不可逆的情况。<br>原因可能有：</p>
 <ol>
@@ -439,6 +440,7 @@
 <li><b>有太多的特征量（m &lt;&lt; n）</b> <em>有时还会导致‘过拟合(overfit)’的现象</em><br>比如m = 10, n = 100时的情况，则需要在10个训练样本中找出101个参数，这是一种比较复杂且容易出问题的任务。<br>解决方法有：<br>①删除一些特征量<br>②<font color="blue"><b>正则化</b></font><br><br></li>
 </ol>
 <h1 id="附：正则方程推导过程"><a href="#附：正则方程推导过程" class="headerlink" title="附：正则方程推导过程"></a>附：正则方程推导过程</h1><hr>
+<p><br><br></p>
 <script type="math/tex; mode=display">J(\theta_0,\theta_1,\dots,\theta_n) = \frac {1}{2m}\sum_{i=1}^{m}\ (h_\theta(x^{(i)})  - y^{(i)})^2</script><p>转化为矩阵表示则有：</p>
 <script type="math/tex; mode=display">J(\theta) = \frac{1}{2} (X\theta-y)^T(X\theta-y)</script><script type="math/tex; mode=display">\ \ \ \ \ \ = \frac{1}{2} (\theta^TX^T-y^T)(X\theta-y)</script><script type="math/tex; mode=display">\ \ \ \ \ \ = \frac{1}{2} (\theta^TX^TX\theta-\theta^TX^Ty-y^TX\theta + y^Ty)</script><p><br><br><br>接下来对$\theta$求偏导。要用到几个矩阵求导法则：<br>$\frac{dAB}{dB} = A^T$、$\frac{dA^TXA}{dX}=2AX$</p>
 <p>所以有：</p>
