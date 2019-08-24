@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[HDU-1069 Monkey and Banana（典型DP）]]></title>
-    <url>%2F2019%2F08%2F18%2FHDU-1069-Monkey-and-Banana%EF%BC%88%E5%85%B8%E5%9E%8BDP%EF%BC%89%2F</url>
-    <content type="text"><![CDATA[题目描述一组研究人员正在设计一项实验，以测试猴子的智商。他们将挂香蕉在建筑物的屋顶，同时，提供一些砖块给这些猴子。如果猴子足够聪明，它应当能够通过合理的放置一些砖块建立一个塔，并爬上去吃他们最喜欢的香蕉。 研究人员有n种类型的砖块，每种类型的砖块都有无限个。第i块砖块的长宽高分别用xi，yi，zi来表示。 同时，由于砖块是可以旋转的，每个砖块的3条边可以组成6种不同的长宽高。 在构建塔时，当且仅当A砖块的长和宽都分别小于B砖块的长和宽时，A砖块才能放到B砖块的上面，因为必须留有一些空间让猴子来踩。 你的任务是编写一个程序，计算猴子们最高可以堆出的砖块们的高度。 输入格式输入文件包含多组测试数据。每个测试用例的第一行包含一个整数n，代表不同种类的砖块数目。n&lt;=30.接下来n行，每行3个数，分别表示砖块的长宽高。当n= 0的时候，无需输出任何答案，测试结束。 输出格式对于每组测试数据，输出最大高度。格式：Case 第几组数据: maximum height = 最大高度 样例输入1234567891011121314151617181920110 20 30 2 6 8 10 5 5 5 7 1 1 1 2 2 2 3 3 3 4 4 4 5 5 5 6 6 6 7 7 7 5 31 41 59 26 53 58 97 93 23 84 62 64 33 83 27 0 样例输出1234Case 1: maximum height = 40Case 2: maximum height = 21 Case 3: maximum height = 28 Case 4: maximum height = 342 题解： 对于每一块砖，有三条边可以作为高，则另外两条边可分别做长、宽，故共有6种摆法 将6*n种砖加入到数组中，再将其按长度递增排序（长度相等则宽度递增） 定义状态dp[i]为将第i个箱子作为最底部时的最高高度，因已保证长度递增，所以只需要判断宽度和长度是否严格递增。如此一来，问题便变得像最长递增子串了。 状态转移： dp[i] = \max (dp[k]+a[i].height) 其中k a[k].length,\ \ a[i].width > a[k].width 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556#include &lt;bits/stdc++.h&gt;using namespace std;const int maxn = 35 * 6;struct box&#123; int l,w,s,h;&#125;;bool cmp(box &amp;a, box &amp;b)&#123; if(a.l==b.l) return a.w &lt; b.w; return a.l &lt; b.l;&#125;box bo[maxn];int dp[maxn];int solve(int sn)&#123; int ans = 0; for(int i=0;i&lt;sn;i++) &#123; dp[i] = bo[i].h; for(int j=0;j&lt;i;j++) if(bo[j].l&lt;bo[i].l &amp;&amp; bo[j].w &lt; bo[i].w &amp;&amp; dp[j]+bo[i].h &gt; dp[i]) dp[i] = dp[j]+bo[i].h; ans = max(ans, dp[i]); &#125; return ans;&#125;int main()&#123; int n,kase = 0; cin &gt;&gt; n; while(n) &#123; int a,b,c; for(int i=0;i&lt;n;i++) &#123; scanf("%d %d %d",&amp;a,&amp;b,&amp;c); // 六种摆法 bo[i*6+5].h = bo[i*6+4].w = bo[i*6+3].l = bo[i*6+2].h = bo[i*6+1].w = bo[i*6].l = a; bo[i*6+5].l = bo[i*6+4].h = bo[i*6+3].w = bo[i*6+2].w = bo[i*6+1].l = bo[i*6].h = b; bo[i*6+5].w = bo[i*6+4].l = bo[i*6+3].h = bo[i*6+2].l = bo[i*6+1].h = bo[i*6].w = c; &#125; int sn = 6*n; sort(bo, bo+sn, cmp); cout &lt;&lt;"Case " &lt;&lt; ++kase &lt;&lt; ": maximum height = " &lt;&lt; solve(sn) &lt;&lt; endl; scanf("%d",&amp;n); &#125; return 0;&#125;]]></content>
+    <title><![CDATA[逻辑回归]]></title>
+    <url>%2F2019%2F08%2F24%2F%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%2F</url>
+    <content type="text"><![CDATA[在分类问题中，我们尝试预测的是结果是否属于某一个类（例如正确或错误），其往往是一个离散的值。比如：判断一封电子邮件是否是垃圾邮件；判断一次金融交易是否是欺诈。 逻辑回归算法，是用于分类问题的最广泛的学习算法。 简单二元分类 我们将因变量(dependent variable)可能属于的两个类分别称为负向类（negative class）和正向类（positive class），则因变量 y∈{0,1} ，其中 0 表示负向类，1 表示正向类。 而我们将用逻辑回归算法使得假设函数 $h_\theta(x)$ 的输出范围∈[0,1]，表示$P(y=1|x; \theta)$，即“因变量 y=1 的概率”。 注：虽然“逻辑回归”的名字中带有“回归”二字，但其仍属于分类算法。 逻辑回归 假设模型如果对如图的数据集进行线性回归的话，会得到一条直线。其结果并不能用作分类（值域不在0-1内）而逻辑回归的预测模型为： h_\theta(x) = g(\theta^TX)其中 g(z) = \frac{1}{1+e^{-z}}该函数图像如图所示：如前所言，$h_\theta(x)$ 的作用是：对于给定的输入变量，根据选择的参数计算输出变量=1的可能性，即$P(y=1|x; \theta)$例如，如果对于给定的𝑥，通过已经确定的参数计算得出$h_\theta(x)$ = 0.7，则表示有70%的几率𝑦为正向类，相应地𝑦为负向类的几率为 30% 决策边界若以0.5作为区分正向类与负向类的阈值，则可以发现：对于函数$g(z) = \frac{1}{1+e^{-z}}$，在$z]]></content>
       <categories>
-        <category>ACM算法</category>
+        <category>机器学习</category>
       </categories>
       <tags>
-        <tag>ACM</tag>
-        <tag>动态规划</tag>
-        <tag>算法</tag>
+        <tag>笔记</tag>
+        <tag>机器学习</tag>
+        <tag>线性回归</tag>
+        <tag>梯度下降</tag>
       </tags>
   </entry>
   <entry>
@@ -23,21 +24,7 @@
       <tags>
         <tag>ACM</tag>
         <tag>动态规划</tag>
-        <tag>算法</tag>
         <tag>分治法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[HDU-1024 Max Sum Plus Plus（动态规划+滚动数组）]]></title>
-    <url>%2F2019%2F08%2F15%2FHDU-1024-Max-Sum-Plus-Plus%EF%BC%88%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E6%BB%9A%E5%8A%A8%E6%95%B0%E7%BB%84%EF%BC%89%2F</url>
-    <content type="text"><![CDATA[题目描述Now I think you have got an AC in Ignatius.L’s “Max Sum” problem. To be a brave ACMer, we always challenge ourselves to more difficult problems. Now you are faced with a more difficult problem. Given a consecutive number sequence S 1, S 2, S 3, S 4 … S x, … S n (1 ≤ x ≤ n ≤ 1,000,000, -32768 ≤ S x ≤ 32767). We define a function sum(i, j) = S i + … + S j (1 ≤ i ≤ j ≤ n). Now given an integer m (m &gt; 0), your task is to find m pairs of i and j which make sum(i 1, j 1) + sum(i 2, j 2) + sum(i 3, j 3) + … + sum(i m, j m) maximal (i x ≤ i y ≤ j x or i x ≤ j y ≤ j x is not allowed). But I`m lazy, I don’t want to write a special-judge module, so you don’t have to output m pairs of i and j, just output the maximal summation of sum(i x, j x)(1 ≤ x ≤ m) instead. ^_^ 输入格式Each test case will begin with two integers m and n, followed by n integers S 1, S 2, S 3 … S n.Process to the end of file. 输出格式Output the maximal summation described above in one line. 样例输入121 3 1 2 32 6 -1 4 -2 3 -2 3 样例输出1268 题意：给定长度为N的序列S。定义sum(i , j) = s[i] + … + s[j]。给定m，求最大的m段连续序列和：sum(i ~1~, j ~1~) + … + sum(i ~m~, j ~m~), 且没有ix &lt;= iy &lt;=jx；即在n个数中选出m组数, 每组数连续且不能相交, 求其所有组的最大和。 题解： 定义状态：dp[i][j]为以第j个数结尾的分为i份的最大。 状态转移：一个以a[j]结尾的“i份最大划分组”，要么将是将a[j]加入a[j-1]结尾的“i份划分组”，即dp[i][j-1]+a[j]； 要么是a[j]单独自成一组，与前面的“i-1份最大划分组”结合，即max(dp[i-1][k])+a[j] 其中k &lt; j 状态方程： $dp[i][j] = \max(dp[i][j-1]+a[j], \max(dp[i-1][k]) + a[j])$ n^2^的空间复杂度对于1e6是明显超限的。需要优化。因为我们只需要划分成m份的最大和，中间的过程都不需要（和背包问题类似），所以我们可以只用一维数组滚动就行了。 对于dp[i-1][k]：上一层划分的之前的最大值，可以用额外的数组lastmax来存储，在滚动时维护。 在m次循环后，dp[n]数组中的最大值即为最后所求答案 1234567891011121314151617181920212223242526272829303132#include&lt;bits/stdc++.h&gt;using namespace std;#define maxn 1000005#define inf 0x3f3f3f3fint dp[maxn], a[maxn], lastmax[maxn]; int main()&#123; int m, n; while(scanf("%d %d",&amp;m,&amp;n)!=EOF) &#123; memset(dp, 0, sizeof dp); memset(lastmax, 0, sizeof lastmax); int maxx; for(int i=1; i&lt;=n; i++) scanf("%d",&amp;a[i]); for(int i=1; i&lt;=m; i++) //在第i层循环中，lastmax[j]是指第j个元素前的划分成i-1份的最大的sum &#123; maxx = -inf; for(int j=i; j&lt;=n; j++) //要分成i组则至少需要i个数，所以j从i开始循环 &#123; dp[j] = max(dp[j-1]+a[j], lastmax[j-1]+a[j]); lastmax[j-1] = maxx; //只能更新以前一个数结尾的lastmax（因为当前数的lastmax要在下一轮迭代中要用来更新dp //所以还必须在当前层dp更新完后更新） maxx = max(dp[j], maxx); //该语句不可与上行语句交换位置 &#125; &#125; cout &lt;&lt; maxx &lt;&lt; endl; //此时maxx存储的即为最后一次划分（m份）的最大值 &#125; return 0;&#125;]]></content>
-      <categories>
-        <category>ACM算法</category>
-      </categories>
-      <tags>
-        <tag>ACM</tag>
-        <tag>动态规划</tag>
-        <tag>滚动数组</tag>
         <tag>算法</tag>
       </tags>
   </entry>
@@ -51,8 +38,8 @@
       <tags>
         <tag>ACM</tag>
         <tag>动态规划</tag>
-        <tag>算法</tag>
         <tag>分治法</tag>
+        <tag>算法</tag>
       </tags>
   </entry>
   <entry>
@@ -85,7 +72,7 @@
   <entry>
     <title><![CDATA[多元梯度下降]]></title>
     <url>%2F2019%2F07%2F24%2F%E5%A4%9A%E5%85%83%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%2F</url>
-    <content type="text"><![CDATA[多元线性回归 - 符号解释： $n$：特征的个数$x^{(i)}$：第i个训练样本$x^{(i)}_{j}$：第$i$个训练样本的第$j$个特征值预测函数： h_\theta(x) = \theta_0 +\theta_1x_1 + \theta_2x_2 + ...+\theta_nx_n为了方便，我们定义$x_0=1$ x = \begin{bmatrix} x_0\\ x_1\\ x_2\\ \vdots\\ x_n \end{bmatrix}\theta = \begin{bmatrix} \theta_0\\ \theta_1\\ \theta_2\\ \vdots\\ \theta_n \end{bmatrix}则有h_\theta(x) = \theta_0 x_0+\theta_1x_1 + \theta_2x_2 + ...+\theta_nx_n = \theta^T·x\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 多元梯度下降 预测函数：h_\theta(x) = \theta^T·x =\theta_0 x_0+\theta_1x_1 + \theta_2x_2 + ...+\theta_nx_n代价函数：J(\theta_0,\theta_1,\dots,\theta_n) = \frac{1}{2m}\sum_{i=1}^{m}{(h_\theta(x^{(i)})-y^{(i)})^2} 梯度下降算法： Repeat\{ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \\theta_j := \theta_j - \alpha \frac{\partial}{\partial \theta_j}J(\theta_0, \theta_1,\dots,\theta_n) \ \ \ for\ j = 0,1,\dots,n\}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \求导得： Repeat\{ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \\theta_j := \theta_j - \alpha \frac {1}{m} \sum ^{m}_{i=1}(h_\theta(x^{(i)})-y^{(i)})·x_j^{(i)}\}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 梯度下降法实践1：特征缩放 在我们面对多维特征问题的时候，我们要保证这些特征都具有相近的尺度，这将帮助梯度下降算法更快地收敛。 比如以房价问题为例，假设我们使用两个特征，房屋的尺寸和房间的数量，尺寸的值为 02000 平方英尺，而房间数量的值则是 0-5，以两个参数分别为横纵坐标，绘制代价函数的等高线图能，看出图像会显得很扁，梯度下降算法需要非常多次的迭代才能收敛。 特征缩放是一种有效的解决方法：尝试将所有特征的尺度都尽量缩放到-1 到 1 之间。如图：最简单的方法是令x_n = \frac{x_n - \mu_n}{s_n}其中，$\mu_n$是平均值，$s_n$是标准差，或者极差（最大值减最小值）。 梯度下降法实践2: 学习率$\alpha$ 梯度下降算法收敛所需要的迭代次数根据模型的不同而不同，我们不能提前预知，我们可以绘制迭代次数和代价函数的图表来观测算法需要几次迭代趋于收敛。$J(\theta)$应该在每次迭代后都减少。我们也可以设置：当一次迭代后减少的值小于特定阈值时停止。 梯度下降算法的每次迭代受到学习率的影响 如果学习率𝑎过小，则达到收敛所需的迭代次数会非常高； 如果学习率𝑎过大，每次迭代可能不会减小代价函数，可能会越过局部最小值导致无法收敛。 通常使用这些学习率：𝛼 = 0.01，0.03，0.1，0.3，1，3，10 Python代码实现 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960import numpy as npimport matplotlib.pyplot as pltimport pandas as pdimport seaborn as snsdf = pd.read_csv('ex1data2.txt', names=['size', 'rooms', 'price'])# print(df.head())def normalize_feature(df): return df.apply(lambda column: (column - column.mean()) / column.std())#特征缩放df = normalize_feature(df)def get_X(df): ones = pd.DataFrame(&#123;'ones': np.ones(len(df))&#125;) data = pd.concat([ones, df], axis=1) return data.iloc[:, :-1].as_matrix()def get_y(df): return np.array(df.iloc[:, -1].as_matrix())X = get_X(df)y = get_y(df)m = X.shape[0]n = X.shape[1]theta = np.zeros(n)def lr_cost(theta, X, y): inner = (X.dot(theta) - y) cost = inner.T.dot(inner) return cost/(2 * m)def gradient(theta, X, y): inner = X.T.dot(X.dot(theta) - y) return inner/mdef batch_gradient(theta, X, y, epoch, alpha=0.01): _theta = theta.copy() cost_data = [lr_cost(theta, X, y)] for _ in range(epoch): _theta = _theta - alpha * gradient(_theta, X, y) cost_data.append(lr_cost(_theta, X, y)) return _theta, cost_dataepoch = 500final_theta, cost_data = batch_gradient(theta, X, y, epoch)print(final_theta)sns.tsplot(time=np.arange(len(cost_data)), data=cost_data)plt.xlabel('epoch', fontsize=18)plt.ylabel('cost', fontsize=18)plt.show()]]></content>
+    <content type="text"><![CDATA[多元线性回归 - 符号解释： $n$：特征的个数$x^{(i)}$：第i个训练样本$x^{(i)}_{j}$：第$i$个训练样本的第$j$个特征值 预测函数： h_\theta(x) = \theta_0 +\theta_1x_1 + \theta_2x_2 + ...+\theta_nx_n为了方便，我们定义$x_0=1$ x = \begin{bmatrix} x_0\\ x_1\\ x_2\\ \vdots\\ x_n \end{bmatrix}\theta = \begin{bmatrix} \theta_0\\ \theta_1\\ \theta_2\\ \vdots\\ \theta_n \end{bmatrix}则有h_\theta(x) = \theta_0 x_0+\theta_1x_1 + \theta_2x_2 + ...+\theta_nx_n = \theta^T·x\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 多元梯度下降 预测函数：h_\theta(x) = \theta^T·x =\theta_0 x_0+\theta_1x_1 + \theta_2x_2 + ...+\theta_nx_n代价函数：J(\theta_0,\theta_1,\dots,\theta_n) = \frac{1}{2m}\sum_{i=1}^{m}{(h_\theta(x^{(i)})-y^{(i)})^2} 梯度下降算法： Repeat\{ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \\theta_j := \theta_j - \alpha \frac{\partial}{\partial \theta_j}J(\theta_0, \theta_1,\dots,\theta_n) \ \ \ for\ j = 0,1,\dots,n\}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \求导得： Repeat\{ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \\theta_j := \theta_j - \alpha \frac {1}{m} \sum ^{m}_{i=1}(h_\theta(x^{(i)})-y^{(i)})·x_j^{(i)}\}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 梯度下降法实践1：&lt;/font&gt;特征缩放 在我们面对多维特征问题的时候，我们要保证这些特征都具有相近的尺度，这将帮助梯度下降算法更快地收敛。 比如以房价问题为例，假设我们使用两个特征，房屋的尺寸和房间的数量，尺寸的值为 02000 平方英尺，而房间数量的值则是 0-5，以两个参数分别为横纵坐标，绘制代价函数的等高线图能，看出图像会显得很扁，梯度下降算法需要非常多次的迭代才能收敛。 特征缩放是一种有效的解决方法：尝试将所有特征的尺度都尽量缩放到-1 到 1 之间。如图：最简单的方法是令 x_n' = \frac{x_n - \mu_n}{s_n}其中，$\mu_n$是平均值，$s_n$是标准差，或者极差（最大值减最小值）。 梯度下降法实践2:&lt;/font&gt; 学习率$\alpha$ 梯度下降算法收敛所需要的迭代次数根据模型的不同而不同，我们不能提前预知，我们可以绘制迭代次数和代价函数的图表来观测算法需要几次迭代趋于收敛。$J(\theta)$应该在每次迭代后都减少。我们也可以设置：当一次迭代后减少的值小于特定阈值时停止。 梯度下降算法的每次迭代受到学习率的影响 如果学习率𝑎过小，则达到收敛所需的迭代次数会非常高； 如果学习率𝑎过大，每次迭代可能不会减小代价函数，可能会越过局部最小值导致无法收敛。 通常使用这些学习率：𝛼 = 0.01，0.03，0.1，0.3，1，3，10 Python代码实现 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960import numpy as npimport matplotlib.pyplot as pltimport pandas as pdimport seaborn as snsdf = pd.read_csv('ex1data2.txt', names=['size', 'rooms', 'price'])# print(df.head())def normalize_feature(df): return df.apply(lambda column: (column - column.mean()) / column.std())#特征缩放df = normalize_feature(df)def get_X(df): ones = pd.DataFrame(&#123;'ones': np.ones(len(df))&#125;) data = pd.concat([ones, df], axis=1) return data.iloc[:, :-1].as_matrix()def get_y(df): return np.array(df.iloc[:, -1].as_matrix())X = get_X(df)y = get_y(df)m = X.shape[0]n = X.shape[1]theta = np.zeros(n)def lr_cost(theta, X, y): inner = (X.dot(theta) - y) cost = inner.T.dot(inner) return cost/(2 * m)def gradient(theta, X, y): inner = X.T.dot(X.dot(theta) - y) return inner/mdef batch_gradient(theta, X, y, epoch, alpha=0.01): _theta = theta.copy() cost_data = [lr_cost(theta, X, y)] for _ in range(epoch): _theta = _theta - alpha * gradient(_theta, X, y) cost_data.append(lr_cost(_theta, X, y)) return _theta, cost_dataepoch = 500final_theta, cost_data = batch_gradient(theta, X, y, epoch)print(final_theta)sns.tsplot(time=np.arange(len(cost_data)), data=cost_data)plt.xlabel('epoch', fontsize=18)plt.ylabel('cost', fontsize=18)plt.show()]]></content>
       <categories>
         <category>机器学习</category>
       </categories>
@@ -94,33 +81,6 @@
         <tag>机器学习</tag>
         <tag>线性回归</tag>
         <tag>梯度下降</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[POJ-2236 Wireless Network （简单并查集）]]></title>
-    <url>%2F2019%2F07%2F22%2FPOJ-2236-Wireless-Network-%EF%BC%88%E7%AE%80%E5%8D%95%E5%B9%B6%E6%9F%A5%E9%9B%86%EF%BC%89%2F</url>
-    <content type="text"><![CDATA[也是几个月前做的题目，填坑 POJ-2236 Wireless NetworkDescription南亚发生了一次地震。ACM (Asia Cooperated Medical 亚洲联合医疗队) 已经为膝上型电脑搭建了一个无线网络，但受到了一次不可预知的余震攻击，因此网络中的所有电脑都被破坏了。电脑被逐台修复，网络逐步恢复了工作。由于受到硬件的约束，每台电脑只能与距离它不超过 d 米的其它电脑直接通信。但每台电脑可被看作其它两台电脑的通信中转点，也就是说，如果电脑 A 和电脑 B 可以直接通信，或存在一台电脑 C 既可与 A 也可与 B 通信，那么电脑 A 和电脑 B 之间就能够通信。 在处理网络修复的过程中，工作人员们在任何一个时刻，可以执行两种操作：维修一台电脑，或测试两台电脑是否能够通信。请您找出全部的测试操作。 Input第一行包含了两个整数 N 和 d (1 &lt;= N &lt;= 1001, 0 &lt;= d &lt;= 20000)。此处 N 是电脑的数目，编号从 1 到 N；同时，D 是两台电脑之间能够直接通信的最大距离。接下来的 N 行，每行包含两个整数 xi, yi (0 &lt;= xi, yi &lt;= 10000)，表示 N 台电脑的坐标。从第 (N+1) 行到输入结束，是逐一执行的操作，每行包含一个操作，格式是以下两者之一： “O p” (1 &lt;= p &lt;= N)，表示维护电脑 p 。 “S p q” (1 &lt;= p, q &lt;= N)，表示测试电脑 p 和 q 是否能够通信。 输入不超过 300000 行。 Output对于每个测试操作，如果两台电脑能够通信，则打印 “SUCCESS”；否则，打印 “FAIL”。 Sample Input12345678910114 10 10 20 30 4O 1O 2O 4S 1 4O 3S 1 4 Sample Output FAILSUCCESS AC代码： 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475#include&lt;bits/stdc++.h&gt;#define maxn 1010using namespace std;struct com&#123; int x,y; bool isok;&#125;;struct com a[maxn];int pre[maxn];double dist[maxn][maxn];int find_r(int x)&#123; if(pre[x]==x) return x; else&#123; int root = find_r(pre[x]); pre[x] = root; return root; &#125;//寻根同时化简并查集&#125;void unite(int x, int y)&#123; x = find_r(x); y = find_r(y); pre[x] = y; return;&#125;//合并两个并查集int N,d;int main()&#123; scanf("%d%d",&amp;N,&amp;d); for(int i = 1; i &lt;= N; i++) &#123; scanf("%d %d",&amp;a[i].x, &amp;a[i].y); pre[i] = i; a[i].isok = false; &#125; // 计算各电脑之间的距离 for(int i = 1; i &lt;= N; i++) for(int j = i; j &lt;= N; j++) &#123; if(i!=j) dist [j][i] = dist[i][j] = sqrt((a[i].x - a[j].x)*(a[i].x - a[j].x) + (a[i].y - a[j].y)*(a[i].y - a[j].y)); else dist[i][j] = 0; &#125; char op; getchar(); while(scanf("%c",&amp;op)!=EOF) &#123; if(op=='O')&#123; int k; scanf("%d",&amp;k); a[k].isok = true; for(int i = 0; i &lt;= N; i++) if(dist[k][i] &lt;= d &amp;&amp; a[i].isok &amp;&amp; i!=k) // 一定要两台电脑都正常工作才能合并 unite(k,i); &#125; else &#123; int x,y; scanf("%d %d",&amp;x, &amp;y); x = find_r(x); y = find_r(y); if(x==y &amp;&amp; a[x].isok &amp;&amp; a[y].isok) puts("SUCCESS"); // 一定要两台电脑都正常工作才能合并 else puts("FAIL"); &#125; getchar(); &#125; return 0;&#125;]]></content>
-      <categories>
-        <category>ACM算法</category>
-      </categories>
-      <tags>
-        <tag>ACM</tag>
-        <tag>算法</tag>
-        <tag>并查集</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[POJ-2251 Dungeon Master （BFS+优先队列）]]></title>
-    <url>%2F2019%2F07%2F22%2FPOJ-2251-Dungeon-Master-%EF%BC%88BFS-%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97%EF%BC%89%2F</url>
-    <content type="text"><![CDATA[这题是今年4月我们校队选拔时的最后一题，当时用的是一样的方法怎么做却都是WA，最后也没做出来；时隔3个月再做一遍才AC，也算填上了一个坑。。。orz Description你被困在一个三维的空间中,现在要寻找最短路径逃生！空间由立方体单位构成你每次向上下前后左右移动一个单位需要一分钟你不能对角线移动并且四周封闭是否存在逃出生天的可能性？如果存在，则需要多少时间？ Input输入第一行是一个数表示空间的数量。 每个空间的描述的第一行为L，R和C（皆不超过30）。 L表示空间的高度。 R和C分别表示每层空间的行与列的大小。 随后L层地牢，每层R行，每行C个字符。 每个字符表示空间的一个单元。’#’表示不可通过单元，’.’表示空白单元。你的起始位置在’S’，出 口为’E’。 每层空间后都有一个空行。L，R和C均为0时输入结束。 Output每个迷宫对应一行输出。如果可以逃生，则输出如下Escaped in x minute(s).x为最短脱离时间。如果无法逃生，则输出如下Trapped! Sample Input123456789101112131415161718192021223 4 5S.....###..##..###.#############.####...###########.#######E1 3 3S###E####0 0 0 Sample Output12Escaped in 11 minute(s).Trapped! 思路：BFS模板题，没什么好讲的 AC代码：12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485#include&lt;iostream&gt;#include&lt;cstdio&gt;#include&lt;cstdlib&gt;#include&lt;cstring&gt;#include&lt;queue&gt;using namespace std;char t[32][32][32];int vis[32][32][32];int dir[6][3] = &#123;&#123;1,0,0&#125;,&#123;0,1,0&#125;,&#123;0,0,1&#125;,&#123;-1,0,0&#125;,&#123;0,-1,0&#125;,&#123;0,0,-1&#125;&#125;; //移动的六个方向int sl,sr,sc,er,ec,el;struct node&#123; int l,r,c,cnt;&#125;;int l,r,c;//检查是否越界或者撞到墙壁，如果没有则返回truebool nex_lim(int ll,int rr,int cc)&#123; if(ll&lt;0||ll&gt;=l||rr&lt;0||rr&gt;=r||cc&lt;0||cc&gt;=c||t[ll][rr][cc] == '#') return false; else return true;&#125;int bfs(queue&lt;node&gt; &amp;q)&#123; while(!q.empty())&#123; node f = q.front(); int fl = f.l, fr = f.r, fc = f.c, ft = f.cnt; for(int i=0;i&lt;6;i++) if(nex_lim(fl+dir[i][0],fr+dir[i][1],fc+dir[i][2]) &amp;&amp; !vis[fl+dir[i][0]][fr+dir[i][1]][fc+dir[i][2]]) &#123; if(fl+dir[i][0]==el &amp;&amp; fr+dir[i][1]== er &amp;&amp; fc+dir[i][2] == ec) return ft+1; node temp = &#123;fl+dir[i][0],fr+dir[i][1],fc+dir[i][2],ft+1&#125;; vis[fl+dir[i][0]][fr+dir[i][1]][fc+dir[i][2]] = 1; //访问过的点不要忘记标成vis1 q.push(temp); &#125; q.pop(); &#125; return -1;&#125;int main()&#123; scanf("%d %d %d",&amp;l,&amp;r,&amp;c); getchar(); while(l)&#123; memset(vis,0,sizeof vis); for (int i=0;i&lt;l;i++) &#123; for(int j=0;j&lt;r;j++) &#123; for(int k=0;k&lt;c;k++) &#123; t[i][j][k] = getchar(); if(t[i][j][k]=='S') &#123; sl = i; sr = j; sc = k; &#125; else if(t[i][j][k]=='E') &#123; el = i; er = j; ec = k; &#125; &#125; getchar(); &#125; getchar(); &#125; queue&lt;node&gt; q; node temp = &#123;sl,sr,sc,0&#125;; q.push(temp); //因为queue没有clear方法，所以声明为内部变量而不是全局变量 vis[sl][sr][sc] = 1; int a = bfs(q); if(a!=-1) cout &lt;&lt; "Escaped in " &lt;&lt;a &lt;&lt; " minute(s)." &lt;&lt; endl; else puts("Trapped!"); scanf("%d %d %d",&amp;l,&amp;r,&amp;c); getchar(); &#125; return 0;&#125;]]></content>
-      <categories>
-        <category>ACM算法</category>
-      </categories>
-      <tags>
-        <tag>ACM</tag>
-        <tag>算法</tag>
-        <tag>BFS</tag>
-        <tag>简单搜索</tag>
       </tags>
   </entry>
   <entry>
