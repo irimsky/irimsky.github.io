@@ -93,7 +93,7 @@
 <meta property="og:image" content="https://s2.ax1x.com/2019/07/24/eVg3zd.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/07/24/eVgJsI.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/07/24/eVg1RH.png">
-<meta property="og:updated_time" content="2019-08-24T05:52:41.969Z">
+<meta property="og:updated_time" content="2019-08-26T08:49:32.758Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="多元梯度下降">
 <meta name="twitter:description" content="多元线性回归">
@@ -360,6 +360,17 @@
 
           
           
+             <span id="/2019/07/24/多元梯度下降/" class="leancloud_visitors" data-flag-title="多元梯度下降">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -404,14 +415,14 @@ x_n
 <p>梯度下降算法：</p>
 <script type="math/tex; mode=display">Repeat\{ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \</script><script type="math/tex; mode=display">\theta_j := \theta_j - \alpha \frac{\partial}{\partial \theta_j}J(\theta_0, \theta_1,\dots,\theta_n)  \ \ \  for\ j = 0,1,\dots,n</script><script type="math/tex; mode=display">\}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \</script><p><br><br><br>求导得：</p>
 <script type="math/tex; mode=display">Repeat\{ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \</script><script type="math/tex; mode=display">\theta_j := \theta_j - \alpha \frac {1}{m} \sum ^{m}_{i=1}(h_\theta(x^{(i)})-y^{(i)})·x_j^{(i)}</script><script type="math/tex; mode=display">\}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \</script><p><br></p>
-<h1 id="梯度下降法实践1：-lt-font-gt-特征缩放"><a href="#梯度下降法实践1：-lt-font-gt-特征缩放" class="headerlink" title="梯度下降法实践1：&lt;/font&gt;特征缩放"></a>梯度下降法实践1：&lt;/font&gt;<font size="4">特征缩放</font></h1><hr>
+<h1 id="梯度下降法实践1：特征缩放"><a href="#梯度下降法实践1：特征缩放" class="headerlink" title="梯度下降法实践1：特征缩放"></a>梯度下降法实践1：<font size="4">特征缩放</font></h1><hr>
 <p>在我们面对多维特征问题的时候，我们要保证这些特征都具有相近的尺度，这将帮助梯<br>度下降算法更快地收敛。</p>
 <p>比如以房价问题为例，假设我们使用两个特征，房屋的尺寸和房间的数量，尺寸的值为 0<br>2000 平方英尺，而房间数量的值则是 0-5，以两个参数分别为横纵坐标，绘制代价函数的等<br>高线图能，<b>看出图像会<font color="gren">显得很扁</font>，梯度下降算法<font color="red">需要非常多次的迭代</font>才能收敛。 </b></p>
 <p><img src="https://s2.ax1x.com/2019/07/24/eVg3zd.png" alt="在这里插入图片描述"><br><br><br><b>特征缩放</b>是一种有效的解决方法：<u>尝试将所有特征的尺度都尽量缩放到-1 到 1 之间</u>。如图：<br><img src="https://s2.ax1x.com/2019/07/24/eVgJsI.png" alt="在这里插入图片描述"><br><b>最简单的方法是令 </b></p>
 <script type="math/tex; mode=display">x_n' = \frac{x_n - \mu_n}{s_n}</script><p>其中，$\mu_n$是<b>平均值</b>，$s_n$是<b>标准差</b>，或者<b>极差（最大值减最小值）。</b></p>
 <p><br></p>
 <p><br></p>
-<h1 id="梯度下降法实践2-lt-font-gt-学习率-alpha"><a href="#梯度下降法实践2-lt-font-gt-学习率-alpha" class="headerlink" title="梯度下降法实践2:&lt;/font&gt;  学习率$\alpha$"></a>梯度下降法实践2:&lt;/font&gt;  <font size="4">学习率$\alpha$</font></h1><hr>
+<h1 id="梯度下降法实践2-学习率α"><a href="#梯度下降法实践2-学习率α" class="headerlink" title="梯度下降法实践2: 学习率α"></a>梯度下降法实践2: <font size="4">学习率α</font></h1><hr>
 <p>梯度下降算法收敛所需要的迭代次数根据模型的不同而不同，我们不能提前预知，我们<br><b>可以绘制迭代次数和代价函数的图表来观测算法需要几次迭代趋于收敛。</b><br><img src="https://s2.ax1x.com/2019/07/24/eVg1RH.png" alt="在这里插入图片描述"><br>$J(\theta)$应该在每次迭代后都减少。<br>我们也可以设置：<b>当一次迭代后减少的值小于特定阈值时停止。</b></p>
 <p>梯度下降算法的每次迭代受到学习率的影响</p>
 <ul>
@@ -641,7 +652,7 @@ x_n
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#多元线性回归"><span class="nav-text">多元线性回归</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多元梯度下降"><span class="nav-text">多元梯度下降</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#梯度下降法实践1：-lt-font-gt-特征缩放"><span class="nav-text">梯度下降法实践1：&lt;/font&gt;特征缩放</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#梯度下降法实践2-lt-font-gt-学习率-alpha"><span class="nav-text">梯度下降法实践2:&lt;/font&gt;  学习率$\alpha$</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python代码实现"><span class="nav-text"> Python代码实现</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#多元线性回归"><span class="nav-text">多元线性回归</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多元梯度下降"><span class="nav-text">多元梯度下降</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#梯度下降法实践1：特征缩放"><span class="nav-text">梯度下降法实践1：特征缩放</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#梯度下降法实践2-学习率α"><span class="nav-text">梯度下降法实践2: 学习率α</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python代码实现"><span class="nav-text"> Python代码实现</span></a></li></ol></div>
             
 
           </div>
@@ -1212,6 +1223,113 @@ x_n
 
 
   
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("qdBhaxYGDv9tgYgY6RD4CwWK-gzGzoHsz", "wmEoQT38qhEH88DHMMPiFNEJ");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
   
 
