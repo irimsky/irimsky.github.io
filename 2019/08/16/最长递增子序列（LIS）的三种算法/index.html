@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Irimsky">
 <meta property="og:description" content="最长递增子序列：给定一个长度为N的数组，找出一个最长的单调递增子序列，子序列不一定连续，但初始顺序不能乱。比如数组A={1,3,4,2,5}，其最长递增子序列为1,3,4,5">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-19T05:01:58.192Z">
+<meta property="og:updated_time" content="2019-09-26T12:06:56.413Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="最长递增子序列（LIS）的三种算法">
 <meta name="twitter:description" content="最长递增子序列：给定一个长度为N的数组，找出一个最长的单调递增子序列，子序列不一定连续，但初始顺序不能乱。比如数组A={1,3,4,2,5}，其最长递增子序列为1,3,4,5">
@@ -396,7 +396,7 @@
 </li>
 </ol>
 <p>例如：A = {1,3,5,4,4,6}<br>则B = {1,3,4,4,5,6}<br>最长公共子串C = {1,3,4,4,6}<br>对C去重得到结果：{1,3,4,6}</p>
-<h1 id="方法二：动态规划法-O-N-2"><a href="#方法二：动态规划法-O-N-2" class="headerlink" title="方法二：动态规划法(O(N^2^))"></a>方法二：动态规划法(O(N^2^))</h1><ul>
+<h1 id="方法二：动态规划法-O-N-2"><a href="#方法二：动态规划法-O-N-2" class="headerlink" title="方法二：动态规划法(O(N^2))"></a>方法二：动态规划法(O(N^2))</h1><ul>
 <li>状态$dp[i]$：以第i个数结尾的最长递增子序列的长度</li>
 <li>状态方程：$dp[i] = dp[j]+1$ 其中 $a[j] &lt; a[i]，j &lt; i$且 $dp[j]$ 最大。若没有满足的a[j]则$dp[i]=1$</li>
 <li>最后max(dp)即为最长递增子序列的长度</li>
@@ -647,7 +647,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#方法一：最长公共子序列法"><span class="nav-text">方法一：最长公共子序列法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法二：动态规划法-O-N-2"><span class="nav-text">方法二：动态规划法(O(N^2^))</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法三：O-NlogN-算法"><span class="nav-text">方法三：O(NlogN)算法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#方法一：最长公共子序列法"><span class="nav-text">方法一：最长公共子序列法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法二：动态规划法-O-N-2"><span class="nav-text">方法二：动态规划法(O(N^2))</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法三：O-NlogN-算法"><span class="nav-text">方法三：O(NlogN)算法</span></a></li></ol></div>
             
 
           </div>
