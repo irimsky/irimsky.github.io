@@ -1,6 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[【模板】Dijkstra算法+链式前向星+堆优化]]></title>
+    <url>%2F2019%2F10%2F12%2F%E3%80%90%E6%A8%A1%E6%9D%BF%E3%80%91Dijkstra%E7%AE%97%E6%B3%95-%E9%93%BE%E5%BC%8F%E5%89%8D%E5%90%91%E6%98%9F-%E5%A0%86%E4%BC%98%E5%8C%96%2F</url>
+    <content type="text"><![CDATA[时间复杂度：Dijkstra： $O(n^2)$Dijkstra+优先队列： $O (2 E + V logV)$ 基本思路 指定起点s，即从顶点s开始计算。 集合S：记录已求出最短路径的顶点(以及相应的最短路径长度)， 集合U：记录还未求出最短路径的顶点(以及该顶点到起点s的距离) 初始时，S中只有起点s；U中是除s之外的顶点。U中顶点的路径是”起点s到该顶点的路径”。 然后，从U中找出路径最短的顶点v，并将其加入到S中。更新U中的顶点（及顶点对应的路径）。 再从U中找出路径最短的顶点，并将其加入到S中。 重复该操作，直到遍历完所有顶点。 单源最短路，当权值非负时可以用Dijkstra 代码123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475#include &lt;bits/stdc++.h&gt;using namespace std;const int maxn = 100005;const int maxm = 200005;inline const int read()&#123; int x = 0, f = 1; char ch = getchar(); while (ch &lt; '0' || ch &gt; '9') &#123; if (ch == '-') f = -1; ch = getchar(); &#125; while (ch &gt;= '0' &amp;&amp; ch &lt;= '9') &#123; x = (x &lt;&lt; 3) + (x &lt;&lt; 1) + ch - '0'; ch = getchar(); &#125; return x * f;&#125;int vis[maxn], dis[maxn], head[maxn];struct edge&#123; int v,w,next;&#125;e[maxm];int cnt = 0;struct node&#123; int u,w; bool operator &lt;(const node &amp; a) const&#123; return w&gt;a.w; &#125;&#125;;void addedge(int u, int v, int w)&#123; e[cnt].v = v; e[cnt].w = w; e[cnt].next = head[u]; head[u] = cnt++;&#125;priority_queue&lt;node&gt; q;void dijkstra(int s)&#123; memset(dis, 0x3f, sizeof dis); memset(vis, 0, sizeof vis); dis[s] = 0; q.push(node&#123;s, 0&#125;); while(!q.empty())&#123; int u = q.top().u; q.pop(); if(vis[u]) continue; else vis[u] = 1; for(int i=head[u];i!=-1;i=e[i].next) &#123; int v = e[i].v, w = e[i].w; if(dis[v] &gt; dis[u] + w) &#123; dis[v] = dis[u] + w; q.push(node&#123;v, dis[v]&#125;); &#125; &#125; &#125;&#125;int main()&#123; memset(head, -1, sizeof head); int n = read(), m = read(), s = read(); while(m--) &#123; int u = read(), v = read(), w = read(); addedge(u, v, w); &#125; dijkstra(s); for(int i=1;i&lt;=n;i++) printf("%d%c", dis[i], (i==n)?'\n':' '); return 0;&#125;]]></content>
+      <categories>
+        <category>ACM算法</category>
+        <category>图论</category>
+      </categories>
+      <tags>
+        <tag>ACM</tag>
+        <tag>算法</tag>
+        <tag>图论</tag>
+        <tag>模板</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[链式前向星【存图模板】]]></title>
+    <url>%2F2019%2F10%2F12%2F%E9%93%BE%E5%BC%8F%E5%89%8D%E5%90%91%E6%98%9F%E3%80%90%E5%AD%98%E5%9B%BE%E6%A8%A1%E6%9D%BF%E3%80%91%2F</url>
+    <content type="text"><![CDATA[存图方式主要有：邻接矩阵（$m[i][j]$为w（w!=0），表示i点到j点有一条w权值的路）、邻接表（$m[u][i]$记录的值为v、w,表示u到v点有一个w权值的路）用邻接矩阵非常浪费空间，有一种效率高且省空间的存图方法叫链式前向星。 前向星前向星就是一种邻接表。它是一个边集数组，先将起点按从小到大顺序排列，如果相同则按终点从小到大排序，并记录下以某个点为起点的所有边在数组中的起始位置和权值,那么前向星就构造好了。 用len[i]来记录所有以i为起点的边在数组中的存储长度.用head[i]记录以i为边集在数组中的第一个存储位置. 譬如下图：可以得到： 0: 1 21: 1 32: 1 53: 2 34: 3 45: 4 16: 4 5head[1] = 0, len[1] = 3head[2] = 3, len[2] = 1head[3] = 4, len[3] = 1head[4] = 5, len[4] = 2head[5] = -1, len[5] = 0 因为前向星需要一个排序操作，效率不是很高，而链式前向星可以避免排序。 链式前向星建立结构体：12345struct edge &#123; int v; //终点 int w; //权值 int next; //下一个同起点的边的下标&#125; e[maxm]; 添加边的操作：1234567void add(int u, int v, int w)&#123; e[cnt].v = v; e[cnt].w = w; e[cnt].next = head[u]; head[u] = cnt++;&#125; 依然是上面的图，可得到： e[0]: v = 2, next = 1 head[1] = 0e[1]: v = 3, next = 2e[2]: v = 5, next = -1e[3]: v = 3, next = -1 head[2] = 3e[4]: v = 4, next = -1 head[3] = 4e[5]: v = 1, next = 6 head[4] = 5e[6]: v = 5, next = -1head[5] = -1 遍历的操作：1for(int i=head[u];i!=-1;i = e[i].next) 因为插入边的方法是头插法，所以遍历时的操作是根据读入顺序的逆序来的。]]></content>
+      <categories>
+        <category>ACM算法</category>
+        <category>图论</category>
+      </categories>
+      <tags>
+        <tag>ACM</tag>
+        <tag>算法</tag>
+        <tag>图论</tag>
+        <tag>模板</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[逻辑回归]]></title>
     <url>%2F2019%2F08%2F24%2F%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%2F</url>
     <content type="text"><![CDATA[在分类问题中，我们尝试预测的是结果是否属于某一个类（例如正确或错误），其往往是一个离散的值。比如：判断一封电子邮件是否是垃圾邮件；判断一次金融交易是否是欺诈。 逻辑回归算法，是用于分类问题的最广泛的学习算法。 简单二元分类 我们将因变量(dependent variable)可能属于的两个类分别称为负向类（negative class）和正向类（positive class），则因变量 y∈{0,1} ，其中 0 表示负向类，1 表示正向类。 而我们将用逻辑回归算法使得假设函数 $h_\theta(x)$ 的输出范围∈[0,1]，表示$P(y=1|x; \theta)$，即“因变量 y=1 的概率”。 注：虽然“逻辑回归”的名字中带有“回归”二字，但其仍属于分类算法。 逻辑回归 假设模型如果对如图的数据集进行线性回归的话，会得到一条直线。其结果并不能用作分类（值域不在0-1内）而逻辑回归的预测模型为： h_\theta(x) = g(\theta^TX)其中 g(z) = \frac{1}{1+e^{-z}}该函数图像如图所示：如前所言，$h_\theta(x)$ 的作用是：对于给定的输入变量，根据选择的参数计算输出变量=1的可能性，即$P(y=1|x; \theta)$例如，如果对于给定的𝑥，通过已经确定的参数计算得出$h_\theta(x)$ = 0.7，则表示有70%的几率𝑦为正向类，相应地𝑦为负向类的几率为 30% 决策边界若以0.5作为区分正向类与负向类的阈值，则可以发现：对于函数$g(z) = \frac{1}{1+e^{-z}}$，在$z]]></content>
