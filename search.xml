@@ -1,6 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[【模板】EKMP、Manachar算法]]></title>
+    <url>%2F2020%2F02%2F17%2F%E3%80%90%E6%A8%A1%E6%9D%BF%E3%80%91EKMP%E3%80%81Manachar%E7%AE%97%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[拓展KMP拓展KMP 12345678910111213141516171819202122232425262728293031323334353637383940414243void pre_EKMP(char x[], int m)&#123; Next[0] = m; int j = 0; while(j+1&lt;m &amp;&amp; x[j] == x[j+1] ) j++; Next[1] = j; int k = 1; for(int i=2; i&lt;m; i++)&#123; int p = Next[k] + k - 1; int L = Next[i-k]; if(i+L &lt; p+1) Next[i] = L; else&#123; j = max(0, p-i+1); while(j+i &lt; m &amp;&amp; x[i+j]==x[j]) j++; Next[i] = j; k = i; &#125; &#125;&#125;//next[i]:x[i...m-1] 与 x[0...m-1] 的最长公共前缀//extend[i]:y[i...n-1] 与 x[0...m-1] 的最长公共前缀void EKMP(char x[], int m, char y[], int n)&#123; pre_EKMP(x, m); int j = 0; while(j&lt;n &amp;&amp; j&lt;m &amp;&amp; x[j]==y[j]) j++; ext[0] = j; int k = 0; for(int i=1;i&lt;n;i++) &#123; int p = ext[k]+k-1; int L = Next[i-k]; if(i+L &lt; p+1) ext[i] = L; else&#123; j = max(0, p-i+1); while(i+j&lt;n &amp;&amp; j&lt;m &amp;&amp; y[i+j]==x[j]) j++; ext[i] = j; k = i; &#125; &#125;&#125; ManacharManachar 123456789101112131415161718192021222324252627282930313233343536char s[maxn];char str[maxn];int len;int p[maxn];void getstr()&#123; int k = 0; str[k++] = '@'; len = (int)strlen(s); for(int i=0;i&lt;len;i++) &#123; str[k++] = '#'; str[k++] = s[i]; &#125; str[k++] = '#'; len = k; str[k] = 0;&#125;void manncher()&#123; int mx = 0, id = 0; int maxx = 0; for(int i=0;i&lt;len;i++) &#123; if(mx&gt;i) p[i] = min(mx-i, p[2*id-i]); else p[i] = 1; while(str[i+p[i]]==str[i-p[i]]) p[i]++; if(p[i]+i&gt;mx) &#123; mx = p[i] + i; id = i; &#125; &#125;&#125; p[i]-1即为以此处为中心的最大回文串长度 回文串开始的下标是(i-p[i])/2]]></content>
+      <categories>
+        <category>ACM算法</category>
+        <category>字符串</category>
+      </categories>
+      <tags>
+        <tag>ACM</tag>
+        <tag>字符串匹配</tag>
+        <tag>模板</tag>
+        <tag>算法</tag>
+        <tag>回文串</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【模板】ST表（RMQ）]]></title>
+    <url>%2F2020%2F02%2F17%2F%E3%80%90%E6%A8%A1%E6%9D%BF%E3%80%91ST%E8%A1%A8%2F</url>
+    <content type="text"><![CDATA[学习链接12345678910111213141516171819202122int a[maxn], at[maxn];int d[maxn][20];int T, n, m;void Init()&#123; for(int i=1;i &lt;= n;i++) d[i][0] = a[i]; int k = log((double)n)/log(2.0); for(int j=1; j &lt;= k; j++) &#123; for(int i=1; i + (1&lt;&lt;j)-1 &lt;= n; i++) d[i][j] = max(d[i][j-1], d[i+(1&lt;&lt;(j-1))][j-1]); &#125;&#125;int query(int l, int r)&#123; if(l &gt; r) return 0; int t = log((double)(r-l+1))/log(2.0); return max(d[l][t], d[r+1-(1&lt;&lt;t)][t]);&#125;]]></content>
+      <categories>
+        <category>ACM算法</category>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>ACM</tag>
+        <tag>模板</tag>
+        <tag>算法</tag>
+        <tag>ST表</tag>
+        <tag>RMQ</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【模板】A*算法（K短路问题）]]></title>
+    <url>%2F2020%2F02%2F17%2F%E3%80%90%E6%A8%A1%E6%9D%BF%E3%80%91A-%E7%AE%97%E6%B3%95%EF%BC%88K%E7%9F%AD%E8%B7%AF%E9%97%AE%E9%A2%98%EF%BC%89%2F</url>
+    <content type="text"><![CDATA[介绍 模板题：POJ-2449 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112#include&lt;iostream&gt;#include&lt;cstdio&gt;#include&lt;cstring&gt;#include&lt;queue&gt;#include&lt;algorithm&gt;#define maxm 2000000#define maxn 10000using namespace std;struct edge&#123; int v,w; int next;&#125;e[maxm], e2[maxm];int cnt = 0, k;int head[maxn],head2[maxn];int dis[maxn], vis[maxn];struct node&#123; int u, w, f; bool operator &lt;(const node a) const&#123; if(a.f==f) return a.w &lt; w; return a.f &lt; f; &#125;&#125;;void addedge(int u, int v, int w)&#123; e[cnt].v = v; e[cnt].w = w; e[cnt].next = head[u]; head[u] = cnt; e2[cnt].v = u; e2[cnt].w = w; e2[cnt].next = head2[v]; head2[v] = cnt++;&#125;void spfa(int t)&#123; memset(dis, 0x3f, sizeof dis); dis[t] = 0; int inq[maxn]; memset(inq, 0, sizeof inq); queue&lt;int&gt; q; q.push(t); inq[t] = 1; while(!q.empty()) &#123; int x = q.front(); q.pop(); inq[x] = 0; for(int i=head2[x];i!=-1;i=e2[i].next) &#123; if(dis[x]+e2[i].w &lt; dis[e2[i].v]) &#123; dis[e2[i].v] = dis[x]+e2[i].w; if(!inq[e2[i].v])&#123; q.push(e2[i].v); inq[e2[i].v] = 1; &#125; &#125; &#125; &#125;&#125;int a_star(int s, int t)&#123; priority_queue&lt;node&gt; q; if(s==t) k++; if(dis[s]==0x3f3f3f3f) return -1; q.push(node&#123;s, 0, 0+dis[s]&#125;); int kcnt = 0; while(!q.empty()) &#123; int u = q.top().u, w = q.top().w; if(u==t) &#123; kcnt++; if(kcnt==k)&#123; return w; &#125; &#125; q.pop(); for(int i=head[u];i!=-1;i=e[i].next) &#123; q.push(node&#123;e[i].v, w+e[i].w, w+e[i].w+dis[e[i].v]&#125;); &#125; &#125; return -1;&#125;int main()&#123; int m,n, u, v, w, s, t; while(cin &gt;&gt; n &gt;&gt; m)&#123; memset(head, -1, sizeof head); memset(head2, -1, sizeof head2); for(int i=0;i&lt;m;i++) &#123; scanf("%d %d %d", &amp;u,&amp;v,&amp;w); addedge(u, v, w); &#125; scanf("%d %d %d",&amp;s, &amp;t, &amp;k); spfa(t); cout &lt;&lt; a_star(s, t) &lt;&lt; endl; &#125; return 0;&#125;]]></content>
+      <categories>
+        <category>ACM算法</category>
+        <category>图论</category>
+      </categories>
+      <tags>
+        <tag>ACM</tag>
+        <tag>模板</tag>
+        <tag>算法</tag>
+        <tag>图论</tag>
+        <tag>最短路</tag>
+        <tag>A*算法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[KMP+循环节问题]]></title>
     <url>%2F2019%2F11%2F05%2FKMP-%E5%BE%AA%E7%8E%AF%E8%8A%82%E9%97%AE%E9%A2%98%2F</url>
     <content type="text"><![CDATA[HDU-3746现在给你一个字符串，请问在该字符串末尾最少添加多少个字符，可以让这个字符串获得重复循环序列。 输入：第一行是一个整数 $T ( 0&lt;T&lt;=100 )$ 代表测试数据的组数。之后$T$行每行一个字符串，由小写字母组成，字符串的长度 $3&lt;=L&lt;=100000$。 输出：每组数据输出一行结果。 样例:12343ppppipmachinelearning 1230115 思路: 循环节是指一段数据中重复的最小环。KMP不止要学会套模板匹配字符串，还要学到KMP算法的精髓——Next数组。（未经优化的）$Next[i]$指的 $S[0：i-1]$的最大共同前后缀长度（例如abcabcabc的共同前后缀为abcabc, abcabc为abc, abcabcabcabc为abc*3）故一段字符串的循环节就是： $N - Next[N]$将其记为len。若该字符串是循环字符串，则 $N\%len==0$， 而循环节的个数为：$N/len$若不是，则 $Next[N] == 0$（abcd）或者$N\%len != 0$ 题解：12345678910111213141516171819202122232425262728293031323334353637#include&lt;bits/stdc++.h&gt;#define maxn 1000005using namespace std;int n;char s[maxn];int Next[maxm];int getnext()&#123; Next[0] = -1; int i = 0, j = -1; while(i&lt;n) &#123; while(j!=-1 &amp;&amp; s[i]!=s[j]) j = Next[j]; Next[++i] = ++j; &#125; int len = - Next[n] + n; if(Next[n]==0) return len; //没有循环部分，只能自身成为循环节 else if(Next[n]%len==0) return 0; //已经是循环字符串 else return len - Next[n] % len; //需要补齐&#125;int main()&#123; int T; cin &gt;&gt; T; getchar(); while(T--) &#123; scanf("%s", s); n = strlen(s); cout &lt;&lt; getnext() &lt;&lt; endl; &#125; return 0;&#125; HDU-1385给出一个字符串s(1为起始),问在[1, i]区间是否有完整的循环节,若有,输出i并输出循环次数 123453aaa12aabaabaabaab0 123456789Test case #12 23 3Test case #22 2 --aa(a)6 2 --aabaab(aab)9 3 --aabaabaab(aab)12 4 --.... 思路：求出Next数组后从1开始遍历，若$S[1-i]$是循环字符串则输出 $i$ 和 $N / len$ 题解：1234567891011121314151617181920212223242526272829303132333435363738#include&lt;bits/stdc++.h&gt;#define maxn 1000005using namespace std;int N, kase=0;char s[maxn];int Next[maxn];void getnext()&#123; Next[0] = -1; int i = 0, j = -1; while(i&lt;N) &#123; while(j!=-1 &amp;&amp; s[i]!=s[j]) j = Next[j]; Next[++i] = ++j; &#125; printf("Test case #%d\n", ++kase); for(int i=2;i&lt;=N;i++) &#123; if(Next[i]==0) continue; int len = i - Next[i]; if(Next[i]%len==0) cout &lt;&lt; i &lt;&lt; ' ' &lt;&lt; Next[i]/len+1 &lt;&lt; endl; &#125; putchar('\n');&#125;int main()&#123; scanf("%d", &amp;N); getchar(); while(N) &#123; gets(s); getnext(); scanf("%d", &amp;N); getchar(); &#125; return 0;&#125; HUST-1010对于字符串A， 将其重复多次，形成新的字符串AAA…AAAA，在其中截取一段，作为B.现给定B字符串，求符合条件的最短的A 12bcabcabefgabcdefgabcde 1237 思路：本题实际上就是在求B中的循环节长度(N-Next[N])，只不过前/后可以多/少一些部分，原来的方法依然是可求的。代码略 HDU-3377题意：字符串长度为n（n&lt;=1000000），问从哪一个字符串开始的循环字符串是 最大/最小字符串，如果存在多个输出编号最小的，以及输出最大/最小字符串在其中出现的次数。比如SKYLONG： String RankSKYLONG 1KYLONGS 2YLONGSK 3LONGSKY 4ONGSKYL 5NGSKYLO 6GSKYLON 7 123abcderaaaaaaababab 1231 1 6 11 6 1 61 3 2 3 题解： 最大/最小字符串涉及到一个”最大/最小表示法“的算法。第二个问，实际上就是在求循环节，因为本来都是循环字符串，所以循环节的个数就是出现的个数 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283#include&lt;cstdio&gt;#include&lt;iostream&gt;#include&lt;queue&gt;#include&lt;string&gt;#include&lt;cstring&gt;#include&lt;vector&gt;#include&lt;algorithm&gt;#include&lt;cmath&gt;#define maxn 10000005using namespace std;string s;int Next[maxn];int n;void getnext()&#123; Next[0] = -1; int i = 0, j = -1; while(i&lt;n) &#123; while(j!=-1 &amp;&amp; s[i]!=s[j]) j = Next[j]; Next[++i] = ++j; &#125;&#125;int GetMinPos(string x,int l)&#123; int i,j,k; i = 0,j = 1,k = 0; while(i &lt; l &amp;&amp; j &lt; l) &#123; k = 0; while(x[(i+k)%l] == x[(j+k)%l] &amp;&amp; k &lt; l) k++; if(k == l) break; if(x[(i+k)%l] &lt; x[(j+k)%l]) if(j+k+1 &gt;= i) j += k+1; else j = i+1; else if(i+k+1 &gt;= j) i += k+1; else i = j+1; if(i == j) j++; &#125; return min(i,j);&#125;int GetMaxPos(string x, int l)&#123; int i,j,k; i = 0,j = 1; while(i &lt; l &amp;&amp; j &lt; l) &#123; k = 0; while(x[(i+k)%l] == x[(j+k)%l] &amp;&amp; k &lt; l) k++; if(k == l) break; if(x[(i+k)%l] &lt; x[(j+k)%l]) if(i+k+1 &gt;= j) i += k+1; else i = j+1; else if(j+k+1 &gt;= i) j += k+1; else j = i+1; if(i == j) j++; &#125; return min(i,j);&#125;int main()&#123; std::ios::sync_with_stdio(false); std::cin.tie(0); //用cin string不用这个会超时的,可以改char while(cin &gt;&gt; s) &#123; int ans; n = s.size(); getnext(); int len = n - Next[n]; if(Next[n]==0 || n%len) ans = 1; else if(n%len==0) ans = n/len; printf("%d %d %d %d\n", GetMinPos(s,n)+1, ans, GetMaxPos(s, n)+1, ans); &#125; return 0;&#125;]]></content>
